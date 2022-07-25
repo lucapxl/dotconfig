@@ -274,9 +274,8 @@ assign [class="^Wfica$"] workspace 6
 
 exec swayidle timeout 350 "swaylock -c 000000" before-sleep "swaylock -c 000000"
 exec_always $HOME/.config/waybar/scripts/waybar.sh
+exec_always $HOME/.config/kanshi/kanshi.sh
 exec_always nm-applet --indicator
-exec_always pkill -9 kanshi ; kanshi
-
 exec gammastep
 
 include /etc/sway/config.d/*
