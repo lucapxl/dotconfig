@@ -14,6 +14,7 @@ cp -R ~/.config/bg.jpg $FILES_DIR
 cp -R ~/.config/alacritty $FILES_DIR
 cp -R ~/.config/dunst $FILES_DIR
 cp -R ~/.config/gammastep $FILES_DIR
+cp -R ~/.config/kanshi $FILES_DIR
 cp -R ~/.config/nemo $FILES_DIR
 cp -R ~/.config/sway $FILES_DIR
 cp -R ~/.config/swaylock $FILES_DIR
