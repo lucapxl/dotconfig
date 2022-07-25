@@ -1,0 +1,144 @@
+@define-color black #000000;
+@define-color waybar-background #2C3E50;
+@define-color waybar-foreground #E0E0E0;
+@define-color waybar-black #2C3E50;
+@define-color waybar-blue #3498DB;
+@define-color waybar-brightblack #95A5A6;
+@define-color waybar-brightwhite #ECF0F1;
+@define-color waybar-cyan #1ABC9C;
+@define-color waybar-green #2ECC71;
+@define-color waybar-magenta #9B59B6;
+@define-color waybar-red #E74C3C;
+@define-color waybar-white #E0E0E0;
+@define-color waybar-yellow #F1C40F;
+
+@keyframes blink {
+    to {
+        background: @waybar-background;
+        color: @waybar-red;
+    }
+}
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+	margin: 0;
+	padding: 0;
+    margin: 0;
+    text-shadow: none;
+}
+tooltip {
+    background: @waybar-foreground;
+    color: @waybar-background;
+}
+tooltip label {
+    font-size: 16px;
+    color: @waybar-background;
+}
+
+window#waybar {
+    background: @waybar-background;
+    color: @waybar-foreground;
+    border-radius: 0;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.Alacritty {
+    background: @black;
+}
+
+#workspaces button {
+    padding: 0 0.6em;
+    background: transparent;
+    color: @waybar-foreground;
+    box-shadow: none;
+}
+
+#workspaces > button:first-child {
+    margin-left: 10px;
+}
+
+#workspaces button:hover {
+    background: @waybar-blue;
+}
+
+#workspaces button.focused {
+    background: @waybar-white;
+    color: @waybar-black;
+}
+
+#workspaces button.urgent {
+    background: @waybar-red;
+}
+
+#mode {
+    background: @waybar-yellow;
+    color: @waybar-black;
+    padding: 0 0.6em;
+}
+
+#clock,
+#battery,
+#network,
+#pulseaudio,
+#custom-powerctl,
+#custom-ivpn,
+#tray {
+    padding: 0 0.4em;
+    color: @waybar-foreground;
+    background: transparent;
+}
+
+#custom-powerctl {
+    margin-right: 10px;
+}
+
+#battery.charging, #battery.plugged {
+    color: @waybar-black;
+    background: @waybar-cyan;
+}
+
+#battery.critical:not(.charging) {
+    background: @waybar-red;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background: @waybar-black;
+}
+
+#network.disconnected {
+    background: @waybar-red;
+}
+
+#pulseaudio.muted {
+    background: @waybar-red;
+}
+
+#custom-ivpn.connected {
+    background: @waybar-cyan;
+    color: @waybar-black;
+}
+#custom-ivpn.disconnected {
+    background: transparent;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: @waybar-red;
+}
+

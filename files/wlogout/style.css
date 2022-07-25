@@ -1,0 +1,46 @@
+* {
+	background-image: none;
+	border-radius: 0px;
+	box-shadow: none;
+}
+window {
+	background-color: #000000;
+}
+button {
+    color: #E0E0E0;
+	background-color: #000000;
+	border-style: none;
+	border-width: 0px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50%;
+	font-size: 25px;
+}
+
+button:hover {
+	background-color: #2C3E50;
+}
+
+#lock {
+    background-image: image(url("/home/pixel/.config/wlogout/icons/lock.png"));
+}
+
+#logout {
+	background-image: image(url("/home/pixel/.config/wlogout/icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("/home/pixel/.config/wlogout/icons/suspend.png"));
+}
+
+#hibernate {
+    background-image: image(url("/home/pixel/.config/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("/home/pixel/.config/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("/home/pixel/.config/wlogout/icons/reboot.png"));
+}

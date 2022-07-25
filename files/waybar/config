@@ -1,0 +1,101 @@
+{
+    // "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": [ "tray", "pulseaudio", "custom/ivpn", "network#eth","network#wifi", "battery", "clock", "custom/powerctl"],
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network#eth": {
+        "interface": "enp*", // (Optional) To force the use of this interface
+        "interval": 1,
+        "format": " {ifname:.5}",
+        "format-disconnected": "",
+        "tooltip-format": "{ipaddr} ⇵{bandwidthUpBits}|{bandwidthDownBits}",
+        "tooltip-format-disconnected": ""
+    },
+    "network#wifi": {
+        "interface": "wlp*", // (Optional) To force the use of this interface
+        "interval": 1,
+        "format-wifi": " {essid:.7} / {signalStrength}% ",
+        "format-disconnected": "",
+        "tooltip-format-wifi": "{ipaddr} ⇵{bandwidthUpBits}|{bandwidthDownBits}",
+        "tooltip-format-disconnected": ""
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        //"format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}  {format_source}",
+        "format-bluetooth-muted": "Mute  {icon}  {format_source}",
+        "format-muted": "Mute  {format_source}",
+        //"format-source": "{volume}% ",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["","","","",""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/ivpn": {
+        "exec": "~/.config/waybar/scripts/ivpn.sh",
+        "restart-interval": 1,
+        "return-type": "json",
+        "format-icons": {
+            "connected": "",
+            "disconnected": ""
+        },
+        "format": "IVPN {icon}",
+        "on-click": "exec ivpn connect -any -c Netherland",
+        "on-click-right": "exec ivpn disconnect"
+    },
+    "custom/powerctl": {
+        "format": "",
+        "on-click": "~/.config/wlogout/wlogout.sh"
+    }
+}
+
