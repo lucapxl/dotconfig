@@ -275,10 +275,7 @@ assign [class="^Wfica$"] workspace 6
 exec swayidle timeout 350 "swaylock -c 000000" before-sleep "swaylock -c 000000"
 exec_always $HOME/.config/waybar/scripts/waybar.sh
 exec_always nm-applet --indicator
-exec_always (
-  pkill kanshi
-  kanshi
-)
+exec_always pkill -9 kanshi ; kanshi
 
 exec gammastep
 
