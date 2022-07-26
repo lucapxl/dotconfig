@@ -16,7 +16,7 @@ set $term alacritty
 # on the original workspace that the command was run on.
 
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu wofi --show drun
+set $menu wofi --show drun -I -G
 
 ### Output configuration
 #
@@ -34,10 +34,10 @@ smart_gaps on
 title_align center
 ### Colors for tabbed/stacked windows
 # Class                   Border      BG          Text        Indicator   Child border
-client.focused            #c5c8c6   #1d1f21   #ffffff     #ffffff   #c5c8c6
-client.unfocused          #1d1f21   #1d1f21bb   #ffffff     #000000   #1d1f21
-client.focused_inactive   #c5c8c6   #1d1f21   #ffffff     #ffffff   #c5c8c6
-client.background         #1d1f21
+client.focused            #95A5A6   #2C3E50   #ffffff     #ffffff   #95A5A6
+client.unfocused          #2C3E50   #2C3E50   #ffffff     #000000   #2C3E50
+client.focused_inactive   #95A5A6   #2C3E50   #ffffff     #ffffff   #95A5A6
+client.background         #2C3E50
 #focus_on_window_activation focus
 
 #
@@ -225,25 +225,6 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position top
-
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
-
 
 # force some windows to be floatin similar as popup
 for_window [title="^(Save File|Open File|Select Folder|Choose Files|Choose an image)$"] floating enable, resize set 1000 800 # layout tabbed

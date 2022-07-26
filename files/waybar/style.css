@@ -1,7 +1,7 @@
-@define-color black #000000;
-@define-color waybar-background #2C3E50;
+/* @define-color waybar-background #2C3E50; */
+@define-color waybar-background #141E24;
 @define-color waybar-foreground #E0E0E0;
-@define-color waybar-black #2C3E50;
+@define-color waybar-black #141E24;
 @define-color waybar-blue #3498DB;
 @define-color waybar-brightblack #95A5A6;
 @define-color waybar-brightwhite #ECF0F1;
@@ -21,7 +21,7 @@
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Noto Sans', 'Font Awesome 5 Free', Roboto, Helvetica, Arial, sans-serif;
     font-size: 16px;
     border: none;
     border-radius: 3px;
@@ -47,10 +47,6 @@ window#waybar {
 
 window#waybar.hidden {
     opacity: 0.2;
-}
-
-window#waybar.Alacritty {
-    background: @black;
 }
 
 #workspaces button {

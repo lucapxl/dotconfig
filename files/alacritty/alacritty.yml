@@ -19,7 +19,7 @@ scrolling:
 
 font:
   normal:
-    family: Monospace
+    family: Noto Sans Mono
   size: 11.0
   glyph_offset:
      y: 0
@@ -29,45 +29,88 @@ cursor:
     shape: Block
   custom_cursor_colors: true
 
-# Base16 Isotope 256 - alacritty color config
-# Jan T. Sott
+# # Base16 Isotope 256 - alacritty color config
+# # Jan T. Sott
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x000000'
+#     foreground: '0xd0d0d0'
+
+#   # Colors the cursor will use if `custom_cursor_colors` is true
+#   cursor:
+#     text: '0x000000'
+#     cursor: '0x0066ff'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x000000'
+#     red:     '0xff0000'
+#     green:   '0x33ff00'
+#     yellow:  '0xff0099'
+#     blue:    '0x0066ff'
+#     magenta: '0xcc00ff'
+#     cyan:    '0x00ffff'
+#     white:   '0xd0d0d0'
+
+#   # Bright colors
+#   bright:
+#     black:   '0x808080'
+#     red:     '0xff0000'
+#     green:   '0x33ff00'
+#     yellow:  '0xff0099'
+#     blue:    '0x0066ff'
+#     magenta: '0xcc00ff'
+#     cyan:    '0x00ffff'
+#     white:   '0xffffff'
+
+#   indexed_colors:
+#     - { index: 16, color: '0xff9900' }
+#     - { index: 17, color: '0x3300ff' }
+#     - { index: 18, color: '0x404040' }
+#     - { index: 19, color: '0x606060' }
+#     - { index: 20, color: '0xc0c0c0' }
+#     - { index: 21, color: '0xe0e0e0' }
+
+# Base16 Flat 256 - alacritty color config
+# Chris Kempson (http://chriskempson.com)
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xd0d0d0'
+    background: '0x141E24'
+    foreground: '0xe0e0e0'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x000000'
-    cursor: '0x0066ff'
+    text: '0x2c3e50'
+    cursor: '0xe0e0e0'
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xff0000'
-    green:   '0x33ff00'
-    yellow:  '0xff0099'
-    blue:    '0x0066ff'
-    magenta: '0xcc00ff'
-    cyan:    '0x00ffff'
-    white:   '0xd0d0d0'
+    black:   '0x2c3e50'
+    red:     '0xe74c3c'
+    green:   '0x2ecc71'
+    yellow:  '0xf1c40f'
+    blue:    '0x3498db'
+    magenta: '0x9b59b6'
+    cyan:    '0x1abc9c'
+    white:   '0xe0e0e0'
 
   # Bright colors
   bright:
-    black:   '0x808080'
-    red:     '0xff0000'
-    green:   '0x33ff00'
-    yellow:  '0xff0099'
-    blue:    '0x0066ff'
-    magenta: '0xcc00ff'
-    cyan:    '0x00ffff'
-    white:   '0xffffff'
+    black:   '0x95a5a6'
+    red:     '0xe74c3c'
+    green:   '0x2ecc71'
+    yellow:  '0xf1c40f'
+    blue:    '0x3498db'
+    magenta: '0x9b59b6'
+    cyan:    '0x1abc9c'
+    white:   '0xecf0f1'
 
   indexed_colors:
-    - { index: 16, color: '0xff9900' }
-    - { index: 17, color: '0x3300ff' }
-    - { index: 18, color: '0x404040' }
-    - { index: 19, color: '0x606060' }
-    - { index: 20, color: '0xc0c0c0' }
-    - { index: 21, color: '0xe0e0e0' }
+    - { index: 16, color: '0xe67e22' }
+    - { index: 17, color: '0xbe643c' }
+    - { index: 18, color: '0x34495e' }
+    - { index: 19, color: '0x7f8c8d' }
+    - { index: 20, color: '0xbdc3c7' }
+    - { index: 21, color: '0xf5f5f5' }

@@ -7,12 +7,13 @@ FILES_DIR=$SCRIPTPATH/files/
 echo $SCRIPTPATH
 echo $FILES_DIR
 
-#rm -Irf $FILES_DIR
+rm -rf $SCRIPTPATH/files/*
 
 mkdir -p $FILES_DIR
 cp -R ~/.config/bg.jpg $FILES_DIR
 cp -R ~/.config/alacritty $FILES_DIR
 cp -R ~/.config/dunst $FILES_DIR
+cp -R ~/.config/fontconfig $FILES_DIR
 cp -R ~/.config/gammastep $FILES_DIR
 cp -R ~/.config/kanshi $FILES_DIR
 cp -R ~/.config/nemo $FILES_DIR
