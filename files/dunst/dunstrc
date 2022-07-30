@@ -1,36 +1,35 @@
-# See dunst(5) for all configuration options
-
 [global]
-    monitor = 1                 # only with follow "none"
+    monitor = 0
     follow = none               # mouse, keyboard, none
+    fullscreen = "pushback"
     
     width = 300                 # with or min-max width (0, 300)
     height = 300                # The maximum height of a single notification, excluding the frame.
     origin = top-right          # top-right, top-center, top-left, bottom-right, ...
-    offset = 1x1                # Offset from the origin - format: (horizontal, vertical)
+    offset = 10x10                # Offset from the origin - format: (horizontal, vertical)
     
     notification_limit = 0      # Maximum number of notification (0 means no limit)
     
     progress_bar = true         # to pass value: -h int:value:35
-    progress_bar_height = 10    # Set the progress bar height. This includes the frame, so make sure
-    progress_bar_frame_width = 1    # Set the frame width of the progress bar
-    progress_bar_min_width = 150    # Set the minimum width for the progress bar 
+    progress_bar_height = 12    # Set the progress bar height. This includes the frame, so make sure
+    progress_bar_frame_width = 2    # Set the frame width of the progress bar
+    progress_bar_min_width = 300    # Set the minimum width for the progress bar 
     progress_bar_max_width = 300    # Set the maximum width for the progress bar
 
     indicate_hidden = true       # Show how many messages are currently hidden
 
-    separator_height = 0        # Draw a line of "separator_height" pixel height between two notifications
+    separator_height = 0
     padding = 8                 # Padding between text and separator.
     horizontal_padding = 8      # Horizontal padding.
     text_icon_padding = 0       # Padding between text and icon.
-    frame_width = 0             # Defines width in pixels of frame around the notification window.
-    gap_size = 1                # Size of gap to display between notifications
+    frame_width = 1             # Defines width in pixels of frame around the notification window.
+    gap_size = 5                # Size of gap to display between notifications
     separator_color = frame     # values: [auto/foreground/frame/#RRGGBB] default: frame
 
     sort = true                  # Sort messages by urgency.
     # idle_threshold = 120       # Don't remove messages, if the user is idle (no mouse or keyboard input)
 
-    font = Monospace 9
+    font = Noto Sans 11
     line_height = 0
     markup = full               # Possible values are: full, strip, no
 
@@ -46,22 +45,22 @@
     # Markup is allowed
     format = "<b>%s</b>\n%b"
 
-    alignment = left            # Possible values are "left", "center" and "right".
-    vertical_alignment = center # Possible values are "top", "center" and "bottom".
+    alignment = "left"            # Possible values are "left", "center" and "right".
+    vertical_alignment = "center" # Possible values are "top", "center" and "bottom".
     show_age_threshold = 60     # Show age of message if older than show_age_threshold (-1 to disable)
-    ellipsize = middle          # Possible values are "start", "middle" and "end".
+    ellipsize = "middle"         # Possible values are "start", "middle" and "end".
     ignore_newline = false         # Ignore newlines '\n' in notifications.
     stack_duplicates = true     # Stack together notifications with the same content
     hide_duplicate_count = false    # Hide the count of stacked notifications with the same content
     show_indicators = true       # Display indicators for URLs (U) and actions (A).
     
-    icon_theme = Adwaita , breeze       # Set icon theme (only used for recursive icon lookup)
-    icon_position = left        # Align icons left/right/top/off
-    min_icon_size = 16          # max_icon_size takes precedence over this.    
-    max_icon_size = 128         # Scale larger icons down to this size, set to 0 to disable
-
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_theme = Papirus        # Set icon theme (only used for recursive icon lookup)
     enable_recursive_icon_lookup = false     # Recursive icon lookup
+    icon_position = "left"        # Align icons left/right/top/off
+    min_icon_size = 32          # max_icon_size takes precedence over this.    
+    max_icon_size = 64         # Scale larger icons down to this size, set to 0 to disable
+
+    icon_path = /usr/share/icons/Papirus/symbolic/status/
 
     sticky_history = true       # Should a notification popped up from history be sticky or timeout
     history_length = 20         # Maximum amount of notifications kept in history
@@ -83,7 +82,6 @@
 
     highlight = "#E0E0E0"
     frame_color = "#E0E0E0"
-    
 
 [urgency_low]
     background = "#95A5A6"
@@ -93,10 +91,12 @@
     timeout = 10
 
 [urgency_normal]
-    background = "#2C3E50"
-    foreground = "#E0E0E0"
-    highlight = "#E0E0E0"
+    background = "#95A5A6"
+    foreground = "#2C3E50"
+    highlight = "#2C3E50"
+    frame_color = "#2C3E50"
     timeout = 10
+    icon=notification-symbolic
 
 [urgency_critical]
     background = "#F1C40F"
@@ -104,6 +104,8 @@
     highlight = "#2C3E50"
     frame_color = "#2C3E50"
     timeout = 0
+    icon=dialog-information-symbolic
+    fullscreen="show"
 
 [experimental]
     per_monitor_dpi = false
@@ -180,7 +182,7 @@
 #           withdrawn from screen again and will get delayed like a new notification
 #[fullscreen_delay_everything]
 #    fullscreen = delay
-#[fullscreen_show_critical]
+# [fullscreen_show_critical]
 #    msg_urgency = critical
 #    fullscreen = show
 

@@ -1,13 +1,10 @@
 {
-    // "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "position": "top",
+    "height": 35, 
+    "spacing": 5,
+    "modules-left": ["sway/workspaces", "custom/scratchpad", "sway/mode"],
     "modules-center": ["sway/window"],
     "modules-right": [ "tray", "pulseaudio", "custom/ivpn", "network#eth","network#wifi", "battery", "clock", "custom/powerctl"],
-
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -27,11 +24,12 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
-        "spacing": 10
+        "spacing": 15
     },
     "clock": {
+        "format" : "{:%H:%M} ",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%Y-%m-%d} "
     },
     "battery": {
         "states": {
@@ -42,28 +40,26 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", ""]
     },
     "network#eth": {
         "interface": "enp*", // (Optional) To force the use of this interface
         "interval": 1,
-        "format": " {ifname:.5}",
+        "format": "{ifname:.5} ",
         "format-disconnected": "",
-        "tooltip-format": "{ipaddr} ⇵{bandwidthUpBits}|{bandwidthDownBits}",
+        "tooltip-format": "{ipaddr}",
         "tooltip-format-disconnected": ""
     },
     "network#wifi": {
         "interface": "wlp*", // (Optional) To force the use of this interface
         "interval": 1,
-        "format-wifi": " {essid:.7} / {signalStrength}% ",
+        "format-wifi": "{signalStrength}% ",
         "format-disconnected": "",
-        "tooltip-format-wifi": "{ipaddr} ⇵{bandwidthUpBits}|{bandwidthDownBits}",
+        "tooltip-format-wifi": "SSID: {essid:.7} / {ipaddr}",
         "tooltip-format-disconnected": ""
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
-        //"format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}  {format_source}",
         "format-bluetooth-muted": "Mute  {icon}  {format_source}",
         "format-muted": "Mute  {format_source}",
@@ -82,20 +78,29 @@
         "on-click": "pavucontrol"
     },
     "custom/ivpn": {
-        "exec": "~/.config/waybar/scripts/ivpn.sh",
-        "restart-interval": 1,
+        "exec": "~/.config/scripts/ivpn.sh",
+        "interval": 2,
         "return-type": "json",
         "format-icons": {
             "connected": "",
             "disconnected": ""
         },
         "format": "IVPN {icon}",
-        "on-click": "exec ivpn connect -any -c Netherland",
-        "on-click-right": "exec ivpn disconnect"
+        "on-click": "exec ~/.config/scripts/ivpn.sh connect",
+        "on-click-right": "exec ~/.config/scripts/ivpn.sh disconnect"
     },
     "custom/powerctl": {
-        "format": "",
-        "on-click": "~/.config/wlogout/wlogout.sh"
+        "format": "  ",
+        "on-click": "~/.config/scripts/wlogout.sh",
+        "tooltip": false
+    },
+    "custom/scratchpad": {
+        "format": "{alt} ",
+        "exec": "~/.config/scripts/scratchpad.sh",
+        "interval": 1,
+        "return-type": "json",
+        "on-click": "exec swaymsg 'scratchpad show'",
+        "on-click-right": "exec swaymsg 'move scratchpad'"
     }
 }
 

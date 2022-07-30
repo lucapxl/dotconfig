@@ -34,10 +34,10 @@ smart_gaps on
 title_align center
 ### Colors for tabbed/stacked windows
 # Class                   Border      BG          Text        Indicator   Child border
-client.focused            #95A5A6   #2C3E50   #ffffff     #ffffff   #95A5A6
-client.unfocused          #2C3E50   #2C3E50   #ffffff     #000000   #2C3E50
-client.focused_inactive   #95A5A6   #2C3E50   #ffffff     #ffffff   #95A5A6
-client.background         #2C3E50
+client.focused            #95A5A6   #95A5A6   #141E24     #ffffff   #95A5A6
+client.unfocused          #141E24   #141E24   #95A5A6     #ffffff   #141E24
+client.focused_inactive   #95A5A6   #141E24   #ffffff     #ffffff   #95A5A6
+client.background         #141E24
 #focus_on_window_activation focus
 
 #
@@ -93,7 +93,7 @@ bindsym $mod+d exec $menu
 bindsym $mod+l exec swaylock -c 000000 
 
 # Power menu
-bindsym control+mod1+Delete exec ~/.config/wlogout/wlogout.sh
+bindsym control+mod1+Delete exec ~/.config/scripts/wlogout.sh
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -110,14 +110,23 @@ bindsym $mod+Shift+c reload
 
 
 # Brightness
-bindsym XF86MonBrightnessUp exec light -A 5 |~/.config/dunst/scripts/progress-notify.sh brightness
-bindsym XF86MonBrightnessDown exec light -U 5 | ~/.config/dunst/scripts/progress-notify.sh brightness
+bindsym XF86MonBrightnessUp exec light -A 5 |~/.config/scripts/brightness.sh
+bindsym XF86MonBrightnessDown exec light -U 5 | ~/.config/scripts/brightness.sh
 
 # Audio
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% | ~/.config/dunst/scripts/progress-notify.sh audio
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% | ~/.config/dunst/scripts/progress-notify.sh audio
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle | ~/.config/dunst/scripts/progress-notify.sh audio
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% | ~/.config/scripts/volume.sh
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% | ~/.config/scripts/volume.sh
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle | ~/.config/scripts/volume.sh
 
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Printscreen
+exec mkdir -p ~/Pictures/Screenshots
+# Take a screenshot with all output and save it into screenshots
+bindsym Print exec ~/.config/scripts/screenshot.sh
+
+# Take a Screenshot with the region select
+bindsym $mod+Print exec ~/.config/scripts/screenshot.sh area 
 
 #
 # Moving around:
@@ -254,9 +263,12 @@ assign [class="^Element$"] workspace 5
 assign [class="^Wfica$"] workspace 6
 
 exec swayidle timeout 350 "swaylock -c 000000" before-sleep "swaylock -c 000000"
-exec_always $HOME/.config/waybar/scripts/waybar.sh
-exec_always $HOME/.config/kanshi/kanshi.sh
+exec_always $HOME/.config/scripts/waybar.sh
+exec_always $HOME/.config/scripts/kanshi.sh
 exec_always nm-applet --indicator
 exec gammastep
+exec lxpolkit
+exec 1password --silent
+exec nextcloud
 
 include /etc/sway/config.d/*

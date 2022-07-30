@@ -21,7 +21,8 @@
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: 'Noto Sans', 'Font Awesome 5 Free', Roboto, Helvetica, Arial, sans-serif;
+    /* font-family: 'Noto Sans', 'Font Awesome 5 Free', Roboto, Helvetica, Arial, sans-serif; */
+    font-family: 'Noto Sans', fontawesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 16px;
     border: none;
     border-radius: 3px;
@@ -35,7 +36,8 @@ tooltip {
     color: @waybar-background;
 }
 tooltip label {
-    font-size: 16px;
+    font-family: 'Noto Sans Mono', fontawesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
     color: @waybar-background;
 }
 
@@ -54,6 +56,7 @@ window#waybar.hidden {
     background: transparent;
     color: @waybar-foreground;
     box-shadow: none;
+    margin: 3px 0px;
 }
 
 #workspaces > button:first-child {
@@ -73,10 +76,12 @@ window#waybar.hidden {
     background: @waybar-red;
 }
 
-#mode {
+#mode,
+#custom-scratchpad  {
     background: @waybar-yellow;
     color: @waybar-black;
     padding: 0 0.6em;
+    margin: 3px 0px;
 }
 
 #clock,
@@ -89,10 +94,13 @@ window#waybar.hidden {
     padding: 0 0.4em;
     color: @waybar-foreground;
     background: transparent;
+    margin: 3px 0px;
 }
 
 #custom-powerctl {
     margin-right: 10px;
+    background: @waybar-white;
+    color: @waybar-black;
 }
 
 #battery.charging, #battery.plugged {
@@ -107,6 +115,11 @@ window#waybar.hidden {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+#battery.warning:not(.charging) {
+    background: @waybar-yellow;
+    color: @waybar-black;
 }
 
 label:focus {
