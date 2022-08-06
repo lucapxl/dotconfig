@@ -11,7 +11,7 @@ profile Virtual {
 	output Virtual-1 mode 1440x900 position 0,0
 }
 
-# Laptop only
-profile Thinkpad {
-	output eDP-1 enable
+# MacBook Monitor
+profile MacBook {
+	output "Apple Computer Inc Color LCD 0x00000000" scale 1.5
 }

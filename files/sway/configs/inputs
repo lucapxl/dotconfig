@@ -1,0 +1,20 @@
+### Input configuration
+#
+
+# Lenovo Thinkpad TouchPad
+input "1267:47:Elan_Touchpad" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+    # pointer_accel 0.5 # set mouse sensitivity (between 1 and -1)
+}
+
+# Apple MacBook TouchPad
+input "1452:627:bcm5974" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+    pointer_accel 0.3
+}
