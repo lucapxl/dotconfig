@@ -1,0 +1,12 @@
+### Sway Autostart
+#
+
+exec swayidle timeout 350 "swaylock -c 000000" before-sleep "swaylock -c 000000"
+exec_always $HOME/.config/scripts/waybar.sh
+exec_always $HOME/.config/scripts/kanshi.sh
+exec_always nm-applet --indicator
+exec gammastep
+exec lxpolkit
+exec gnome-keyring-daemon --start
+exec 1password --silent
+exec sleep 20 && nextcloud

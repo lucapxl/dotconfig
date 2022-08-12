@@ -251,14 +251,5 @@ assign [class="^Element$"] workspace 5
 # Wfica is Citrix
 assign [class="^Wfica$"] workspace 6
 
-exec swayidle timeout 350 "swaylock -c 000000" before-sleep "swaylock -c 000000"
-exec_always $HOME/.config/scripts/waybar.sh
-exec_always $HOME/.config/scripts/kanshi.sh
-exec_always nm-applet --indicator
-exec gammastep
-exec lxpolkit
-exec 1password --silent
-exec nextcloud
-
 include /etc/sway/config.d/*
-include $HOME/.config/sway/configs/*
+include $HOME/.config/sway/config.d/*

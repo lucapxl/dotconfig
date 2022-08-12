@@ -5,7 +5,7 @@ COUNT=$(ivpn status | grep -c " CONNECTED")
 connect() {
     if [ $COUNT != 1 ]; then 
         notify-send -h string:x-canonical-private-synchronous:ivpn IVPN "Connecting..." -t 5000 --icon security-high-symbolic -u low
-        if ivpn connect -any -c Netherland; then
+        if ivpn connect -any -c Singapore; then
             notify-send -h string:x-canonical-private-synchronous:ivpn IVPN "Connected" -t 5000 --icon view-private-symbolic -u low
         else
             notify-send -h string:x-canonical-private-synchronous:ivpn IVPN "ERROR" -t 5000 --icon dialog-error-symbolic -u low
