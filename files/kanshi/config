@@ -7,7 +7,7 @@ profile Home {
 	exec $HOME/.config/scripts/kanshi.sh notify "Home Screen"
 }
 
-# Office laptop
+# Office Docking Station
 profile OfficeDocking {
 	output eDP-1 disable
 	output "Lenovo Group Limited E24-20 VY097389" position 0,0
@@ -19,6 +19,12 @@ profile OfficeDocking {
 profile Virtual {
 	output Virtual-1 mode 1440x900 position 0,0
 	exec $HOME/.config/scripts/kanshi.sh notify "Virtual monitor"
+}
+
+# Macbook Pro {
+profile MacbookPro {
+	output "Apple Computer Inc Color LCD 0x00000000" enable scale 1.5
+	exec $HOME/.config/scripts/kanshi.sh notify "Macbook Pro"
 }
 
 # Laptop only
