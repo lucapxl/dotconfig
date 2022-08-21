@@ -1,17 +1,27 @@
 # to get outputs: swaymsg -t get_outputs
 
-# Screen in Switzerland
-profile HomeCH {
-	output eDP-1 enable position 0,200
-	output "Unknown HP 27m 1CR937052Z" mode 1920x1080 position 1920,0
+# Home Screen
+profile Home {
+	output eDP-1 disable
+	output "Unknown X490 0x00000000" position 0,0
+	exec $HOME/.config/scripts/kanshi.sh notify "Home Screen"
+}
+
+# Office laptop
+profile OfficeDocking {
+	output eDP-1 disable
+	output "Lenovo Group Limited E24-20 VY097389" position 0,0
+	output "Samsung Electric Company C24F390 HTQH400293" position 1920,0
+	exec $HOME/.config/scripts/kanshi.sh notify "Office Docking"
 }
 
 # Screen in qemu
 profile Virtual {
 	output Virtual-1 mode 1440x900 position 0,0
+	exec $HOME/.config/scripts/kanshi.sh notify "Virtual monitor"
 }
 
-# MacBook Monitor
-profile MacBook {
-	output "Apple Computer Inc Color LCD 0x00000000" scale 1.5
+# Laptop only
+profile Thinkpad {
+	output eDP-1 enable
 }

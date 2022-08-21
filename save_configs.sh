@@ -11,7 +11,7 @@ rm -rf $SCRIPTPATH/files/*
 
 mkdir -p $FILES_DIR
 cp -R ~/.config/bg.jpg $FILES_DIR
-cp -R ~/.config/alacritty $FILES_DIR
+cp -R ~/.config/foot $FILES_DIR
 cp -R ~/.config/dunst $FILES_DIR
 cp -R ~/.config/fontconfig $FILES_DIR
 cp -R ~/.config/gammastep $FILES_DIR

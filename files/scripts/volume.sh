@@ -1,15 +1,41 @@
-#!/usr/bin/bash
+#!/bin/sh
 
-# icons /usr/share/icons/Papirus/24x24/actions/
-volume=`pactl get-sink-volume 0 | awk '{print substr($5, 1, length($5)-1)}'`
-pactl get-sink-mute 0 |grep -q yes && volume=0
-
-if [ $volume -eq 0 ]; then
-    notify-send -h string:x-canonical-private-synchronous:audio "Muted" -h int:value:"$volume" -t 1500 --icon audio-volume-muted-symbolic -u low
-elif [ $volume -le 30 ]; then
-    notify-send -h string:x-canonical-private-synchronous:audio "$volume%" -h int:value:"$volume" -t 1500 --icon audio-volume-low-symbolic -u low
-elif [ $volume -le 70 ]; then
-    notify-send -h string:x-canonical-private-synchronous:audio "$volume%" -h int:value:"$volume" -t 1500 --icon audio-volume-medium-symbolic -u low
-else
-    notify-send -h string:x-canonical-private-synchronous:audio "$volume%" -h int:value:"$volume" -t 1500 --icon audio-volume-high-symbolic -u low
+if ! command -v notify-send >/dev/null || ! command -v pactl > /dev/null; then
+    exit 0;
 fi
+
+export LANG=C.UTF-8 LC_ALL=C.UTF-8
+
+SINK=${1:-@DEFAULT_SINK@}
+VOLUME=$(pactl get-sink-volume "$SINK")
+# get first percent value
+VOLUME=${VOLUME%%%*}
+VOLUME=${VOLUME##* }
+TEXT="${VOLUME}%"
+ICON="audio-volume-muted-symbolic"
+
+case $(pactl get-sink-mute "$SINK") in
+    *yes)
+        TEXT="Muted"
+        VOLUME=0
+        ;;
+esac
+
+if [ $VOLUME -eq 0 ]; then
+    ICON="audio-volume-muted-symbolic"
+elif [ $VOLUME -le 30 ]; then
+    ICON="audio-volume-low-symbolic"
+elif [ $VOLUME -le 70 ]; then
+    ICON="audio-volume-medium-symbolic"
+else
+    ICON="audio-volume-high-symbolic"
+fi
+
+notify-send \
+    --app-name sway \
+    --expire-time 1500 \
+    --hint string:x-canonical-private-synchronous:volume \
+    --hint "int:value:$VOLUME" \
+    --icon "$ICON" \
+    --transient \
+    "${TEXT}"
