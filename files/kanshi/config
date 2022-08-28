@@ -28,6 +28,7 @@ profile MacbookPro {
 }
 
 # Laptop only
-profile Thinkpad {
+profile LaptopOnly {
 	output eDP-1 enable
+	exec $HOME/.config/scripts/kanshi.sh notify "Laptop only"
 }
