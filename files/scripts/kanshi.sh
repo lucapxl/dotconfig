@@ -5,8 +5,10 @@ start_kanshi() {
     pkill kanshi
     # Wait until the processes have been shut down
     while pgrep -x kanshi >/dev/null; do sleep 1; done
-    # Start kanshi
-    kanshi
+    
+    # Make sure waybar is running before running kanshi
+    while [ $(pgrep -x -c waybar) -eq 0 ]; do sleep 1; done
+    kanshi &
 }
 
 notify() {

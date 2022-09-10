@@ -21,14 +21,14 @@ profile Virtual {
 	exec $HOME/.config/scripts/kanshi.sh notify "Virtual monitor"
 }
 
-# Macbook Pro {
-profile MacbookPro {
+# MacBook Monitor
+profile MacBook {
 	output "Apple Computer Inc Color LCD 0x00000000" enable scale 1.5
-	exec $HOME/.config/scripts/kanshi.sh notify "Macbook Pro"
+	exec $HOME/.config/scripts/kanshi.sh notify "MacBook Pro"
 }
 
-# Laptop only
-profile LaptopOnly {
-	output eDP-1 enable
-	exec $HOME/.config/scripts/kanshi.sh notify "Laptop only"
+# ThinkPad Monitor
+profile ThinkPad {
+	output "Chimei Innolux Corporation 0x14D4 0x00000000" enable
+	exec $HOME/.config/scripts/kanshi.sh notify "ThinkPad E14"
 }
