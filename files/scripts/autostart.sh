@@ -35,4 +35,4 @@ if [ $(pgrep -x -c keepassxc) -eq 0 ]; then
     flatpak run org.keepassxc.KeePassXC &
 fi
 
-#gnome-keyring-daemon --start &
+gnome-keyring-daemon --start &
