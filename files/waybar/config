@@ -1,20 +1,21 @@
+
+// icons cheatsheet https://fontawesome.com/v4/cheatsheet/
+
 {
     "position": "top",
     "height": 35, 
     "spacing": 5,
     "modules-left": ["sway/workspaces", "custom/scratchpad", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": [ "tray", "pulseaudio", "custom/ivpn", "network#eth","network#wifi", "battery", "clock", "custom/powerctl"],
+    "modules-right": [ "tray", "pulseaudio", "network#eth","network#wifi", "battery", "clock", "custom/powerctl"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{name}: {icon}",
         "format-icons": {
             "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
+            "2": "",
+            "8": "",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -37,8 +38,8 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format-charging": "{capacity}%  ",
+"format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", "", ""]
     },
@@ -55,7 +56,7 @@
         "interval": 1,
         "format-wifi": "{signalStrength}% ",
         "format-disconnected": "",
-        "tooltip-format-wifi": "SSID: {essid:.7} / {ipaddr}",
+        "tooltip-format-wifi": "SSID: {essid} / {ipaddr}",
         "tooltip-format-disconnected": ""
     },
     "pulseaudio": {
@@ -76,18 +77,6 @@
             "default": ["","","","",""]
         },
         "on-click": "pavucontrol"
-    },
-    "custom/ivpn": {
-        "exec": "~/.config/scripts/ivpn.sh",
-        "interval": 2,
-        "return-type": "json",
-        "format-icons": {
-            "connected": "",
-            "disconnected": ""
-        },
-        "format": "IVPN {icon}",
-        "on-click": "exec ~/.config/scripts/ivpn.sh connect",
-        "on-click-right": "exec ~/.config/scripts/ivpn.sh disconnect"
     },
     "custom/powerctl": {
         "format": "  ",

@@ -1,0 +1,19 @@
+
+# Windows Rules
+
+# force some windows to be tabbed
+#for_window [class="^whatsapp-desktop-linux$"] layout tabbed
+#for_window [class="^Microsoft Teams - Preview$"] layout tabbed
+#for_window [class="^Element$"] layout tabbed
+
+# to find app_id or class, use: swaymsg -t get_tree | grep app_id
+#assign [app_id="^Alacritty$"] workspace 1
+assign [app_id="^org.keepassxc.KeePassXC$"] workspace 8
+assign [class="^Code$"] workspace 4
+assign [app_id="^firefox$"] workspace 2
+
+# force some windows to be floatin similar as popup
+for_window [title="^(Save File|Open File|Select Folder|Choose Files|Choose an image)$"] floating enable, resize set 1000 800 # layout tabbed
+
+# tray icons "popups"
+for_window [title="^(Nextcloud|Bluetooth Devices|1Password|Network Connections|Volume Control)$"] floating enable, resize set 1000 800, move position mouse, move down 20px

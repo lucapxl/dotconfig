@@ -20,9 +20,9 @@ if [ $(pgrep -x -c lxpolkit) -eq 0 ]; then
     lxpolkit &
 fi
 
-if [ $(pgrep -x -c 1password) -eq 0 ]; then
-    echo "running 1password"
-    1password --silent &
+if [ $(pgrep -x -c firefox) -eq 0 ]; then
+    echo "running firefox"
+    firefox &
 fi
 
 if [ $(pgrep -x -c nextcloud) -eq 0 ]; then
@@ -30,4 +30,9 @@ if [ $(pgrep -x -c nextcloud) -eq 0 ]; then
     nextcloud &
 fi
 
-gnome-keyring-daemon --start &
+if [ $(pgrep -x -c keepassxc) -eq 0 ]; then
+    echo "running KeePass XC"
+    flatpak run org.keepassxc.KeePassXC &
+fi
+
+#gnome-keyring-daemon --start &
