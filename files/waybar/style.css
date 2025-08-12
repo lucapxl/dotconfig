@@ -1,5 +1,4 @@
-/* @define-color waybar-background #2C3E50; */
-@define-color waybar-background #141E24;
+/* @define-color waybar-background #141E24;
 @define-color waybar-foreground #E0E0E0;
 @define-color waybar-black #141E24;
 @define-color waybar-blue #3498DB;
@@ -10,7 +9,21 @@
 @define-color waybar-magenta #9B59B6;
 @define-color waybar-red #E74C3C;
 @define-color waybar-white #E0E0E0;
-@define-color waybar-yellow #F1C40F;
+@define-color waybar-yellow #F1C40F; */
+
+@define-color waybar-background #2c3e50; 
+@define-color waybar-foreground #ecf0f1;
+@define-color waybar-black #2c3e50;
+@define-color waybar-blue #2980b9;
+@define-color waybar-brightblack #7f8c8d;
+@define-color waybar-brightwhite #ecf0f1;
+@define-color waybar-cyan #3498db;
+@define-color waybar-green #2ecc71;
+@define-color waybar-magenta #9b59b6;
+@define-color waybar-red #e74c3c;
+@define-color waybar-white #ecf0f1;
+@define-color waybar-yellow #f1c40f;
+
 
 @keyframes blink {
     to {
@@ -22,23 +35,22 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     /* font-family: 'Noto Sans', 'Font Awesome 5 Free', Roboto, Helvetica, Arial, sans-serif; */
-    font-family: 'Noto Sans', fontawesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-family: 'Adwaita Sans', 'Fira Sans Book', fontawesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
 	margin: 0;
 	padding: 0;
     margin: 0;
     text-shadow: none;
 }
 tooltip {
-    background: @waybar-foreground;
-    color: @waybar-background;
+    background: @waybar-background;
+    color: @waybar-foreground;
 }
 tooltip label {
-    font-family: 'Noto Sans Mono', fontawesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
-    color: @waybar-background;
+    color: @waybar-foreground;
 }
 
 window#waybar {
@@ -56,7 +68,7 @@ window#waybar.hidden {
     background: transparent;
     color: @waybar-foreground;
     box-shadow: none;
-    margin: 3px 0px;
+    margin: 4px 2px;
 }
 
 #workspaces > button:first-child {
@@ -64,12 +76,13 @@ window#waybar.hidden {
 }
 
 #workspaces button:hover {
-    background: @waybar-blue;
+    background: @waybar-brightblack;
+    color: @waybar-background;
 }
 
 #workspaces button.focused {
-    background: @waybar-white;
-    color: @waybar-black;
+    background: @waybar-blue;
+    color: @waybar-foreground;
 }
 
 #workspaces button.urgent {
@@ -94,18 +107,17 @@ window#waybar.hidden {
     padding: 0 0.4em;
     color: @waybar-foreground;
     background: transparent;
-    margin: 3px 0px;
+    margin: 4px 2px;
 }
 
 #custom-powerctl {
     margin-right: 10px;
-    background: @waybar-white;
-    color: @waybar-black;
+    background: @waybar-red;
+    color: @waybar-foreground;
 }
 
 #battery.charging, #battery.plugged {
-    color: @waybar-black;
-    background: @waybar-cyan;
+    color: @waybar-green;
 }
 
 #battery.critical:not(.charging) {
@@ -127,19 +139,13 @@ label:focus {
 }
 
 #network.disconnected {
-    background: @waybar-red;
+    background: @waybar-brightblack;
+    color: @waybar-background;
 }
 
 #pulseaudio.muted {
-    background: @waybar-red;
-}
-
-#custom-ivpn.connected {
-    background: @waybar-cyan;
-    color: @waybar-black;
-}
-#custom-ivpn.disconnected {
-    background: transparent;
+    background: @waybar-brightblack;
+    color: @waybar-background;
 }
 
 #tray > .passive {

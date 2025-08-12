@@ -1,35 +1,34 @@
 [global]
     monitor = 0
-    follow = none               # mouse, keyboard, none
-    fullscreen = "pushback"
+    follow = mouse               # mouse, keyboard, none
     
     width = 300                 # with or min-max width (0, 300)
-    height = 300                # The maximum height of a single notification, excluding the frame.
+    height = (0,300)                # The maximum height of a single notification, excluding the frame.
     origin = top-right          # top-right, top-center, top-left, bottom-right, ...
-    offset = 10x10                # Offset from the origin - format: (horizontal, vertical)
+    offset = (10, 10)                # Offset from the origin - format: (horizontal, vertical)
     
     notification_limit = 0      # Maximum number of notification (0 means no limit)
     
     progress_bar = true         # to pass value: -h int:value:35
-    progress_bar_height = 12    # Set the progress bar height. This includes the frame, so make sure
-    progress_bar_frame_width = 2    # Set the frame width of the progress bar
+    progress_bar_height = 16    # Set the progress bar height. This includes the frame, so make sure
+    progress_bar_frame_width = 0    # Set the frame width of the progress bar
     progress_bar_min_width = 300    # Set the minimum width for the progress bar 
     progress_bar_max_width = 300    # Set the maximum width for the progress bar
-
+    progress_bar_corner_radius = 5
     indicate_hidden = true       # Show how many messages are currently hidden
 
     separator_height = 0
     padding = 8                 # Padding between text and separator.
     horizontal_padding = 8      # Horizontal padding.
-    text_icon_padding = 0       # Padding between text and icon.
-    frame_width = 1             # Defines width in pixels of frame around the notification window.
+    text_icon_padding = 10      # Padding between text and icon.
+    frame_width = 0             # Defines width in pixels of frame around the notification window.
     gap_size = 5                # Size of gap to display between notifications
     separator_color = frame     # values: [auto/foreground/frame/#RRGGBB] default: frame
 
     sort = true                  # Sort messages by urgency.
     # idle_threshold = 120       # Don't remove messages, if the user is idle (no mouse or keyboard input)
 
-    font = Noto Sans 11
+    font = Adwaita Sans 12
     line_height = 0
     markup = full               # Possible values are: full, strip, no
 
@@ -43,7 +42,8 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    #format = "%s\n%b"
+    format = <small>%a</small>\n<b>%s</b>\n%b
 
     alignment = "left"            # Possible values are "left", "center" and "right".
     vertical_alignment = "center" # Possible values are "top", "center" and "bottom".
@@ -55,12 +55,12 @@
     show_indicators = true       # Display indicators for URLs (U) and actions (A).
     
     icon_theme = Papirus        # Set icon theme (only used for recursive icon lookup)
-    enable_recursive_icon_lookup = false     # Recursive icon lookup
+    enable_recursive_icon_lookup = true     # Recursive icon lookup
     icon_position = "left"        # Align icons left/right/top/off
     min_icon_size = 32          # max_icon_size takes precedence over this.    
     max_icon_size = 64         # Scale larger icons down to this size, set to 0 to disable
 
-    icon_path = /usr/share/icons/Papirus/symbolic/status/
+    icon_path = /usr/share/icons/
 
     sticky_history = true       # Should a notification popped up from history be sticky or timeout
     history_length = 20         # Maximum amount of notifications kept in history
@@ -71,166 +71,31 @@
     title = Dunst               # Define the title of the windows spawned by dunst
     class = Dunst               # Define the class of the windows spawned by dunst
 
-    corner_radius = 3           # Define the corner radius of the notification window
+    corner_radius = 10         # Define the corner radius of the notification window
     ignore_dbusclose = false    # Ignore the dbus closeNotification message.
     # layer = top               # Uncomment this if you want to let notications appear under fullscreen
-    force_xwayland = false      # Set this to true to use X11 output on Wayland.
-
+    
     mouse_left_click = close_current
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
 
-    highlight = "#E0E0E0"
-    frame_color = "#E0E0E0"
+    # palette https://flatuicolors.com/palette/defo
+    foreground = "#ecf0f1"
+    frame_color = "#2c3e50"
+    #highlight = "#2274d5, #82aad9"
+    highlight = "#2980b9"
 
-[urgency_low]
-    background = "#95A5A6"
-    foreground = "#2C3E50"
-    highlight = "#2C3E50"
-    frame_color = "#2C3E50"
-    timeout = 10
+    [urgency_low]
+    background = "#2c3e50"
+    timeout = 3
 
-[urgency_normal]
-    background = "#95A5A6"
-    foreground = "#2C3E50"
-    highlight = "#2C3E50"
-    frame_color = "#2C3E50"
-    timeout = 10
-    icon=notification-symbolic
+    [urgency_normal]
+    background = "#2c3e50"
+    timeout = 8
 
-[urgency_critical]
-    background = "#F1C40F"
-    foreground = "#2C3E50"
-    highlight = "#2C3E50"
-    frame_color = "#2C3E50"
+    [urgency_critical]    
+    background = "#c0392b"
+    frame_color = "#c0392b"
+    highlight = "#f39c12"
     timeout = 0
-    icon=dialog-information-symbolic
-    fullscreen="show"
 
-[experimental]
-    per_monitor_dpi = false
-
-
-# Every section that isn't one of the above is interpreted as a rules to
-# override settings for certain messages.
-#
-# Messages can be matched by
-#    appname (discouraged, see desktop_entry)
-#    body
-#    category
-#    desktop_entry
-#    icon
-#    match_transient
-#    msg_urgency
-#    stack_tag
-#    summary
-#
-# and you can override the
-#    background
-#    foreground
-#    format
-#    frame_color
-#    fullscreen
-#    new_icon
-#    set_stack_tag
-#    set_transient
-#    set_category
-#    timeout
-#    urgency
-#    icon_position
-#    skip_display
-#    history_ignore
-#    action_name
-#    word_wrap
-#    ellipsize
-#    alignment
-#    hide_text
-#
-# Shell-like globbing will get expanded.
-#
-# Instead of the appname filter, it's recommended to use the desktop_entry filter.
-# GLib based applications export their desktop-entry name. In comparison to the appname,
-# the desktop-entry won't get localized.
-#
-# SCRIPTING
-# You can specify a script that gets run when the rule matches by
-# setting the "script" option.
-# The script will be called as follows:
-#   script appname summary body icon urgency
-# where urgency can be "LOW", "NORMAL" or "CRITICAL".
-#
-# NOTE: It might be helpful to run dunst -print in a terminal in order
-# to find fitting options for rules.
-
-# Disable the transient hint so that idle_threshold cannot be bypassed from the
-# client
-#[transient_disable]
-#    match_transient = yes
-#    set_transient = no
-#
-# Make the handling of transient notifications more strict by making them not
-# be placed in history.
-#[transient_history_ignore]
-#    match_transient = yes
-#    history_ignore = yes
-
-# fullscreen values
-# show: show the notifications, regardless if there is a fullscreen window opened
-# delay: displays the new notification, if there is no fullscreen window active
-#        If the notification is already drawn, it won't get undrawn.
-# pushback: same as delay, but when switching into fullscreen, the notification will get
-#           withdrawn from screen again and will get delayed like a new notification
-#[fullscreen_delay_everything]
-#    fullscreen = delay
-# [fullscreen_show_critical]
-#    msg_urgency = critical
-#    fullscreen = show
-
-#[espeak]
-#    summary = "*"
-#    script = dunst_espeak.sh
-
-#[script-test]
-#    summary = "*script*"
-#    script = dunst_test.sh
-
-#[ignore]
-#    # This notification will not be displayed
-#    summary = "foobar"
-#    skip_display = true
-
-#[history-ignore]
-#    # This notification will not be saved in history
-#    summary = "foobar"
-#    history_ignore = yes
-
-#[skip-display]
-#    # This notification will not be displayed, but will be included in the history
-#    summary = "foobar"
-#    skip_display = yes
-
-#[signed_on]
-#    appname = Pidgin
-#    summary = "*signed on*"
-#    urgency = low
-#
-#[signed_off]
-#    appname = Pidgin
-#    summary = *signed off*
-#    urgency = low
-#
-#[says]
-#    appname = Pidgin
-#    summary = *says*
-#    urgency = critical
-#
-#[twitter]
-#    appname = Pidgin
-#    summary = *twitter.com*
-#    urgency = normal
-#
-#[stack-volumes]
-#    appname = "some_volume_notifiers"
-#    set_stack_tag = "volume"
-#
-# vim: ft=cfg
