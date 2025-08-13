@@ -4,10 +4,26 @@
 {
     "position": "top",
     "height": 35, 
-    "spacing": 5,
-    "modules-left": ["sway/workspaces", "custom/scratchpad", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": [ "tray", "pulseaudio", "network#eth","network#wifi", "battery", "clock", "custom/powerctl"],
+    "spacing": 8,
+    "modules-left": [
+        "sway/workspaces",
+        "custom/scratchpad",
+        "sway/mode"
+    ],
+    "modules-center": [
+        "sway/window"
+    ],
+    "modules-right": [ 
+        "tray",
+        "backlight",
+        "sway/language",
+        "pulseaudio",
+        "network#wg",
+        "idle_inhibitor",
+        "battery", 
+        "clock", 
+        "custom/powerctl"
+    ],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -21,26 +37,38 @@
             "default": ""
         }
     },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        }
+    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
-        "spacing": 15
+        "spacing": 15,
+        "icon-size": 18
     },
     "clock": {
         "format" : "{:%H:%M} ",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d} "
+        "tooltip-format": "<big> {:%Y-%m-%d}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
     },
     "battery": {
         "states": {
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}%  ",
-"format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+        "format": "{icon}",
+        "format-charging": " ",
+        "format-plugged": "",
+        "format-alt": "{capacity}% {icon}",
         "format-icons": ["", "", "", "", "", ""]
     },
     "network#eth": {
@@ -57,6 +85,14 @@
         "format-wifi": "{signalStrength}% ",
         "format-disconnected": "",
         "tooltip-format-wifi": "SSID: {essid} / {ipaddr}",
+        "tooltip-format-disconnected": ""
+    },
+    "network#wg": {
+        "interface": "wg*", // (Optional) To force the use of this interface
+        "interval": 1,
+        "format": "{ifname:.5} ",
+        "format-disconnected": "",
+        "tooltip-format": "{ipaddr}",
         "tooltip-format-disconnected": ""
     },
     "pulseaudio": {
@@ -82,14 +118,6 @@
         "format": "  ",
         "on-click": "~/.config/scripts/wlogout.sh",
         "tooltip": false
-    },
-    "custom/scratchpad": {
-        "format": "{alt} ",
-        "exec": "~/.config/scripts/scratchpad.sh",
-        "interval": 1,
-        "return-type": "json",
-        "on-click": "exec swaymsg 'scratchpad show'",
-        "on-click-right": "exec swaymsg 'move scratchpad'"
     }
 }
 
