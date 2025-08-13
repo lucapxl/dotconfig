@@ -1,25 +1,19 @@
 #!/bin/bash
 
+# Make sure screenshot folder exists
+mkdir -p ~/Pictures/Screenshots
+
+application_name="Screenshot"
 SSDIR=~/Pictures/Screenshots
-
-area() {
-    SSNAME=area_$(date +%y%m%d_%H%M%S).png
-    grim -g "$(slurp)" $SSDIR/$SSNAME
-    notify-send "Area screenshot taken" "$SSNAME" -i "$SSDIR/$SSNAME"
-
-}
-
-fullscreen () {
-    SSNAME=full_$(date +%y%m%d_%H%M%S).png
-    grim $SSDIR/$SSNAME
-    notify-send "Full screenshot taken" "$SSNAME" -i "$SSDIR/$SSNAME" 
-}
+SSNAME="$(date +%y%m%d_%H%M%S).png"
 
 case "$1" in
         area)
-                area
+                grim -g "$(slurp)" $SSDIR/$SSNAME
                 ;;
         *)
-                fullscreen
+                grim $SSDIR/$SSNAME
                 ;;
 esac
+
+notify-send -a $application_name "$SSNAME" -i "$SSDIR/$SSNAME" -t 1500 -u "low"

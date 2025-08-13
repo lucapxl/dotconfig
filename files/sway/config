@@ -16,7 +16,8 @@ set $term foot
 # on the original workspace that the command was run on.
 
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu rofi -show drun -theme sidebar
+#set $menu rofi -show drun -theme sidebar
+set $menu rofi -terminal '$term' -show combi -combi-modes drun#run -modes combi
 
 ### Output configuration
 #
@@ -97,22 +98,6 @@ bindsym $mod+Shift+c reload
 # Exit sway (logs you out of your Wayland session)
 # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-
-# Audio
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% | ~/.config/scripts/volume.sh
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% | ~/.config/scripts/volume.sh
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle | ~/.config/scripts/volume.sh
-
-bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-
-# Printscreen
-exec mkdir -p ~/Pictures/Screenshots
-# Take a screenshot with all output and save it into screenshots
-bindsym Print exec ~/.config/scripts/screenshot.sh
-
-# Take a Screenshot with the region select
-bindsym $mod+Print exec ~/.config/scripts/screenshot.sh area 
-
 #
 # Moving around:
 #
@@ -131,27 +116,27 @@ bindsym $mod+Shift+Right move right
 # Workspaces:
 #
 # Switch to workspace
-bindsym $mod+1 [workspace="1"] move workspace to output current; workspace number 1
-bindsym $mod+2 [workspace="2"] move workspace to output current; workspace number 2
-bindsym $mod+3 [workspace="3"] move workspace to output current; workspace number 3
-bindsym $mod+4 [workspace="4"] move workspace to output current; workspace number 4
-bindsym $mod+5 [workspace="5"] move workspace to output current; workspace number 5
-bindsym $mod+6 [workspace="6"] move workspace to output current; workspace number 6
-bindsym $mod+7 [workspace="7"] move workspace to output current; workspace number 7
-bindsym $mod+8 [workspace="8"] move workspace to output current; workspace number 8
-bindsym $mod+9 [workspace="9"] move workspace to output current; workspace number 9
-bindsym $mod+0 [workspace="0"] move workspace to output current; workspace number 0
+# bindsym $mod+1 [workspace="1"] move workspace to output current; workspace number 1
+# bindsym $mod+2 [workspace="2"] move workspace to output current; workspace number 2
+# bindsym $mod+3 [workspace="3"] move workspace to output current; workspace number 3
+# bindsym $mod+4 [workspace="4"] move workspace to output current; workspace number 4
+# bindsym $mod+5 [workspace="5"] move workspace to output current; workspace number 5
+# bindsym $mod+6 [workspace="6"] move workspace to output current; workspace number 6
+# bindsym $mod+7 [workspace="7"] move workspace to output current; workspace number 7
+# bindsym $mod+8 [workspace="8"] move workspace to output current; workspace number 8
+# bindsym $mod+9 [workspace="9"] move workspace to output current; workspace number 9
+# bindsym $mod+0 [workspace="0"] move workspace to output current; workspace number 0
 
-# bindsym $mod+1 workspace number 1
-# bindsym $mod+2 workspace number 2
-# bindsym $mod+3 workspace number 3
-# bindsym $mod+4 workspace number 4
-# bindsym $mod+5 workspace number 5
-# bindsym $mod+6 workspace number 6
-# bindsym $mod+7 workspace number 7
-# bindsym $mod+8 workspace number 8
-# bindsym $mod+9 workspace number 9
-# bindsym $mod+0 workspace number 10
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1

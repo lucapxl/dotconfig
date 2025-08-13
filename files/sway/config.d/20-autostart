@@ -1,8 +1,0 @@
-### Sway Autostart
-#
-
-exec swayidle timeout 350 "swaylock -c 000000" before-sleep "swaylock -c 000000"
-
-exec_always $HOME/.config/scripts/waybar.sh
-exec_always $HOME/.config/scripts/autostart.sh
-

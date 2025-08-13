@@ -4,21 +4,19 @@ SCRIPT=$(realpath "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 FILES_DIR=$SCRIPTPATH/files/
 
-echo $SCRIPTPATH
-echo $FILES_DIR
+echo "applaying dotconfig files"
 
-rm -rf $SCRIPTPATH/files/*
+rm -rf ~/.config/bg.jpg
+rm -rf ~/.config/foot
+rm -rf ~/.config/dunst
+rm -rf ~/.config/fontconfig 
+rm -rf ~/.config/gammastep 
+rm -rf ~/.config/kanshi 
+rm -rf ~/.config/scripts
+rm -rf ~/.config/sway 
+rm -rf ~/.config/swaylock 
+rm -rf ~/.config/waybar
+rm -rf ~/.config/wlogout
+rm -rf ~/.config/rofi
 
-mkdir -p $FILES_DIR
-cp -R ~/.config/bg.jpg $FILES_DIR
-cp -R ~/.config/foot $FILES_DIR
-cp -R ~/.config/dunst $FILES_DIR
-cp -R ~/.config/fontconfig $FILES_DIR
-cp -R ~/.config/gammastep $FILES_DIR
-cp -R ~/.config/kanshi $FILES_DIR
-cp -R ~/.config/scripts $FILES_DIR
-cp -R ~/.config/sway $FILES_DIR
-cp -R ~/.config/swaylock $FILES_DIR
-cp -R ~/.config/waybar $FILES_DIR
-cp -R ~/.config/wlogout $FILES_DIR
-cp -R ~/.config/wofi $FILES_DIR
+cp -R $SCRIPTPATH/files/* ~/.config/

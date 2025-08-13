@@ -1,5 +1,0 @@
-# keyboard bindings
-
-# Brightness
-bindsym --locked XF86MonBrightnessDown exec ~/.config/scripts/brightness.sh "5%-"
-bindsym --locked XF86MonBrightnessUp exec ~/.config/scripts/brightness.sh "5%+"

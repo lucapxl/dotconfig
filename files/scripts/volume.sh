@@ -1,19 +1,85 @@
-#!/bin/sh
-
+#!/usr/bin/sh
 if ! command -v notify-send >/dev/null || ! command -v pactl > /dev/null; then
     exit 0;
 fi
 
+# pactl output depends on the current locale
 export LANG=C.UTF-8 LC_ALL=C.UTF-8
+ICON="audio-volume-high-symbolic"
+DEFAULT_STEP=5
+LIMIT=${LIMIT:-100}
+SINK="@DEFAULT_SINK@"
 
-SINK=${1:-@DEFAULT_SINK@}
-VOLUME=$(pactl get-sink-volume "$SINK")
-# get first percent value
-VOLUME=${VOLUME%%%*}
-VOLUME=${VOLUME##* }
+clamp() {
+    if [ "$1" -lt 0 ]; then
+        echo "0"
+    elif [ "$1" -gt "$LIMIT" ]; then
+        echo "$LIMIT"
+    else
+        echo "$1"
+    fi
+}
+
+get_sink_volume() { # sink
+    ret=$(pactl get-sink-volume "$1")
+    # get first percent value
+    ret=${ret%%%*}
+    ret=${ret##* }
+    echo "$ret"
+    unset ret
+}
+
+CHANGE=0
+VOLUME=-1
+
+while true; do
+    case $1 in
+        --sink)
+            SINK=${2:-$SINK}
+            shift;;
+        -l|--limit)
+            LIMIT=$((${2:-$LIMIT}))
+            shift;;
+        --set-volume)
+            VOLUME=$(($2))
+            shift;;
+        -i|--increase)
+            CHANGE=$((${2:-$DEFAULT_STEP}))
+            shift;;
+        -d|--decrease)
+            CHANGE=$((-${2:-$DEFAULT_STEP}))
+            shift;;
+        *)
+            break
+            ;;
+    esac
+    shift
+done
+
+if [ "$CHANGE" -ne 0 ]; then
+    VOLUME=$(get_sink_volume "$SINK")
+    VOLUME=$(( VOLUME + CHANGE ))
+    pactl set-sink-volume "$SINK" "$(clamp "$VOLUME")%"
+elif [ "$VOLUME" -ge 0 ]; then
+    pactl set-sink-volume "$SINK" "$(clamp "$VOLUME")%"
+fi
+
+# Display desktop notification
+
+if ! command -v notify-send >/dev/null; then
+    exit 0;
+fi
+
+VOLUME=$(get_sink_volume "$SINK")
+if [ $VOLUME -eq 0 ]; then
+    ICON="audio-volume-muted-symbolic"
+elif [ $VOLUME -le 30 ]; then
+    ICON="audio-volume-low-symbolic"
+elif [ $VOLUME -le 70 ]; then
+    ICON="audio-volume-medium-symbolic"
+fi
+
 TEXT="${VOLUME}%"
-ICON="audio-volume-muted-symbolic"
-
 case $(pactl get-sink-mute "$SINK") in
     *yes)
         TEXT="Muted"
@@ -21,18 +87,8 @@ case $(pactl get-sink-mute "$SINK") in
         ;;
 esac
 
-if [ $VOLUME -eq 0 ]; then
-    ICON="audio-volume-muted-symbolic"
-elif [ $VOLUME -le 30 ]; then
-    ICON="audio-volume-low-symbolic"
-elif [ $VOLUME -le 70 ]; then
-    ICON="audio-volume-medium-symbolic"
-else
-    ICON="audio-volume-high-symbolic"
-fi
-
 notify-send \
-    --app-name sway \
+    --app-name Volume \
     --expire-time 1500 \
     --hint string:x-canonical-private-synchronous:volume \
     --hint "int:value:$VOLUME" \
