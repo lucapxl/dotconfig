@@ -98,10 +98,6 @@ bindsym $mod+Shift+c reload
 # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 
-# Brightness
-bindsym XF86MonBrightnessUp exec light -A 5 |~/.config/scripts/brightness.sh
-bindsym XF86MonBrightnessDown exec light -U 5 | ~/.config/scripts/brightness.sh
-
 # Audio
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% | ~/.config/scripts/volume.sh
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% | ~/.config/scripts/volume.sh

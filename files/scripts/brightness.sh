@@ -1,14 +1,20 @@
 #!/usr/bin/bash
 
+# Set the brightness level
+brightnessctl set $1
 
-brightness=`light`
-brightness=${brightness%.*}
+# Read the current brightness level
+brightness=`brightnessctl g -P`
+
+# Send the notification
+application_name="Brightness"
+brightness_icon="display-brightness-high-symbolic"
 if [ $brightness -eq 0 ]; then
-    notify-send -h string:x-canonical-private-synchronous:brightness "$brightness%" -h int:value:"$brightness" -t 1500 --icon display-brightness-off-symbolic -u low
+    brightness_icon="display-brightness-off-symbolic"
 elif [ $brightness -le 30 ]; then
-    notify-send -h string:x-canonical-private-synchronous:brightness "$brightness%" -h int:value:"$brightness" -t 1500 --icon display-brightness-low-symbolic -u low
+    brightness_icon="display-brightness-low-symbolic"
 elif [ $brightness -le 70 ]; then
-    notify-send -h string:x-canonical-private-synchronous:brightness "$brightness%" -h int:value:"$brightness" -t 1500 --icon display-brightness-medium-symbolic -u low
-else
-    notify-send -h string:x-canonical-private-synchronous:brightness "$brightness%" -h int:value:"$brightness" -t 1500 --icon display-brightness-high-symbolic -u low
+    brightness_icon="display-brightness-medium-symbolic"
 fi
+
+notify-send -a $application_name -h string:x-canonical-private-synchronous:brightness "$brightness%" -h int:value:"$brightness" -t 1500 --icon $brightness_icon -u low
