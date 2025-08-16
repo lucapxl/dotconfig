@@ -4,21 +4,22 @@
 	box-shadow: none;
 }
 window {
-	background-color: #000000;
+	background-color: rgba(0, 0, 0, 1);
 }
 button {
     color: #E0E0E0;
-	background-color: #000000;
+	background-color: #2c3e50;
 	border-style: none;
 	border-width: 0px;
+	border-radius: 30px;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 50%;
-	font-size: 25px;
+	background-size: 35%;
+	font-size: 16px;
 }
 
 button:hover {
-	background-color: #2C3E50;
+	background-color: #e74c3c;
 }
 
 #lock {

@@ -21,7 +21,7 @@
     padding = 8                 # Padding between text and separator.
     horizontal_padding = 8      # Horizontal padding.
     text_icon_padding = 10      # Padding between text and icon.
-    frame_width = 0             # Defines width in pixels of frame around the notification window.
+    frame_width = 2             # Defines width in pixels of frame around the notification window.
     gap_size = 5                # Size of gap to display between notifications
     separator_color = frame     # values: [auto/foreground/frame/#RRGGBB] default: frame
 
@@ -81,7 +81,7 @@
 
     # palette https://flatuicolors.com/palette/defo
     foreground = "#ecf0f1"
-    frame_color = "#2c3e50"
+    frame_color = "#7f8c8d"
     #highlight = "#2274d5, #82aad9"
     highlight = "#2980b9"
 

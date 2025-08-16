@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 gnome-keyring-daemon --start &
+export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 
 # Make sure waybar is running
 while [ $(pgrep -x -c waybar) -eq 0 ]; do sleep 1; done

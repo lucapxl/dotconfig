@@ -4,7 +4,7 @@
 {
     "position": "top",
     "height": 35, 
-    "spacing": 10,
+    "spacing": 5,
     "modules-left": [
         "sway/workspaces",
         "sway/scratchpad",
