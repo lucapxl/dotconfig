@@ -1,16 +1,3 @@
-/* @define-color waybar-background #141E24;
-@define-color waybar-foreground #E0E0E0;
-@define-color waybar-black #141E24;
-@define-color waybar-blue #3498DB;
-@define-color waybar-brightblack #95A5A6;
-@define-color waybar-brightwhite #ECF0F1;
-@define-color waybar-cyan #1ABC9C;
-@define-color waybar-green #2ECC71;
-@define-color waybar-magenta #9B59B6;
-@define-color waybar-red #E74C3C;
-@define-color waybar-white #E0E0E0;
-@define-color waybar-yellow #F1C40F; */
-
 @define-color waybar-background #2c3e50; 
 @define-color waybar-foreground #ecf0f1;
 @define-color waybar-black #2c3e50;
@@ -33,10 +20,8 @@
 }
 
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    /* font-family: 'Noto Sans', 'Font Awesome 5 Free', Roboto, Helvetica, Arial, sans-serif; */
-    font-family: 'Adwaita Sans', 'Fira Sans Book', fontawesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-family:  'Adwaita Sans', 'Font Awesome 6 Free', 'Fira Sans Book', Arial, sans-serif;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
 	margin: 0;
@@ -90,7 +75,7 @@ window#waybar.hidden {
 }
 
 #mode,
-#custom-scratchpad  {
+#scratchpad  {
     background: @waybar-yellow;
     color: @waybar-black;
     padding: 0 0.6em;
@@ -103,11 +88,13 @@ window#waybar.hidden {
 #pulseaudio,
 #custom-powerctl,
 #custom-ivpn,
+#language,
+#idle_inhibitor,
 #tray {
-    padding: 0 0.4em;
+    padding: 0 0.2em;
     color: @waybar-foreground;
     background: transparent;
-    margin: 4px 2px;
+    margin: 2px 2px;
 }
 
 #custom-powerctl {
@@ -118,6 +105,17 @@ window#waybar.hidden {
 
 #battery.charging, #battery.plugged {
     color: @waybar-green;
+}
+
+#idle_inhibitor.activated {
+    background: @waybar-blue;
+    color: @waybar-foreground;
+
+}
+
+#idle_inhibitor.deactivated {
+    background: transparent;
+    color: @waybar-brightblack;
 }
 
 #battery.critical:not(.charging) {
@@ -138,15 +136,19 @@ label:focus {
     background: @waybar-black;
 }
 
-#network.disconnected {
-    background: @waybar-brightblack;
-    color: @waybar-background;
+#network.wg {
+    background: @waybar-blue;
 }
 
-#pulseaudio.muted {
-    background: @waybar-brightblack;
-    color: @waybar-background;
+#network.wg.disconnected {
+    background: @waybar-background;
+    color: @waybar-brightblack;
 }
+
+#pulseaudio.bluetooth {
+    background: @waybar-blue;
+}
+
 
 #tray > .passive {
     -gtk-icon-effect: dim;
@@ -156,4 +158,3 @@ label:focus {
     -gtk-icon-effect: highlight;
     background: @waybar-red;
 }
-

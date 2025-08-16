@@ -19,6 +19,7 @@ set $term foot
 #set $menu rofi -show drun -theme sidebar
 set $menu rofi -terminal '$term' -show combi -combi-modes drun#run -modes combi
 
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -80,10 +81,11 @@ bindsym $mod+q kill
 bindsym $mod+d exec $menu
 
 # Lock
-bindsym $mod+l exec swaylock -c 000000 
+bindsym $mod+l exec swaylock -f -c 000000 
 
 # Power menu
 bindsym control+mod1+Delete exec ~/.config/scripts/wlogout.sh
+bindsym XF86PowerOff exec ~/.config/scripts/wlogout.sh
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -173,7 +175,7 @@ bindsym $mod+f fullscreen
 bindsym $mod+Shift+f floating toggle
 
 # Swap focus between the tiling area and the floating area
-bindsym $mod+space focus mode_toggle
+bindsym $mod+space exec swaymsg input type:keyboard xkb_switch_layout next
 
 # Move focus to the parent container
 bindsym $mod+a focus parent

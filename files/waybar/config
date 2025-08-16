@@ -4,22 +4,23 @@
 {
     "position": "top",
     "height": 35, 
-    "spacing": 8,
+    "spacing": 10,
     "modules-left": [
         "sway/workspaces",
-        "custom/scratchpad",
+        "sway/scratchpad",
         "sway/mode"
     ],
     "modules-center": [
         "sway/window"
     ],
-    "modules-right": [ 
-        "tray",
-        "backlight",
-        "sway/language",
-        "pulseaudio",
+    "modules-right": [
         "network#wg",
         "idle_inhibitor",
+        "sway/language",
+        "tray",
+        "network#eth",
+        "network#wifi",
+        "pulseaudio",
         "battery", 
         "clock", 
         "custom/powerctl"
@@ -37,26 +38,36 @@
             "default": ""
         }
     },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": " ",
-            "deactivated": " "
-        }
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
+    "sway/language": {
+        "format": "{short}",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    },
+    "idle_inhibitor": {
+        "format": " {icon} ",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
     "tray": {
-        "spacing": 15,
-        "icon-size": 18
+        "spacing": 20,
+        "icon-size": 15
     },
     "clock": {
         "format" : "{:%H:%M} ",
-        "tooltip-format": "<big> {:%Y-%m-%d}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<big> {:%d/%m/%Y}</big>\n<tt><small>{calendar}</small></tt>",
     },
     "backlight": {
-        // "device": "acpi_video1",
         "format": "{percent}% {icon}",
         "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
     },
@@ -66,51 +77,53 @@
             "critical": 15
         },
         "format": "{icon}",
-        "format-charging": " ",
-        "format-plugged": "",
-        "format-alt": "{capacity}% {icon}",
+        "format-charging": "{icon} ",
+        "format-plugged": " ",
+        "tooltip-format": ": {capacity}%\n{timeTo}",
+        "format-alt": "{capacity}% {timeTo}",
         "format-icons": ["", "", "", "", "", ""]
     },
     "network#eth": {
         "interface": "enp*", // (Optional) To force the use of this interface
-        "interval": 1,
-        "format": "{ifname:.5} ",
+        "interval": 2,
+        "format": "  ",
         "format-disconnected": "",
-        "tooltip-format": "{ipaddr}",
+        "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}",
         "tooltip-format-disconnected": ""
     },
     "network#wifi": {
         "interface": "wlp*", // (Optional) To force the use of this interface
-        "interval": 1,
-        "format-wifi": "{signalStrength}% ",
-        "format-disconnected": "",
-        "tooltip-format-wifi": "SSID: {essid} / {ipaddr}",
-        "tooltip-format-disconnected": ""
+        "interval": 2,
+        "format-wifi": "  ",
+        "format-disconnected": "  ",
+        "tooltip-format-wifi": "<b>SSID:</b> {essid}\n<b>Signal:</b> {signalStrength}%\n<b>Freq:</b> {frequency}%\n\n<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}",
+        "tooltip-format-disconnected": "",
+        "on-click": "foot -a nmtui nmtui"
     },
     "network#wg": {
         "interface": "wg*", // (Optional) To force the use of this interface
-        "interval": 1,
-        "format": "{ifname:.5} ",
-        "format-disconnected": "",
-        "tooltip-format": "{ipaddr}",
-        "tooltip-format-disconnected": ""
+        "interval": 2,
+        "format": "  ",
+        "format-disconnected": "  ",
+        "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}\n\nLeft click to <b>activate</b>\nRight click to <b>deactivate</b>",
+        "tooltip-format-disconnected": "",
+        "on-click":"nmcli connection up 'Alpeax Cloud'",
+        "on-click-right":"nmcli connection down 'Alpeax Cloud'"
     },
     "pulseaudio": {
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon}  {format_source}",
-        "format-bluetooth-muted": "Mute  {icon}  {format_source}",
-        "format-muted": "Mute  {format_source}",
-        //"format-source": "{volume}% ",
+        "format": " {icon} {format_source} ",
+        "tooltip-format": "Volume: {volume}%\nDevice: {desc}",
+        "format-bluetooth": " {icon}  ",
+        "format-bluetooth-muted": "   ",
+        "format-muted": "  ",
         "format-source": "",
-        "format-source-muted": "",
+        "scroll-step": 5,
+        //"format-source-muted": "",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["","","","",""]
+            "headphone": [" "," "," "," "," "],
+            "hands-free": [" "," "," "," "," "],
+            "headset": [" "," "," "," "," "],
+            "default": ["","","","",""]
         },
         "on-click": "pavucontrol"
     },

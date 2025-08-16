@@ -3,6 +3,8 @@
 # Make sure waybar is running
 while [ $(pgrep -x -c waybar) -eq 0 ]; do sleep 1; done
 
+$HOME/.config/scripts/kanshi.sh &
+
 if [ $(pgrep -x -c nm-applet) -eq 0 ]; then
     echo "running nm-applet"
     nm-applet --indicator &
@@ -22,3 +24,5 @@ if [ $(pgrep -x -c keepassxc) -eq 0 ]; then
     echo "running KeePass XC"
     flatpak run org.keepassxc.KeePassXC &
 fi
+
+gnome-keyring-daemon --start &
