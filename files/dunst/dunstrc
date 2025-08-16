@@ -54,7 +54,7 @@
     hide_duplicate_count = false    # Hide the count of stacked notifications with the same content
     show_indicators = true       # Display indicators for URLs (U) and actions (A).
     
-    icon_theme = Papirus        # Set icon theme (only used for recursive icon lookup)
+    icon_theme = Papirus-Dark       # Set icon theme (only used for recursive icon lookup)
     enable_recursive_icon_lookup = true     # Recursive icon lookup
     icon_position = "left"        # Align icons left/right/top/off
     min_icon_size = 32          # max_icon_size takes precedence over this.    

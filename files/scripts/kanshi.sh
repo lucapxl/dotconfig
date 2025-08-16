@@ -13,15 +13,13 @@ start_kanshi() {
 
 notify() {
     ICON="video-display-symbolic"
-    
     notify-send \
         --app-name kanshi \
         --expire-time 1500 \
         --hint string:x-canonical-private-synchronous:kanshi \
         --icon "$ICON" \
         --transient \
-        "Kanshi profile" "$1"
-
+        "$1" "profile applied"
 }
 
 case "$1" in

@@ -14,28 +14,39 @@
         "sway/window"
     ],
     "modules-right": [
+        "tray",
         "network#wg",
         "idle_inhibitor",
         "sway/language",
-        "tray",
         "network#eth",
         "network#wifi",
         "pulseaudio",
         "battery", 
-        "clock", 
-        "custom/powerctl"
+        "clock"
+        // "custom/powerctl"
     ],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "format": "{name}: {icon}",
+        // "format": "{name}: {icon}",
+        "format": "{name}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "8": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
+        //     "1": "",
+        //     "2": "",
+        //     "8": "",
+             "urgent": "",
+             "focused": "",
+             "default": ""
+        }
+    },
+    // make sure to run: usermod -a -G input [username]
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
         }
     },
     "sway/scratchpad": {
@@ -53,7 +64,7 @@
         "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
     },
     "idle_inhibitor": {
-        "format": " {icon} ",
+        "format": "{icon}",
         "format-icons": {
             "activated": "",
             "deactivated": ""
@@ -64,7 +75,8 @@
         "icon-size": 15
     },
     "clock": {
-        "format" : "{:%H:%M} ",
+        "format" : "{:%H:%M:%S}",
+        "interval": 1,
         "tooltip-format": "<big> {:%d/%m/%Y}</big>\n<tt><small>{calendar}</small></tt>",
     },
     "backlight": {
@@ -86,7 +98,7 @@
     "network#eth": {
         "interface": "enp*", // (Optional) To force the use of this interface
         "interval": 2,
-        "format": "  ",
+        "format": "",
         "format-disconnected": "",
         "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}",
         "tooltip-format-disconnected": ""
@@ -94,41 +106,45 @@
     "network#wifi": {
         "interface": "wlp*", // (Optional) To force the use of this interface
         "interval": 2,
-        "format-wifi": "  ",
-        "format-disconnected": "  ",
+        "format-wifi": "",
+        "format-disconnected": "",
         "tooltip-format-wifi": "<b>SSID:</b> {essid}\n<b>Signal:</b> {signalStrength}%\n<b>Freq:</b> {frequency}%\n\n<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}",
         "tooltip-format-disconnected": "",
-        "on-click": "foot -a nmtui nmtui"
+        "on-click": "foot -a nmtui bash -c 'sleep 0.1 && nmtui'"
     },
     "network#wg": {
         "interface": "wg*", // (Optional) To force the use of this interface
         "interval": 2,
-        "format": "  ",
-        "format-disconnected": "  ",
+        "format": "",
+        "format-disconnected": "",
         "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}\n\nLeft click to <b>activate</b>\nRight click to <b>deactivate</b>",
         "tooltip-format-disconnected": "",
         "on-click":"nmcli connection up 'Alpeax Cloud'",
         "on-click-right":"nmcli connection down 'Alpeax Cloud'"
     },
     "pulseaudio": {
-        "format": " {icon} {format_source} ",
+        "format": "{icon} {format_source}",
         "tooltip-format": "Volume: {volume}%\nDevice: {desc}",
-        "format-bluetooth": " {icon}  ",
-        "format-bluetooth-muted": "   ",
-        "format-muted": "  ",
+        "format-bluetooth": "{icon} ",
+        "format-bluetooth-muted": " ",
+        "format-muted": "",
         "format-source": "",
         "scroll-step": 5,
-        //"format-source-muted": "",
+        "format-source-muted": "",
         "format-icons": {
-            "headphone": [" "," "," "," "," "],
-            "hands-free": [" "," "," "," "," "],
-            "headset": [" "," "," "," "," "],
-            "default": ["","","","",""]
+            "headphone": [" "," "," "," "," "],
+            "speaker": [" "," "," "," "," "],
+            "hands-free": [" "," "," "," "," "],
+            "headset": [" "," "," "," "," "],
+            "portable": [" "," "," "," "," "],
+            "phone": [" "," "," "," "," "],
+            "default": ["","","","",""],
+            "alsa_output.usb-0b0e_Jabra_Link_370_305075D4E88C015700-00.analog-stereo": [" "," "," "," "," "],
         },
         "on-click": "pavucontrol"
     },
     "custom/powerctl": {
-        "format": "  ",
+        "format": "",
         "on-click": "~/.config/scripts/wlogout.sh",
         "tooltip": false
     }

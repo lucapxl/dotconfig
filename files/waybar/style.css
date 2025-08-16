@@ -1,4 +1,5 @@
-@define-color waybar-background #2c3e50; 
+/* @define-color waybar-background #2c3e50;  */
+@define-color waybar-background #000000;
 @define-color waybar-foreground #ecf0f1;
 @define-color waybar-black #2c3e50;
 @define-color waybar-blue #2980b9;
@@ -14,13 +15,13 @@
 
 @keyframes blink {
     to {
-        background: @waybar-background;
+        background: @waybar-black;
         color: @waybar-red;
     }
 }
 
 * {
-    font-family:  'Adwaita Sans', 'Font Awesome 6 Free', 'Fira Sans Book', Arial, sans-serif;
+    font-family: 'Adwaita Sans', 'Font Awesome 6 Free', 'Fira Sans Book', Arial, sans-serif;
     font-size: 16px;
     border: none;
     border-radius: 5px;
@@ -30,7 +31,7 @@
     text-shadow: none;
 }
 tooltip {
-    background: @waybar-background;
+    background: @waybar-black;
     color: @waybar-foreground;
 }
 tooltip label {
@@ -61,12 +62,12 @@ window#waybar.hidden {
 }
 
 #workspaces button:hover {
-    background: @waybar-brightblack;
-    color: @waybar-background;
+    background: @waybar-black;
+    color: @waybar-foreground;
 }
 
 #workspaces button.focused {
-    background: @waybar-blue;
+    background: @waybar-black;
     color: @waybar-foreground;
 }
 
@@ -91,11 +92,17 @@ window#waybar.hidden {
 #language,
 #idle_inhibitor,
 #tray {
-    padding: 0 0.2em;
+    padding: 0 10px;
     color: @waybar-foreground;
-    background: transparent;
-    margin: 2px 2px;
+    /* background: @waybar-black; */
+    margin: 4px 2px;
 }
+
+#clock {
+    font-size: 20px;
+    font-family: 'Noto Sans Mono';
+}
+
 
 #custom-powerctl {
     margin-right: 10px;
@@ -115,7 +122,7 @@ window#waybar.hidden {
 
 #idle_inhibitor.deactivated {
     background: transparent;
-    color: @waybar-brightblack;
+    color: @waybar-black;
 }
 
 #battery.critical:not(.charging) {
@@ -141,14 +148,17 @@ label:focus {
 }
 
 #network.wg.disconnected {
-    background: @waybar-background;
-    color: @waybar-brightblack;
+    color: @waybar-black;
+    background: transparent;
 }
 
-#pulseaudio.bluetooth {
+/* #pulseaudio.bluetooth {
     background: @waybar-blue;
-}
+} */
 
+#tray {
+    background: @waybar-black;
+}
 
 #tray > .passive {
     -gtk-icon-effect: dim;
@@ -157,4 +167,8 @@ label:focus {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background: @waybar-red;
+}
+
+#custom-powerctl {
+    margin-right: 0;
 }
