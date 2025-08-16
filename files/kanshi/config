@@ -1,0 +1,35 @@
+# to get outputs: swaymsg -t get_outputs
+
+# Home Screen
+profile Home {
+	output eDP-1 disable
+	output "Lenovo Group Limited R45w-30 UPP03XBK" position 0,0
+	exec $HOME/.config/scripts/kanshi.sh notify "Home Screen"
+}
+
+# Office Docking Station
+profile OfficeDocking {
+	output eDP-1 disable
+	output "Lenovo Group Limited E24-20 VY097389" position 0,0
+	output "Samsung Electric Company C24F390 HTQH400293" position 1920,0
+	exec $HOME/.config/scripts/kanshi.sh notify "Office Docking"
+}
+
+# Screen in qemu
+profile Virtual {
+	output Virtual-1 mode 1440x900 position 0,0
+	exec $HOME/.config/scripts/kanshi.sh notify "Virtual monitor"
+}
+
+
+# ThinkPad Monitor
+profile ThinkPad {
+	output "Chimei Innolux Corporation 0x14D4 0x00000000" enable
+	exec $HOME/.config/scripts/kanshi.sh notify "ThinkPad E14"
+}
+
+# ThinkPad Monitor
+profile HPe {
+	output "Chimei Innolux Corporation 0x13A9 Unknown" enable
+	exec $HOME/.config/scripts/kanshi.sh notify "HPe g0tth4rd"
+}
