@@ -34,7 +34,7 @@ tooltip {
     color: @waybar-foreground;
 }
 tooltip label {
-    font-size: 14px;
+    font-size: 16px;
     color: @waybar-foreground;
 }
 
@@ -78,6 +78,13 @@ window#waybar.hidden {
 #scratchpad  {
     background: @waybar-yellow;
     color: @waybar-black;
+    padding: 0 0.6em;
+    margin: 3px 0px;
+}
+
+#scratchpad.empty {
+    background: @waybar-black;
+    color: @waybar-background;
     padding: 0 0.6em;
     margin: 3px 0px;
 }

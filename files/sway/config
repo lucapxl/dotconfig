@@ -15,14 +15,14 @@ set $term foot
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 
-set $menu rofi -terminal '$term' -show combi -combi-modes drun#run -modes combi
+set $menu rofi -terminal '$term' -show combi -combi-modes drun#run -modes combi -theme sidebar
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/.config/bg.jpg fill
 
-default_border pixel 0
+default_border pixel 2
 #for_window [class=".*"] border pixel 3
 
 gaps inner 5

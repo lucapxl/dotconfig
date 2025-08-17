@@ -4,7 +4,7 @@
 {
     "position": "top",
     "height": 35, 
-    "spacing": 5,
+    "spacing": 0,
     "modules-left": [
         "sway/workspaces",
         "sway/scratchpad",
@@ -51,10 +51,12 @@
     },
     "sway/scratchpad": {
         "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
+        "show-empty": true,
+        "format-icons": ["", ""],
         "tooltip": true,
-        "tooltip-format": "{app}: {title}"
+        "tooltip-format": "<b>{app}:</b> {title}",
+        "on-click": "swaymsg scratchpad show",
+        "on-click-right": "swaymsg move scratchpad"
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -97,7 +99,7 @@
     },
     "network#eth": {
         "interface": "enp*", // (Optional) To force the use of this interface
-        "interval": 2,
+        "interval": 5,
         "format": "",
         "format-disconnected": "",
         "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}",
@@ -105,20 +107,20 @@
     },
     "network#wifi": {
         "interface": "wlp*", // (Optional) To force the use of this interface
-        "interval": 2,
+        "interval": 5,
         "format-wifi": "",
         "format-disconnected": "",
-        "tooltip-format-wifi": "<b>SSID:</b> {essid}\n<b>Signal:</b> {signalStrength}%\n<b>Freq:</b> {frequency}%\n\n<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}",
-        "tooltip-format-disconnected": "",
+        "tooltip-format-wifi": "<b>SSID:</b> {essid}\n<b>Signal:</b> {signalStrength}%\n<b>Freq:</b> {frequency}\n\n<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}",
+        "tooltip-format-disconnected": "click to open <b>nmtui</b>",
         "on-click": "foot -a nmtui bash -c 'sleep 0.1 && nmtui'"
     },
     "network#wg": {
         "interface": "wg*", // (Optional) To force the use of this interface
-        "interval": 2,
+        "interval": 5,
         "format": "",
         "format-disconnected": "",
-        "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}\n\nLeft click to <b>activate</b>\nRight click to <b>deactivate</b>",
-        "tooltip-format-disconnected": "",
+        "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}\n\nLeft click to <b>connect</b>\nRight click to <b>disconnect</b>",
+        "tooltip-format-disconnected": "<b>Disconnected</b> \n\nLeft click to <b>connect</b>\nRight click to <b>disconnect</b>",
         "on-click":"nmcli connection up 'Alpeax Cloud'",
         "on-click-right":"nmcli connection down 'Alpeax Cloud'"
     },
@@ -133,13 +135,9 @@
         "format-source-muted": "",
         "format-icons": {
             "headphone": [" "," "," "," "," "],
-            "speaker": [" "," "," "," "," "],
             "hands-free": [" "," "," "," "," "],
             "headset": [" "," "," "," "," "],
-            "portable": [" "," "," "," "," "],
-            "phone": [" "," "," "," "," "],
-            "default": ["","","","",""],
-            "alsa_output.usb-0b0e_Jabra_Link_370_305075D4E88C015700-00.analog-stereo": [" "," "," "," "," "],
+            "default": ["","","","",""]
         },
         "on-click": "pavucontrol"
     },

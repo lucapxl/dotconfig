@@ -2,18 +2,18 @@
     monitor = 0
     follow = mouse               # mouse, keyboard, none
     
-    width = 300                 # with or min-max width (0, 300)
-    height = (0,300)                # The maximum height of a single notification, excluding the frame.
+    width = 350                 # with or min-max width (0, 300)
+    height = (0,350)                # The maximum height of a single notification, excluding the frame.
     origin = top-right          # top-right, top-center, top-left, bottom-right, ...
     offset = (10, 10)                # Offset from the origin - format: (horizontal, vertical)
     
     notification_limit = 0      # Maximum number of notification (0 means no limit)
     
     progress_bar = true         # to pass value: -h int:value:35
-    progress_bar_height = 16    # Set the progress bar height. This includes the frame, so make sure
+    progress_bar_height = 18    # Set the progress bar height. This includes the frame, so make sure
     progress_bar_frame_width = 0    # Set the frame width of the progress bar
-    progress_bar_min_width = 300    # Set the minimum width for the progress bar 
-    progress_bar_max_width = 300    # Set the maximum width for the progress bar
+    progress_bar_min_width = 350    # Set the minimum width for the progress bar 
+    progress_bar_max_width = 350    # Set the maximum width for the progress bar
     progress_bar_corner_radius = 5
     indicate_hidden = true       # Show how many messages are currently hidden
 
@@ -52,7 +52,7 @@
     ignore_newline = false         # Ignore newlines '\n' in notifications.
     stack_duplicates = true     # Stack together notifications with the same content
     hide_duplicate_count = false    # Hide the count of stacked notifications with the same content
-    show_indicators = true       # Display indicators for URLs (U) and actions (A).
+    show_indicators = false       # Display indicators for URLs (U) and actions (A).
     
     icon_theme = Papirus-Dark       # Set icon theme (only used for recursive icon lookup)
     enable_recursive_icon_lookup = true     # Recursive icon lookup
