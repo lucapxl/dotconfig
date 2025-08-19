@@ -121,13 +121,10 @@ window#waybar.hidden {
 }
 
 #idle_inhibitor.activated {
-    background: @waybar-blue;
-    color: @waybar-foreground;
-
+    color: @waybar-red;
 }
 
 #idle_inhibitor.deactivated {
-    background: transparent;
     color: @waybar-black;
 }
 
@@ -150,12 +147,11 @@ label:focus {
 }
 
 #network.wg {
-    background: @waybar-blue;
+    color: @waybar-red;
 }
 
 #network.wg.disconnected {
     color: @waybar-black;
-    background: transparent;
 }
 
 /* #pulseaudio.bluetooth {
