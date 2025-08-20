@@ -91,6 +91,8 @@
             "critical": 15
         },
         "format": "{icon}",
+        "format-warning": "{capacity}% {icon}",
+        "format-critical": "{capacity}% {icon}",
         "format-charging": "{icon} ",
         "format-plugged": " ",
         "tooltip-format": ": {capacity}%\n{timeTo}",
@@ -103,7 +105,8 @@
         "format": "",
         "format-disconnected": "",
         "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}",
-        "tooltip-format-disconnected": ""
+        "tooltip-format-disconnected": "",
+        "on-click": "foot -a nmtui bash -c 'sleep 0.1 && nmtui'"
     },
     "network#wifi": {
         "interface": "wlp*", // (Optional) To force the use of this interface

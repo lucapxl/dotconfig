@@ -121,7 +121,7 @@ window#waybar.hidden {
 }
 
 #idle_inhibitor.activated {
-    color: @waybar-red;
+    color: @waybar-cyan;
 }
 
 #idle_inhibitor.deactivated {
@@ -138,8 +138,12 @@ window#waybar.hidden {
 }
 
 #battery.warning:not(.charging) {
-    background: @waybar-yellow;
-    color: @waybar-black;
+    color: @waybar-yellow;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 label:focus {
@@ -147,7 +151,7 @@ label:focus {
 }
 
 #network.wg {
-    color: @waybar-red;
+    color: @waybar-cyan;
 }
 
 #network.wg.disconnected {
