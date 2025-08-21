@@ -1,32 +1,38 @@
 ignore-empty-password
-
-color=E0E0E0
-#indicator-idle-visible
-indicator-radius=200
-indicator-thickness=50
-
-key-hl-color=3498DB
-bs-hl-color=3498DB
-
-separator-color=3498DB
-
-line-color=3498DB
+hide-keyboard-layout
 line-uses-ring
 
-text-caps-lock-color=E0E0E0
+color=000000
+#indicator-idle-visible
+indicator-radius=75
+indicator-thickness=15
 
-inside-color=2C3E50
-ring-color=2C3E50
-text-color=E0E0E0
+# cyan
+key-hl-color=3498db
+bs-hl-color=3498db
+separator-color=3498db
+line-color=3498db
 
-inside-ver-color=2C3E50
-ring-ver-color=2C3E50
-text-ver-color=E0E0E0
+# bright white
+text-color=ecf0f1
+text-ver-color=ecf0f1
+text-clear-color=ecf0f1
 
-inside-clear-color=2C3E50
-ring-clear-color=2ECC71
-text-clear-color=E0E0E0
+# yellow
+text-caps-lock-color=f1c40f
 
-inside-wrong-color=2C3E50
-ring-wrong-color=E74C3C
-text-wrong-color=E74C3C
+# ring color
+inside-color=2c3e50
+ring-color=2c3e50
+inside-ver-color=2c3e50
+ring-ver-color=2c3e50
+inside-clear-color=2c3e50
+inside-wrong-color=2c3e50
+
+# color
+ring-wrong-color=e74c3c
+text-wrong-color=e74c3c
+
+# green
+ring-clear-color=2ecc71
+
