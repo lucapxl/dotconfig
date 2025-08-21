@@ -8,11 +8,9 @@ profile Home {
 }
 
 # Office Docking Station
-profile OfficeDocking {
-	output eDP-1 disable
-	output "Lenovo Group Limited E24-20 VY097389" position 0,0
-	output "Samsung Electric Company C24F390 HTQH400293" position 1920,0
-	exec $HOME/.config/scripts/kanshi.sh notify "Office Docking"
+profile VPDora {
+	output "Najing CEC Panda FPD Technology CO. ltd 0x0035 Unknown" position 0,0
+	exec $HOME/.config/scripts/kanshi.sh notify "VPDora"
 }
 
 # Screen in qemu
