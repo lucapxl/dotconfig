@@ -98,7 +98,7 @@ window#waybar.hidden {
 #language,
 #idle_inhibitor,
 #tray {
-    padding: 0 10px;
+    padding: 0 8px;
     color: @waybar-foreground;
     /* background: @waybar-black; */
     margin: 4px 2px;
