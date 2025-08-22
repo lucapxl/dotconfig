@@ -4,7 +4,7 @@ SCRIPT=$(realpath "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 FILES_DIR=$SCRIPTPATH/files/
 
-echo "applaying dotconfig files"
+echo "applying dotconfig files"
 
 rm -rf ~/.config/bg.jpg
 rm -rf ~/.config/foot
