@@ -21,7 +21,7 @@
         "network#eth",
         "network#wifi",
         "pulseaudio",
-        "battery", 
+        "battery",
         "clock"
         // "custom/powerctl"
     ],

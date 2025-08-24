@@ -18,5 +18,7 @@ rm -rf ~/.config/swaylock
 rm -rf ~/.config/waybar
 rm -rf ~/.config/wlogout
 rm -rf ~/.config/rofi
+rm -rf ~/.config/sfwbar
+rm -rf ~/.config/labwc
 
 cp -R $SCRIPTPATH/files/* ~/.config/

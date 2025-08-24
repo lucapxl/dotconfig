@@ -1,0 +1,55 @@
+
+$HOME/.config/scripts/labwc_session.sh &
+
+LT="$lock_timeout" ST="$screen_timeout" LT=${LT:-300} ST=${ST:-60} && \
+    swayidle -w \
+        timeout $LT 'swaylock -f -c 000000' \
+        timeout $((LT + ST)) 'swaymsg "output * power off"' \
+                      resume 'swaymsg "output * power on"'  \
+        timeout $ST 'pgrep -xu "$USER" swaylock >/dev/null && swaymsg "output * power off"' \
+             resume 'pgrep -xu "$USER" swaylock >/dev/null && swaymsg "output * power on"'  \
+        before-sleep 'swaylock -f -c 000000' \
+        lock 'swaylock -f -c 000000' \
+        unlock 'pkill -xu "$USER" -SIGUSR1 swaylock' &
+
+/usr/libexec/lxqt-policykit-agent &
+exec /usr/bin/xdg-user-dirs-update &
+
+# Set background color.
+swaybg -i ~/.config/bg.jpg -m fill &
+
+gnome-keyring-daemon --start &
+export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+
+# Launch a panel such as yambar or waybar.
+if [ $(pgrep -x -c sfwbar) -eq 0 ]; then
+    echo "running sfwbar"
+    sfwbar &
+fi
+
+if [ $(pgrep -x -c dunst) -eq 0 ]; then
+    echo "running dunst"
+    dunst &
+fi
+
+$HOME/.config/scripts/kanshi.sh &
+
+if [ $(pgrep -x -c gammastep) -eq 0 ]; then
+    echo "running gammastep"
+    gammastep &
+fi
+
+if [ $(pgrep -x -c nextcloud) -eq 0 ]; then
+    echo "running nextcloud"
+    nextcloud &
+fi
+
+if [ $(pgrep -x -c keepassxc) -eq 0 ]; then
+    echo "running KeePass XC"
+    flatpak run org.keepassxc.KeePassXC &
+    keepassxc &
+fi
+
+
+
+
