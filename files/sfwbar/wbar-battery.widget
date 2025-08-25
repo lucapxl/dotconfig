@@ -29,9 +29,10 @@ layout {
   label {
     style = "battery"
     interval = 60000
-    value = Str(XBatteryLevel) + '% ' +
-            if(XBatteryDischarging,
+    value = if(XBatteryDischarging,
               Lookup(XBatteryLevel,80,"",60,"",40,"",20,"",""),
               "")
+    tooltip = Str(XBatteryLevel,0) + "%"
+
   }
 }

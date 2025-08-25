@@ -1,1 +1,5 @@
-XKB_DEFAULT_LAYOUT=us
+XKB_DEFAULT_LAYOUT=ch,us
+XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle,grp_led:scroll
+
+# little trick to get the current layout is to use the scroll lock LED. in fedora is input 4
+# if [ "$(cat /sys/class/leds/input4\:\:scrolllock/brightness)" == "1" ]; then echo 'US';else echo 'CH'; fi
