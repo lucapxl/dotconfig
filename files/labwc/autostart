@@ -32,7 +32,10 @@ if [ $(pgrep -x -c dunst) -eq 0 ]; then
     dunst &
 fi
 
-$HOME/.config/scripts/kanshi.sh &
+if [ $(pgrep -x -c kanshi) -eq 0 ]; then
+    echo "running kanshi"
+    kanshi &
+fi
 
 if [ $(pgrep -x -c gammastep) -eq 0 ]; then
     echo "running gammastep"
