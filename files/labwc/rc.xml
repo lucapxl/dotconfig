@@ -284,13 +284,13 @@
       <action name="ShowMenu" menu="client-menu" atCursor="no" />
     </keybind>
     <keybind key="XF86_AudioLowerVolume">
-      <action name="Execute" command="amixer sset Master 5%-" />
+      <action name="Execute" command="~/.config/scripts/volume.sh --limit 100 --decrease 5" />
     </keybind>
     <keybind key="XF86_AudioRaiseVolume">
-      <action name="Execute" command="amixer sset Master 5%+" />
+      <action name="Execute" command="~/.config/scripts/volume.sh --limit 100 --increase 5" />
     </keybind>
     <keybind key="XF86_AudioMute">
-      <action name="Execute" command="amixer sset Master toggle" />
+      <action name="Execute" command="~/.config/scripts/volume.sh --toggle-mute" />
     </keybind>
     <keybind key="XF86_MonBrightnessUp">
       <action name="Execute" command="~/.config/scripts/brightness.sh 5%+" />

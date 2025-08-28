@@ -49,12 +49,19 @@ while true; do
         -d|--decrease)
             CHANGE=$((-${2:-$DEFAULT_STEP}))
             shift;;
+        --toggle-mute)
+            TOGGLEMUTE=1
+            shift;;
         *)
             break
             ;;
     esac
     shift
 done
+
+if [ "$TOGGLEMUTE" -eq 1 ]; then
+    pactl set-sink-mute "$SINK" toggle
+fi
 
 if [ "$CHANGE" -ne 0 ]; then
     VOLUME=$(get_sink_volume "$SINK")
