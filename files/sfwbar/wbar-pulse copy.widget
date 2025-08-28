@@ -1,0 +1,26 @@
+module("pulsectl")
+
+Set PulseIcon = Map(VolumeInfo("sink-form"),
+            "headphone", "",
+            "hands-free", "",
+            "headset", "",
+            "phone", "",
+            "portable", "",
+            "car", "",
+            Lookup(Volume("sink-volume"),66,"",15,"",""))
+
+.config/sfwbar/wbar-pulse.widget
+
+            
+
+layout {
+  label {
+    style = If(Ident(Volume),If(Volume("sink-mute"),"pulseaudio_muted","pulseaudio"),"hidden")
+    trigger = "volume"
+    # value = If(Volume("sink-mute"),"", Str(Volume("sink-volume")) + "% " + $PulseIcon) 
+    value = If(Volume("sink-mute"),"", Str(Volume("sink-volume")) + "% " + $PulseIcon)
+    tooltip = "Volume: " + If(Volume("sink-mute"),"Muted", Str(Volume("sink-volume")) + "%") 
+    action[1] = Exec "pavucontrol"
+  }
+}
+

@@ -1,16 +1,11 @@
 
 $HOME/.config/scripts/labwc_session.sh &
 
-LT="$lock_timeout" ST="$screen_timeout" LT=${LT:-300} ST=${ST:-60} && \
-    swayidle -w \
-        timeout $LT 'swaylock -f -c 000000' \
-        timeout $((LT + ST)) 'swaymsg "output * power off"' \
-                      resume 'swaymsg "output * power on"'  \
-        timeout $ST 'pgrep -xu "$USER" swaylock >/dev/null && swaymsg "output * power off"' \
-             resume 'pgrep -xu "$USER" swaylock >/dev/null && swaymsg "output * power on"'  \
-        before-sleep 'swaylock -f -c 000000' \
-        lock 'swaylock -f -c 000000' \
-        unlock 'pkill -xu "$USER" -SIGUSR1 swaylock' &
+swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'wlopm --off \*' \
+    resume 'wlopm --on \*' \
+    before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &
 
 /usr/libexec/lxqt-policykit-agent &
 exec /usr/bin/xdg-user-dirs-update &

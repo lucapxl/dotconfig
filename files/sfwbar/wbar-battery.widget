@@ -27,11 +27,11 @@ set XBatteryDischarging = If(!Ident(BSDCtl),
 
 layout {
   label {
-    style = "battery"
+    style = if(XBatteryDischarging,"battery_discharging","battery_charging")
     interval = 60000
     value = if(XBatteryDischarging,
               Lookup(XBatteryLevel,80,"",60,"",40,"",20,"",""),
-              "")
+              Lookup(XBatteryLevel,80," ",60," ",40," ",20," "," "))
     tooltip = Str(XBatteryLevel,0) + "%"
 
   }

@@ -1,22 +1,19 @@
 module("pulsectl")
 
-Set PulseIcon = Map(VolumeInfo("sink-form"),
-            "headphone", "",
-            "hands-free", "",
-            "headset", "",
-            "phone", "",
-            "portable", "",
-            "car", "",
-              Lookup(Volume("sink-volume"),66,"",33,"",""))
-
 layout {
   label {
     style = If(Ident(Volume),If(Volume("sink-mute"),"pulseaudio_muted","pulseaudio"),"hidden")
     trigger = "volume"
-    value = If(Volume("sink-mute"),"", Str(Volume("sink-volume")) + "% ") +
-    $PulseIcon + " " + Str(Volume("source-volume")) + "% "
-    action[1] = Exec "pavucontrol"
-    action[4] = Exec "~/.config/scripts/volume.sh --limit 100 --decrease 5"
-    action[5] = Exec "~/.config/scripts/volume.sh --limit 100 --increase 5"
+    value = If(Volume("sink-mute"),"", Map(VolumeInfo("sink-form"),
+                                        "headphone", "",
+                                        "hands-free", "",
+                                        "headset", "",
+                                        "phone", "",
+                                        "portable", "",
+                                        "car", "",
+                                        Lookup(Volume("sink-volume"),66,"",15,"","")))
+    tooltip = "Volume: " + If(Volume("sink-mute"),"Muted", Str(Volume("sink-volume")) + "%") 
+    action = Exec "pavucontrol"
   }
 }
+

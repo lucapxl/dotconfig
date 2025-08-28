@@ -1,6 +1,6 @@
 Module("network")
 
-function("SetNetwork") {
+function("ToggleNet") {
   [UserState] UserState "off"
   [UserState] SetValue
     If(NetInfo("ip")="",

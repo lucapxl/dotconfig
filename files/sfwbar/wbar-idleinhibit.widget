@@ -5,10 +5,8 @@ layout {
     style = If(!Ident(IdleInhibitState),"hidden",
         If(IdleInhibitState()="on",
           "idle_inhibitor_activated",
-          "idle_inhibitor"))
-    value = If(IdleInhibitState()="on",
-        "",
-        "")
+          "idle_inhibitor_deactivated"))
+    value = ""
     tooltip = If(IdleInhibitState()="on",
         "activated",
         "deactivated")
