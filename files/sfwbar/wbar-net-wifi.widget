@@ -1,21 +1,13 @@
 Module("network")
 
-function("ToggleNet") {
-  [UserState] UserState "off"
-  [UserState] SetValue
-    If(NetInfo("ip")="",
-      "Disconnected ⚠",
-      NetInfo("interface") + ": " + NetInfo("ip") + "/" + NetInfo("cidr")
-    )
-  [!UserState] UserState "on"
-  [!UserState] SetValue
-    If(NetInfo("ip")="", "Disconnected ⚠",
-      If(NetInfo("Essid")="",
-        NetInfo("ip") + ": " + NetInfo("cidr") + " ",
-        NetInfo("Essid") + " (" + Str(NetStat("signal")) + "%) "
-      )
-    )
+scanner {
+  Exec("/home/pixel/.config/scripts/sfwbar-wifi-helper.sh signal") {
+    NmcliWifiSignal = RegEx("([0-9]*)")
+  }
 }
+
+Set WifiSignal = NmcliWifiSignal
+
 
 layout {
   label {
@@ -26,8 +18,8 @@ layout {
               ),
               "hidden"
             )
-    trigger = "network"
-    action = Function "ToggleNet"
-    action[0] = Function "ToggleNet"
+    interval = 5000
+    value = Str(NmcliWifiSignal) + "% "
+    action[1] = "foot -a nmtui --title nmtui bash -c 'sleep 0.1 && nmtui'"
   }
 }
