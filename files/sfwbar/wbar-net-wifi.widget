@@ -2,12 +2,14 @@ Module("network")
 
 scanner {
   Exec("/home/pixel/.config/scripts/sfwbar-wifi-helper.sh signal") {
-    NmcliWifiSignal = RegEx("([0-9]*)")
+    # SSID,CHAN,RATE,SIGNAL,DEVICE
+    WifiSSID = RegEx("^(.*):.*:.*:.*:.*$")
+    WifiCHAN = RegEx("^.*:(.*):.*:.*:.*$")
+    WifiRATE = RegEx("^.*:.*:(.*):.*:.*$")
+    WifiSIGNAL = RegEx("^.*:.*:.*:(.[0-9]):.*$")
+    WifiDEVICE = RegEx("^.*:.*:.*:.*:(.*)$")
   }
 }
-
-Set WifiSignal = NmcliWifiSignal
-
 
 layout {
   label {
@@ -19,7 +21,7 @@ layout {
               "hidden"
             )
     interval = 5000
-    value = Str(NmcliWifiSignal) + "% "
+    value = Str(WifiSIGNAL) + "% "
     action[1] = "foot -a nmtui --title nmtui bash -c 'sleep 0.1 && nmtui'"
   }
 }

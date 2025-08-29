@@ -1,7 +1,8 @@
 #!/usr/bin/sh
 case "$1" in
         signal)
-                nmcli dev wifi list | awk '/\*/{if (NR!=1) {print $9}}'
+                signal=$(nmcli -t -f IN-USE,SSID,CHAN,RATE,SIGNAL,DEVICE dev wifi list  |grep "*")
+                echo "${signal:2}"
                 ;;
         *)
                 echo ciao
