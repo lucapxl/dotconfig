@@ -1,0 +1,17 @@
+Module("network")
+
+scanner {
+  Exec("/home/pixel/.config/scripts/sfwbar-keyboardlang-helper.sh status") {
+    KeyboardLang = RegEx("^(.*)$")
+  }
+}
+
+
+layout {
+  label {
+    style = "keyboardlang"
+    interval = 500
+    value = "<i>" + $KeyboardLang + "</i>"
+    tooltip = "Press Alt+Shift to switch between keyboard layouts"
+  }
+}

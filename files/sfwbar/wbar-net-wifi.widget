@@ -11,17 +11,13 @@ scanner {
   }
 }
 
+
 layout {
   label {
-    style = If(Ident(NetInfo),
-              If(NetInfo("ip")="",
-                "network_disconnected",
-                "network"
-              ),
-              "hidden"
-            )
+    style = If(WifiSIGNAL,"network","network_disconnected")
     interval = 5000
-    value = Str(WifiSIGNAL) + "% "
+    value = If(WifiSIGNAL,"","")
+    tooltip = "<b>SSID:</b> "+$WifiSSID+"\n<b>IP:</b> "+$WifiIP+"\n<b>Signal:</b> "+Str(WifiSIGNAL)+"%\n<b>Chan:</b> "+Str(WifiCHAN)+"\n<b>IF:</b> "+$WifiDEVICE+"\n<b>Rate:</b> "+$WifiRATE
     action[1] = "foot -a nmtui --title nmtui bash -c 'sleep 0.1 && nmtui'"
   }
 }

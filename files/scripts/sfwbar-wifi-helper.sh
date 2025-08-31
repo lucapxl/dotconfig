@@ -5,6 +5,6 @@ case "$1" in
                 echo "${signal:2}"
                 ;;
         *)
-                echo ciao
+                echo "use 'signal' as argument"
                 ;;
 esac

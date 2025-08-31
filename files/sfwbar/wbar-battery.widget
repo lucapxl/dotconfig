@@ -25,13 +25,19 @@ set XBatteryDischarging = If(!Ident(BSDCtl),
       BSDCtl("hw.acpi.battery.state")="1"
     )
 
+set ShowBatteryLevel = if(XBatteryLevel<20,Str(XBatteryLevel)+"% ","")
+
 layout {
   label {
-    style = if(XBatteryDischarging,"battery_discharging","battery_charging")
-    interval = 60000
+    style = if(XBatteryDischarging,
+                if(XBatteryLevel<21,
+                  if(XBatteryLevel<11,"battery_discharging_critical","battery_discharging_warning"),
+                  "battery_discharging"),
+                "battery_charging")
+    interval = 1000
     value = if(XBatteryDischarging,
-              Lookup(XBatteryLevel,80,"",60,"",40,"",20,"",""),
-              Lookup(XBatteryLevel,80," ",60," ",40," ",20," "," "))
+              $ShowBatteryLevel + Lookup(XBatteryLevel,80,"",60,"",40,"",20,"",""),
+              $ShowBatteryLevel + Lookup(XBatteryLevel,80," ",60," ",40," ",20," "," "))
     tooltip = Str(XBatteryLevel,0) + "%"
 
   }

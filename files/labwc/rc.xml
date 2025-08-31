@@ -253,9 +253,9 @@
     -->
     <keyboard>
         <!--
-            # Numlock is not set by default
-            <numlock>on|off</numlock>
+            # Numlock is set by default
         -->
+        <numlock>on</numlock>
         <layoutScope>global</layoutScope>
         <repeatRate>25</repeatRate>
         <repeatDelay>600</repeatDelay>
@@ -271,15 +271,18 @@
         <keybind key="W-a">
             <action name="ToggleMaximize" />
         </keybind>
-        <keybind key="W-Up">
+        <!-- <keybind key="W-Up">
             <action name="SnapToEdge" direction="up" />
-        </keybind>
+        </keybind> 
         <keybind key="W-Down">
             <action name="SnapToEdge" direction="down" />
-        </keybind>
+        </keybind> 
         <keybind key="A-Space">
             <action name="ShowMenu" menu="client-menu" atCursor="no" />
         </keybind>
+        -->
+
+        
         <keybind key="XF86_AudioLowerVolume">
             <action name="Execute" command="~/.config/scripts/volume.sh --limit 100 --decrease 5" />
         </keybind>
