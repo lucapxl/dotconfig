@@ -5,13 +5,14 @@ layout {
     style = If(Ident(Volume),If(Volume("sink-mute"),"pulseaudio_muted","pulseaudio"),"hidden")
     trigger = "volume"
     value = If(Volume("sink-mute"),"", Map(VolumeInfo("sink-form"),
-                                        "headphone", "",
-                                        "hands-free", "",
-                                        "headset", "",
-                                        "phone", "",
-                                        "portable", "",
-                                        "car", "",
-                                        Lookup(Volume("sink-volume"),66,"",15,"","")))
+                                          "headphone", " ",
+                                          "hands-free", " ",
+                                          "headset", " ",
+                                          "phone", " ",
+                                          "portable", " ",
+                                          "car", " ",
+                                          "") 
+                                        + Lookup(Volume("sink-volume"),66,"",15,"","")) 
     tooltip = "Volume: " + If(Volume("sink-mute"),"Muted", Str(Volume("sink-volume")) + "%") 
     action = Exec "pavucontrol"
   }
