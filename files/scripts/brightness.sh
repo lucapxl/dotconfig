@@ -17,4 +17,7 @@ elif [ $brightness -le 70 ]; then
     brightness_icon="display-brightness-medium-symbolic"
 fi
 
+if [ $(pgrep -x -c dunst) -eq 0 ]; then
+    dunst &
+fi
 notify-send -a $application_name -h string:x-canonical-private-synchronous:brightness "$brightness%" -h int:value:"$brightness" -t 1500 --icon $brightness_icon -u low

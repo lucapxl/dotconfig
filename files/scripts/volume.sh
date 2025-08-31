@@ -94,6 +94,9 @@ case $(pactl get-sink-mute "$SINK") in
         ;;
 esac
 
+if [ $(pgrep -x -c dunst) -eq 0 ]; then
+    dunst &
+fi
 notify-send \
     --app-name Volume \
     --expire-time 1500 \

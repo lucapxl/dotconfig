@@ -16,4 +16,7 @@ case "$1" in
                 ;;
 esac
 
+if [ $(pgrep -x -c dunst) -eq 0 ]; then
+    dunst &
+fi
 notify-send -a $application_name "$SSNAME" -i "$SSDIR/$SSNAME" -t 1500 -u "low"

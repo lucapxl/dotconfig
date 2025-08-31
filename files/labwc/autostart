@@ -45,7 +45,6 @@ fi
 if [ $(pgrep -x -c keepassxc) -eq 0 ]; then
     echo "running KeePass XC"
     flatpak run org.keepassxc.KeePassXC &
-    keepassxc &
 fi
 
 

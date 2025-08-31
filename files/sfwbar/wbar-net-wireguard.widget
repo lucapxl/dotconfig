@@ -17,8 +17,10 @@ layout {
     interval = 1000
     value = ""
     tooltip = If(WireguardConnected,
-                "<b>IP:</b> "+$WireguardIP+"\n<b>Interface:</b> "+$WireguardInterface+"\n<b>Connectin Name:</b> "+$WireguardName+"",
-                "Click to connect")
+                "<b>IP:</b> " + $WireguardIP + "\n" + 
+                "<b>Interface:</b> " + $WireguardInterface + "\n" + 
+                "<b>Connection Name:</b> " + $WireguardName + "",
+              "Click to connect")
     action[LeftClick] = "/home/pixel/.config/scripts/sfwbar-network-helper.sh " + If(WireguardConnected,"down","up") +" 'Alpeax Cloud'"
   }
 }

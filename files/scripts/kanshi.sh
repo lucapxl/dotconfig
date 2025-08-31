@@ -12,10 +12,13 @@ start_kanshi() {
 }
 
 notify() {
+    if [ $(pgrep -x -c dunst) -eq 0 ]; then
+        dunst &
+    fi
     ICON="video-display-symbolic"
     notify-send \
         --app-name kanshi \
-        --expire-time 1500 \
+        --expire-time 3000 \
         --hint string:x-canonical-private-synchronous:kanshi \
         --icon "$ICON" \
         --transient \

@@ -1,44 +1,30 @@
 scanner {
-  file("/sys/class/power_supply/BAT*/charge_full") {
-    BatteryTotal = Grab(Sum)
-  }
-  file("/sys/class/power_supply/BAT*/charge_now") {
-    BatteryChargeNow = Grab(Sum)
-  }
-  file("/sys/class/power_supply/BAT*/energy_now") {
-    BatteryEnergyNow = Grab(Sum)
-  }
-  file("/sys/class/power_supply/BAT*/status") {
-    BatteryStatus = RegEx("^(.*)$")
+  Exec("/home/pixel/.config/scripts/sfwbar-battery-helper.sh main-battery") {
+    BatteryPercentage = RegEx("^.*percentage:.*?([0-9]*)\%$")
+    BatteryStatus = RegEx("^.*state:[[:blank:]]*(.*)$")
+    BatteryTimeToEmpty = RegEx("^.*time to empty:[[:blank:]]*(.*)$")
+    BatteryTimeToFull = RegEx("^.*time to full:[[:blank:]]*(.*)$")
   }
 }
 
-module("bsdctl")
-
-set BatteryLeft = If(BatteryChargeNow.count,BatteryChargeNow,BatteryEnergyNow)
-set XBatteryLevel = If(!Ident(BSDCtl),
-      BatteryLeft / BatteryTotal * 100,
-      BSDCtl("hw.acpi.battery.level.life")
-    )
-set XBatteryDischarging = If(!Ident(BSDCtl),
-      $BatteryStatus="Discharging",
-      BSDCtl("hw.acpi.battery.state")="1"
-    )
-
-set ShowBatteryLevel = if(XBatteryLevel<20,Str(XBatteryLevel)+"% ","")
+set ShowBatteryLevel = if(BatteryPercentage<20,Str(BatteryPercentage)+"% ","")
 
 layout {
   label {
-    style = if(XBatteryDischarging,
-                if(XBatteryLevel<21,
-                  if(XBatteryLevel<11,"battery_discharging_critical","battery_discharging_warning"),
+    style = if($BatteryStatus="discharging",
+                if(BatteryPercentage<21,
+                  if(BatteryPercentage<11,"battery_discharging_critical","battery_discharging_warning"),
                   "battery_discharging"),
                 "battery_charging")
     interval = 1000
-    value = if(XBatteryDischarging,
-              $ShowBatteryLevel + Lookup(XBatteryLevel,80,"",60,"",40,"",20,"",""),
-              $ShowBatteryLevel + Lookup(XBatteryLevel,80," ",60," ",40," ",20," "," "))
-    tooltip = Str(XBatteryLevel,0) + "%"
-
+    value = if($BatteryStatus="discharging",
+              $ShowBatteryLevel + Lookup(BatteryPercentage,80,"",60,"",40,"",20,"",""),
+              $ShowBatteryLevel + Lookup(BatteryPercentage,80," ",60," ",40," ",20," "," "))
+    tooltip = "<b>Level:</b> " + $BatteryPercentage + "%\n" + 
+              "<b>Status:</b> " + $BatteryStatus + 
+              Map($BatteryStatus,
+                "discharging", "\n<b>Time to empty:</b> " + $BatteryTimeToEmpty,
+                "charging", "\n<b>Time to full:</b> " + $BatteryTimeToFull,
+                "") 
   }
 }
