@@ -19,5 +19,6 @@ rm -rf ~/.config/waybar
 rm -rf ~/.config/wlogout
 rm -rf ~/.config/sfwbar
 rm -rf ~/.config/labwc
+rm -rf ~/.themes
 
 cp -R $SCRIPTPATH/files/* ~/.config/

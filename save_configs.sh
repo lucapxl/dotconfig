@@ -23,3 +23,4 @@ cp -R ~/.config/wlogout $FILES_DIR
 cp -R ~/.config/kanshi $FILES_DIR
 cp -R ~/.config/sfwbar $FILES_DIR
 cp -R ~/.config/labwc $FILES_DIR
+cp -R ~/.themes $FILES_DIR

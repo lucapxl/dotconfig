@@ -21,7 +21,7 @@
         <policy>cascade</policy>
     </placement>
 
-    <!-- <font><theme> can be defined without an attribute to set all places -->
+    <!-- <font><theme> can be defined without an attribute to set all places 
     <theme>
         <name></name>
         <icon></icon>
@@ -35,40 +35,51 @@
         <dropShadows>no</dropShadows>
         <dropShadowsOnTiled>no</dropShadowsOnTiled>
         <font place="ActiveWindow">
-            <name>Adwaita Sans</name>
-            <size>10</size>
+            <name>Inter Display</name>
+            <size>11</size>
             <slant>normal</slant>
             <weight>normal</weight>
         </font>
         <font place="InactiveWindow">
-            <name>Adwaita Sans</name>
-            <size>10</size>
+            <name>Inter Display</name>
+            <size>11</size>
             <slant>normal</slant>
             <weight>normal</weight>
         </font>
         <font place="MenuHeader">
-            <name>Adwaita Sans</name>
-            <size>10</size>
+            <name>Inter Display</name>
+            <size>11</size>
             <slant>normal</slant>
             <weight>normal</weight>
         </font>
         <font place="MenuItem">
-            <name>Adwaita Sans</name>
-            <size>10</size>
+            <name>Inter Display</name>
+            <size>11</size>
             <slant>normal</slant>
             <weight>normal</weight>
         </font>
         <font place="OnScreenDisplay">
-            <name>Adwaita Sans</name>
-            <size>10</size>
+            <name>Inter Display</name>
+            <size>11</size>
             <slant>normal</slant>
             <weight>normal</weight>
         </font>
     </theme>
+    -->
+    <theme>
+        <name>Adwaita-Papirus-dark</name>
+        <titlebar layout=":menu,iconify,max,close" showTitle="yes" />
+        <cornerRadius>14</cornerRadius>
+        <dropShadows>yes</dropShadows>
+        <font place="ActiveWindow" name="Cantarell" size="12" weight="bold" />
+        <font place="InactiveWindow" name="Cantarell" size="12" weight="bold" />
+        <font place="MenuHeader" name="Cantarell" size="12" weight="bold" />
+        <font place="MenuItem" name="Cantarell" size="12" />
+        <font place="OnScreenDisplay" name="Cantarell" size="12" />
+    </theme>
 
-    <windowSwitcher show="yes" preview="yes" outlines="yes" allWorkspaces="yes">
+    <windowSwitcher show="yes" preview="yes" outlines="yes" allWorkspaces="no">
         <fields>
-            <field content="workspace" width="5%" />
             <field content="icon" width="5%" />
             <field content="desktop_entry_name" width="30%" />
             <field content="title" width="60%" />
