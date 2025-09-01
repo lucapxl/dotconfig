@@ -2,6 +2,8 @@ XKB_DEFAULT_LAYOUT=ch,us
 XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle,grp_led:scroll
 XCURSOR_SIZE=24
 XCURSOR_THEME=Adwaita
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+
 # $DESKTOP_SESSION not set, ignoring.
 # $I3SOCK not set, ignoring.
 # $XCURSOR_THEME not set, ignoring.
