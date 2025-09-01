@@ -1,5 +1,5 @@
 
-$HOME/.config/scripts/labwc_session.sh &
+# $HOME/.config/scripts/labwc_session.sh &
 
 swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
@@ -8,13 +8,13 @@ swayidle -w \
     before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &
 
 /usr/libexec/lxqt-policykit-agent &
-exec /usr/bin/xdg-user-dirs-update &
+#exec /usr/bin/xdg-user-dirs-update &
 
 # Set background color.
 swaybg -i ~/.config/bg.jpg -m fill &
 
-gnome-keyring-daemon --start &
-export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+# gnome-keyring-daemon --start &
+#export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 
 # Launch a panel such as yambar or waybar.
 if [ $(pgrep -x -c sfwbar) -eq 0 ]; then
