@@ -539,22 +539,14 @@
 
         <device category="Xiaomi Xiaomi Wireless Mouse 3 Colorful Mouse">
             <naturalScroll>no</naturalScroll>
-            <leftHanded></leftHanded>
-            <pointerSpeed></pointerSpeed>
-            <accelProfile></accelProfile>
-            <tap>yes</tap>
-            <tapButtonMap></tapButtonMap>
-            <tapAndDrag></tapAndDrag>
-            <dragLock></dragLock>
-            <threeFingerDrag></threeFingerDrag>
-            <middleEmulation></middleEmulation>
-            <disableWhileTyping></disableWhileTyping>
-            <clickMethod></clickMethod>
-            <scrollMethod></scrollMethod>
-            <sendEventsMode></sendEventsMode>
-            <calibrationMatrix></calibrationMatrix>
             <scrollFactor>1.0</scrollFactor>        
         </device>
+
+        <device category="Mi Mouse3C Mouse">
+            <naturalScroll>no</naturalScroll>
+            <scrollFactor>1.0</scrollFactor>        
+        </device>
+
     </libinput>
 
     <!--
