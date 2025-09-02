@@ -172,7 +172,6 @@
             <action name="ToggleMaximize" />
         </keybind>
 
-
         <keybind key="XF86_AudioLowerVolume">
             <action name="Execute" command="~/.config/scripts/volume.sh --limit 100 --decrease 5" />
         </keybind>
@@ -206,7 +205,7 @@
             <action name="Execute" command="~/.config/scripts/wlogout.sh" />
         </keybind>
         <keybind key="W-d">
-            <action name="Execute" command="rofi -terminal foot -show combi -combi-modes drun#run -modes combi -theme sidebar" />
+            <action name="Execute" command="fuzzel" />
         </keybind>
         <keybind key="W-l">
             <action name="Execute" command="swaylock -f -c 000000 " />

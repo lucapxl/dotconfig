@@ -13,12 +13,13 @@ rm -rf ~/.config/fontconfig
 rm -rf ~/.config/gammastep 
 rm -rf ~/.config/kanshi 
 rm -rf ~/.config/scripts
-rm -rf ~/.config/sway 
 rm -rf ~/.config/swaylock 
-rm -rf ~/.config/waybar
 rm -rf ~/.config/wlogout
 rm -rf ~/.config/sfwbar
 rm -rf ~/.config/labwc
+rm -rf ~/.config/fuzzel
+rm -rf ~/.config/xdg-desktop-portal
+
 rm -rf ~/.themes
 
 cp -R $SCRIPTPATH/files/* ~/.config/

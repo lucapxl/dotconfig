@@ -13,14 +13,13 @@ mkdir -p $FILES_DIR
 cp -R ~/.config/bg.jpg $FILES_DIR
 cp -R ~/.config/foot $FILES_DIR
 cp -R ~/.config/dunst $FILES_DIR
-cp -R ~/.config/fontconfig $FILES_DIR
 cp -R ~/.config/gammastep $FILES_DIR
 cp -R ~/.config/scripts $FILES_DIR
-cp -R ~/.config/sway $FILES_DIR
 cp -R ~/.config/swaylock $FILES_DIR
-cp -R ~/.config/waybar $FILES_DIR
 cp -R ~/.config/wlogout $FILES_DIR
 cp -R ~/.config/kanshi $FILES_DIR
 cp -R ~/.config/sfwbar $FILES_DIR
 cp -R ~/.config/labwc $FILES_DIR
+cp -R ~/.config/fuzzel $FILES_DIR
+cp -R ~/.config/xdg-desktop-portal $FILES_DIR
 cp -R ~/.themes $FILES_DIR
