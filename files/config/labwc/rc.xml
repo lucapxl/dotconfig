@@ -128,11 +128,10 @@
 
     <regions>
         <region name="center"             x="25%" y="0%" height="100%"    width="50%"    />
-        <region name="top"                    x="0%"    y="0%"    height="50%"    width="100%" />
         <region name="left"                 x="0%"    y="0%"    height="100%" width="50%"    />
         <region name="left-most"                 x="0%"    y="0%"    height="100%" width="25%"    />
         <region name="right"                x="50%" y="0%"    height="100%" width="50%"    />
-        <region name="right"                x="75%" y="0%"    height="100%" width="25%"    />
+        <region name="right-most"                x="75%" y="0%"    height="100%" width="25%"    />
         <region name="bottom"             x="0%"    y="50%" height="50%"    width="100%" />
     </regions>
 
@@ -209,25 +208,24 @@
         </keybind>
         <keybind key="W-l">
             <action name="Execute" command="swaylock -f -c 000000 " />
-        </keybind>
+        </keybind>       
         
         <keybind key="W-Up">
             <action name="SnapToRegion" region="center" />
         </keybind>
-
         <keybind key="W-Right">
-            <action name="GoToDesktop" to="right" />
+            <action name="SnapToRegion" region="right-most" />
         </keybind>
         <keybind key="W-Left">
-            <action name="GoToDesktop" to="left" />
+            <action name="SnapToRegion" region="left-most" />
         </keybind>
+
         <keybind key="W-S-Right">
             <action name="SendToDesktop" to="right" />
         </keybind>
         <keybind key="W-S-Left">
             <action name="SendToDesktop" to="left" />
         </keybind>
-
         <keybind key="W-1">
             <action name="GoToDesktop" to="1" />
         </keybind>
