@@ -6,6 +6,8 @@ FILES_DIR=$SCRIPTPATH/files/
 
 echo "applying dotconfig files"
 
+mkdir -p ~/.themes
+
 rm -rf ~/.config/bg.jpg
 rm -rf ~/.config/foot
 rm -rf ~/.config/dunst
@@ -19,7 +21,8 @@ rm -rf ~/.config/sfwbar
 rm -rf ~/.config/labwc
 rm -rf ~/.config/fuzzel
 rm -rf ~/.config/xdg-desktop-portal
+rm -rf ~/.themes/*
 
-rm -rf ~/.themes
 
-cp -R $SCRIPTPATH/files/* ~/.config/
+cp -R $SCRIPTPATH/files/config/* ~/.config/
+cp -R $SCRIPTPATH/files/themes/* ~/.themes/
