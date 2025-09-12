@@ -208,24 +208,25 @@
         </keybind>
         <keybind key="W-l">
             <action name="Execute" command="swaylock -f -c 000000 " />
-        </keybind>       
+        </keybind>
         
         <keybind key="W-Up">
             <action name="SnapToRegion" region="center" />
         </keybind>
+
         <keybind key="W-Right">
             <action name="SnapToRegion" region="right-most" />
         </keybind>
         <keybind key="W-Left">
             <action name="SnapToRegion" region="left-most" />
         </keybind>
-
         <keybind key="W-S-Right">
             <action name="SendToDesktop" to="right" />
         </keybind>
         <keybind key="W-S-Left">
             <action name="SendToDesktop" to="left" />
         </keybind>
+
         <keybind key="W-1">
             <action name="GoToDesktop" to="1" />
         </keybind>
