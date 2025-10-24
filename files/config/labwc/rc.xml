@@ -170,7 +170,9 @@
         <keybind key="W-a">
             <action name="ToggleMaximize" />
         </keybind>
-
+        <keybind key="W-f">
+	    <action name="ToggleFullscreen" />
+	</keybind>
         <keybind key="XF86_AudioLowerVolume">
             <action name="Execute" command="~/.config/scripts/volume.sh --limit 100 --decrease 5" />
         </keybind>
