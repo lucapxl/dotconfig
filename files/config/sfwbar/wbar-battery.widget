@@ -26,5 +26,6 @@ layout {
                 "discharging", "\n<b>Time to empty:</b> " + $BatteryTimeToEmpty,
                 "charging", "\n<b>Time to full:</b> " + $BatteryTimeToFull,
                 "") 
+  action[1] = "/home/pixel/.config/scripts/wlogout.sh"
   }
 }

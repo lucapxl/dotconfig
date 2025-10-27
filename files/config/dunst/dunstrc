@@ -54,13 +54,13 @@
     hide_duplicate_count = false    # Hide the count of stacked notifications with the same content
     show_indicators = false       # Display indicators for URLs (U) and actions (A).
     
+    icon_path = /usr/share/icons
     icon_theme = Papirus-Dark       # Set icon theme (only used for recursive icon lookup)
     enable_recursive_icon_lookup = true     # Recursive icon lookup
     icon_position = "left"        # Align icons left/right/top/off
     min_icon_size = 32          # max_icon_size takes precedence over this.    
     max_icon_size = 64         # Scale larger icons down to this size, set to 0 to disable
 
-    icon_path = /usr/share/icons/
 
     sticky_history = true       # Should a notification popped up from history be sticky or timeout
     history_length = 20         # Maximum amount of notifications kept in history
