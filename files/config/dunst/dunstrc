@@ -54,8 +54,8 @@
     hide_duplicate_count = false    # Hide the count of stacked notifications with the same content
     show_indicators = false       # Display indicators for URLs (U) and actions (A).
     
-    icon_path = /usr/share/icons
-    icon_theme = Papirus-Dark       # Set icon theme (only used for recursive icon lookup)
+    icon_path = /usr/share/icons/
+    icon_theme = "material-design-dark"    # Set icon theme (only used for recursive icon lookup)
     enable_recursive_icon_lookup = true     # Recursive icon lookup
     icon_position = "left"        # Align icons left/right/top/off
     min_icon_size = 32          # max_icon_size takes precedence over this.    
@@ -65,7 +65,7 @@
     sticky_history = true       # Should a notification popped up from history be sticky or timeout
     history_length = 20         # Maximum amount of notifications kept in history
 
-    dmenu = /usr/bin/dmenu -p dunst    # dmenu path.
+    dmenu = /usr/bin/fuzzel -p dunst    # dmenu path.
     browser = /usr/bin/xdg-open # Browser for opening urls in context menu.
     always_run_script = true    # Always run rule-defined scripts, even if the notification is suppressed
     title = Dunst               # Define the title of the windows spawned by dunst

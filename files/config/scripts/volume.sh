@@ -5,7 +5,6 @@ fi
 
 # pactl output depends on the current locale
 export LANG=C.UTF-8 LC_ALL=C.UTF-8
-ICON="audio-volume-high-symbolic"
 DEFAULT_STEP=5
 LIMIT=${LIMIT:-100}
 SINK="@DEFAULT_SINK@"
@@ -78,18 +77,20 @@ if ! command -v notify-send >/dev/null; then
 fi
 
 VOLUME=$(get_sink_volume "$SINK")
+ICON="audio-volume-high"
 if [ $VOLUME -eq 0 ]; then
-    ICON="audio-volume-muted-symbolic"
-elif [ $VOLUME -le 30 ]; then
-    ICON="audio-volume-low-symbolic"
-elif [ $VOLUME -le 70 ]; then
-    ICON="audio-volume-medium-symbolic"
+    ICON="audio-volume-muted"
+elif [ $VOLUME -le 25 ]; then
+    ICON="audio-volume-low"
+elif [ $VOLUME -le 66 ]; then
+    ICON="audio-volume-medium"
 fi
 
 TEXT="${VOLUME}%"
 case $(pactl get-sink-mute "$SINK") in
     *yes)
         TEXT="Muted"
+        ICON="audio-volume-muted"
         VOLUME=0
         ;;
 esac

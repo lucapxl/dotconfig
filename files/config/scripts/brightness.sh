@@ -8,14 +8,14 @@ brightness=`brightnessctl g -P`
 
 # Send the notification
 application_name="Brightness"
-brightness_icon="display-brightness-high-symbolic"
-if [ $brightness -eq 0 ]; then
-    brightness_icon="display-brightness-off-symbolic"
-elif [ $brightness -le 30 ]; then
-    brightness_icon="display-brightness-low-symbolic"
-elif [ $brightness -le 70 ]; then
-    brightness_icon="display-brightness-medium-symbolic"
-fi
+brightness_icon="preferences-desktop-brightness"
+# if [ $brightness -eq 0 ]; then
+#     brightness_icon="brightness-low"
+# elif [ $brightness -le 30 ]; then
+#     brightness_icon="brightness-low"
+# elif [ $brightness -le 60 ]; then
+#     brightness_icon="brightness-low"
+# fi
 
 if [ $(pgrep -x -c dunst) -eq 0 ]; then
     dunst &

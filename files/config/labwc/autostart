@@ -1,18 +1,16 @@
 dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY 
 gnome-keyring-daemon --start --components=pkcs11,secrets,ssh -d
 
-
-
 swayidle -w \
     timeout 300 'chayang && swaylock -f -c 000000' \
     timeout 600 'wlopm --off \*' \
     resume 'wlopm --on \*' \
-    before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &
+    before-sleep 'chayang && swaylock -f -c 000000' >/dev/null 2>&1 &
 
 # Set background color.
 swaybg -i ~/.config/bg.jpg -m fill &
 
-# Launch a panel such as yambar or waybar.
+# Launch a panel .
 if [ $(pgrep -x -c sfwbar) -eq 0 ]; then
     echo "running sfwbar"
     sfwbar &
@@ -52,7 +50,4 @@ if [ $(pgrep -x -c keepassxc) -eq 0 ]; then
     echo "running KeePass XC"
     sleep 5 && flatpak run org.keepassxc.KeePassXC &
 fi
-
-
-
 

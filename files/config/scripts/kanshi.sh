@@ -15,7 +15,7 @@ notify() {
     if [ $(pgrep -x -c dunst) -eq 0 ]; then
         dunst &
     fi
-    ICON="video-display-symbolic"
+    ICON="preferences-desktop-display"
     notify-send \
         --app-name kanshi \
         --expire-time 3000 \
