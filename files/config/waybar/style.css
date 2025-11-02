@@ -146,11 +146,11 @@ label:focus {
 
 /* #pulseaudio.bluetooth {
     background: @waybar-blue;
-} */
+} 
 
 #tray {
     background: @waybar-black;
-}
+} */
 
 #tray > .passive {
     -gtk-icon-effect: dim;
