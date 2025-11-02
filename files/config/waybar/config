@@ -1,0 +1,128 @@
+
+// icons cheatsheet https://fontawesome.com/v4/cheatsheet/
+
+{
+    "position": "top",
+    "height": 36, 
+    "spacing": 0,
+    "modules-left": [
+        "ext/workspaces",
+	"idle_inhibitor"
+    ],
+    "modules-center": [
+	"clock"
+    ],
+    "modules-right": [
+        "tray",
+        "network#wg",
+        "network#eth",
+        "network#wifi",
+        "pulseaudio",
+        "battery",
+        "custom/powerctl"
+    ],
+    "ext/workspaces": {
+        "all-outputs": true,
+        "format": "{name}",
+        "sort-by-number": true,
+	"on-click": "activate"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "spacing": 20,
+        "icon-size": 16
+    },
+    "clock": {
+        "format" : "{:%a %d/%m ⋇ %H:%M:%S}",
+        "interval": 1,
+	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode"
+                    }
+    },
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-warning": "{capacity}% {icon}",
+        "format-critical": "{capacity}% {icon}",
+        "format-charging": "{icon} ",
+        "format-full": "{icon} ",
+        "format-plugged": " ",
+        "tooltip-format": ": {capacity}%\n{timeTo}",
+        "format-alt": "{capacity}% {timeTo}",
+        "format-icons": ["", "", "", "", "", ""]
+    },
+    "network#eth": {
+        "interface": "enp*", // (Optional) To force the use of this interface
+        "interval": 5,
+        "format": "",
+        "format-disconnected": "",
+        "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}",
+        "tooltip-format-disconnected": "",
+        "on-click": "foot -a nmtui bash -c 'sleep 0.1 && nmtui'"
+    },
+    "network#wifi": {
+        "interface": "wlp*", // (Optional) To force the use of this interface
+        "interval": 5,
+        "format-wifi": "",
+        "format-disconnected": "",
+        "tooltip-format-wifi": "<b>SSID:</b> {essid}\n<b>Signal:</b> {signalStrength}%\n<b>Freq:</b> {frequency}\n\n<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}",
+        "tooltip-format-disconnected": "click to open <b>nmtui</b>",
+        "on-click": "foot -a nmtui bash -c 'sleep 0.1 && nmtui'"
+    },
+    "network#wg": {
+        "interface": "wg*", // (Optional) To force the use of this interface
+        "interval": 5,
+        "format": "",
+        "format-disconnected": "",
+        "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}\n\nLeft click to <b>connect</b>\nRight click to <b>disconnect</b>",
+        "tooltip-format-disconnected": "<b>Disconnected</b> \n\nLeft click to <b>connect</b>\nRight click to <b>disconnect</b>",
+        "on-click":"nmcli connection up 'Alpeax Cloud'",
+        "on-click-right":"nmcli connection down 'Alpeax Cloud'"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "tooltip-format": "Volume: {volume}%\nDevice: {desc}",
+        "format-bluetooth": "{icon} ",
+        "format-bluetooth-muted": " ",
+        "format-muted": "",
+        "format-source": "",
+        "scroll-step": 5,
+        // "format-source-muted": "",
+        "format-icons": {
+            "headphone": [" "," "," "," "," "],
+            "hands-free": [" "," "," "," "," "],
+            "headset": [" "," "," "," "," "],
+            "default": ["","","","",""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/powerctl": {
+        "format": "",
+        "on-click": "~/.config/scripts/wlogout.sh",
+        "tooltip": false
+    }
+}
+

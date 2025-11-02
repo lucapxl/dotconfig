@@ -18,6 +18,7 @@ rm -rf ~/.config/scripts
 rm -rf ~/.config/swaylock 
 rm -rf ~/.config/wlogout
 rm -rf ~/.config/sfwbar
+rm -rf ~/.config/waybar
 rm -rf ~/.config/labwc
 rm -rf ~/.config/fuzzel
 rm -rf ~/.config/xdg-desktop-portal
