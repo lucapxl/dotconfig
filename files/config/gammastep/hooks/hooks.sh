@@ -7,10 +7,10 @@ case $1 in
     period-changed)
         case $3 in
           transition|daytime|none)
-            notify-send -a "gammastep" -h string:x-canonical-private-synchronous:gammastep "Daytime" -i "weather-clear" -t 3000
+            notify-send -a "gammastep" -h string:x-canonical-private-synchronous:gammastep "Daytime" -i "weather-clear" -t 10000
             ;;
           night)
-            notify-send -a "gammastep" -h string:x-canonical-private-synchronous:gammastep "Night Time" -i "weather-clear-night" -t 3000
+            notify-send -a "gammastep" -h string:x-canonical-private-synchronous:gammastep "Night Time" -i "weather-clear-night" -t 10000
             ;;
         esac
 esac

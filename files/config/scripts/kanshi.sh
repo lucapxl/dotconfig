@@ -18,7 +18,7 @@ notify() {
     ICON="preferences-desktop-display"
     notify-send \
         --app-name kanshi \
-        --expire-time 3000 \
+        --expire-time 10000 \
         --hint string:x-canonical-private-synchronous:kanshi \
         --icon "$ICON" \
         --transient \

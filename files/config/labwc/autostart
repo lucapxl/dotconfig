@@ -11,9 +11,9 @@ swayidle -w \
 swaybg -i ~/.config/bg.jpg -m fill &
 
 # Launch a panel .
-if [ $(pgrep -x -c sfwbar) -eq 0 ]; then
-    echo "running sfwbar"
-    sfwbar &
+if [ $(pgrep -x -c waybar) -eq 0 ]; then
+    echo "running waybar"
+    waybar &
 fi
 
 # Make sure waybar is running
