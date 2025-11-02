@@ -83,6 +83,7 @@ window#waybar.hidden {
 #custom-ivpn,
 #language,
 #idle_inhibitor,
+#custom-labwclang,
 #tray {
     padding: 0 8px;
     color: @waybar-foreground;
@@ -97,9 +98,12 @@ window#waybar.hidden {
 
 
 #custom-powerctl {
-    margin-right: 10px;
-    background: @waybar-red;
+    margin-right: 0px;
     color: @waybar-foreground;
+}
+
+#custom-powerctl:hover {
+    background: @waybar-red;
 }
 
 #battery.charging, #battery.plugged {
@@ -144,14 +148,6 @@ label:focus {
     color: @waybar-black;
 }
 
-/* #pulseaudio.bluetooth {
-    background: @waybar-blue;
-} 
-
-#tray {
-    background: @waybar-black;
-} */
-
 #tray > .passive {
     -gtk-icon-effect: dim;
 }
@@ -159,8 +155,4 @@ label:focus {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background: @waybar-red;
-}
-
-#custom-powerctl {
-    margin-right: 0;
 }

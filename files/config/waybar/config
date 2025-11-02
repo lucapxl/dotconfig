@@ -1,6 +1,4 @@
 
-// icons cheatsheet https://fontawesome.com/v4/cheatsheet/
-
 {
     "position": "top",
     "height": 36, 
@@ -17,6 +15,7 @@
         "network#wg",
         "network#eth",
         "network#wifi",
+        "custom/labwclang",
         "pulseaudio",
         "battery",
         "custom/powerctl"
@@ -39,24 +38,24 @@
         "icon-size": 16
     },
     "clock": {
-        "format" : "{:%a %d/%m ⋇ %H:%M:%S}",
+        "format" : "{:%a %d/%m ⋇ %H:%M}",
         "interval": 1,
-	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
-                    "mode"          : "year",
-                    "mode-mon-col"  : 3,
-                    "weeks-pos"     : "right",
-                    "format": {
-                              "months":     "<span color='#ffead3'><b>{}</b></span>",
-                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-                              }
-                    },
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
         "actions":  {
-                    "on-click-right": "mode"
-                    }
+            "on-click-right": "mode"
+        }
     },
     "battery": {
         "interval": 10,
@@ -75,7 +74,7 @@
         "format-icons": ["", "", "", "", "", ""]
     },
     "network#eth": {
-        "interface": "enp*", // (Optional) To force the use of this interface
+        "interface": "enp*",
         "interval": 5,
         "format": "",
         "format-disconnected": "",
@@ -84,7 +83,7 @@
         "on-click": "foot -a nmtui bash -c 'sleep 0.1 && nmtui'"
     },
     "network#wifi": {
-        "interface": "wlp*", // (Optional) To force the use of this interface
+        "interface": "wlp*",
         "interval": 5,
         "format-wifi": "",
         "format-disconnected": "",
@@ -93,14 +92,13 @@
         "on-click": "foot -a nmtui bash -c 'sleep 0.1 && nmtui'"
     },
     "network#wg": {
-        "interface": "wg*", // (Optional) To force the use of this interface
+        "interface": "wg*", 
         "interval": 5,
         "format": "",
         "format-disconnected": "",
         "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}\n\nLeft click to <b>connect</b>\nRight click to <b>disconnect</b>",
         "tooltip-format-disconnected": "<b>Disconnected</b> \n\nLeft click to <b>connect</b>\nRight click to <b>disconnect</b>",
-        "on-click":"nmcli connection up 'Alpeax Cloud'",
-        "on-click-right":"nmcli connection down 'Alpeax Cloud'"
+        "on-click":"~/.config/scripts/network-helper.sh toggle 'Alpeax Cloud'"
     },
     "pulseaudio": {
         "format": "{icon}",
@@ -110,7 +108,6 @@
         "format-muted": "",
         "format-source": "",
         "scroll-step": 5,
-        // "format-source-muted": "",
         "format-icons": {
             "headphone": [" "," "," "," "," "],
             "hands-free": [" "," "," "," "," "],
@@ -123,6 +120,12 @@
         "format": "",
         "on-click": "~/.config/scripts/wlogout.sh",
         "tooltip": false
+    },
+    "custom/labwclang": {
+        "exec": "~/.config/scripts/sfwbar-keyboardlang-helper.sh status",
+        "format": "{}",
+        "interval": 2,
+        "tooltip": "Press Alt+Shift to switch between keyboard layouts"
     }
 }
 

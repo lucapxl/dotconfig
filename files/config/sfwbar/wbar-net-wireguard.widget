@@ -21,6 +21,6 @@ layout {
                 "<b>Interface:</b> " + $WireguardInterface + "\n" + 
                 "<b>Connection Name:</b> " + $WireguardName + "",
               "Click to connect")
-    action[LeftClick] = "/home/pixel/.config/scripts/sfwbar-network-helper.sh " + If(WireguardConnected,"down","up") +" 'Alpeax Cloud'"
+    action[LeftClick] = "/home/pixel/.config/scripts/network-helper.sh " + If(WireguardConnected,"down","up") +" 'Alpeax Cloud'"
   }
 }
