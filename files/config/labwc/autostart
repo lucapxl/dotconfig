@@ -46,7 +46,6 @@ fi
 
 if [ $(pgrep -x -c keepassxc) -eq 0 ]; then
     # Make sure waybar is running
-    while [ $(pgrep -x -c sfwbar) -eq 0 ]; do sleep 1; done
     echo "running KeePass XC"
     sleep 5 && flatpak run org.keepassxc.KeePassXC &
 fi
