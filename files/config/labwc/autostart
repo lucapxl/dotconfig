@@ -17,7 +17,7 @@ if [ $(pgrep -x -c waybar) -eq 0 ]; then
 fi
 
 # Make sure waybar is running
-while [ $(pgrep -x -c sfwbar) -eq 0 ]; do sleep 1; done
+while [ $(pgrep -x -c waybar) -eq 0 ]; do sleep 1; done
 
 if [ $(pgrep -x -c dunst) -eq 0 ]; then
     echo "running dunst"
