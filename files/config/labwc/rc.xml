@@ -68,8 +68,8 @@
     -->
     <theme>
         <name>Adwaita-Papirus-dark</name>
-        <titlebar layout=":menu,iconify,max,close" showTitle="yes" />
-        <cornerRadius>14</cornerRadius>
+        <titlebar layout=":max,close" showTitle="yes" />
+        <cornerRadius>10</cornerRadius>
         <dropShadows>yes</dropShadows>
         <font place="ActiveWindow" name="Cantarell" size="12" weight="bold" />
         <font place="InactiveWindow" name="Cantarell" size="12" weight="bold" />

@@ -1,9 +1,9 @@
 window.titlebar.padding.width: 10
-window.titlebar.padding.height: 10
+window.titlebar.padding.height: 7
 
-window.button.width: 24
-window.button.height: 24
-window.button.spacing: 13
+window.button.width: 20
+window.button.height: 20
+window.button.spacing: 7
 
 window.inactive.title.bg.color: #242424
 window.active.title.bg.color: #303030
