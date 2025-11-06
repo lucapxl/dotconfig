@@ -5,10 +5,10 @@
     "spacing": 0,
     "modules-left": [
         "ext/workspaces",
-	"idle_inhibitor"
+	    "idle_inhibitor"
     ],
     "modules-center": [
-	"clock"
+	    "clock"
     ],
     "modules-right": [
         "tray",
@@ -23,7 +23,7 @@
     "ext/workspaces": {
         "all-outputs": true,
         "format": "{name}",
-        "sort-by-number": true,
+        "sort-by-id": true,
 	"on-click": "activate"
     },
     "idle_inhibitor": {
@@ -122,9 +122,9 @@
         "tooltip": false
     },
     "custom/labwclang": {
-        "exec": "~/.config/scripts/sfwbar-keyboardlang-helper.sh status",
+        "exec": "~/.config/scripts/labwc-keyboardlang-helper.sh status",
         "format": "{}",
-        "interval": 2,
+        "interval": 1,
         "tooltip": "Press Alt+Shift to switch between keyboard layouts"
     }
 }

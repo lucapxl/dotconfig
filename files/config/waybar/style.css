@@ -20,7 +20,7 @@
 }
 
 * {
-    font-family: 'Adwaita Sans', 'Font Awesome 6 Free', 'Fira Sans Book', Arial, sans-serif;
+    font-family: 'Inter Light', 'Font Awesome 6 Free', 'Fira Sans Book', Arial, sans-serif;
     font-size: 16px;
     border: none;
     border-radius: 5px;
@@ -29,6 +29,15 @@
     margin: 0;
     text-shadow: none;
 }
+
+/* .modules-center,
+.modules-left,
+.modules-right {
+    margin: 5px 0;
+    background: @waybar-black;
+    border-radius: 10px;
+} */
+
 tooltip {
     background: @waybar-black;
     color: @waybar-foreground;
@@ -74,14 +83,11 @@ window#waybar.hidden {
     background: @waybar-red;
 }
 
-
 #clock,
 #battery,
 #network,
 #pulseaudio,
 #custom-powerctl,
-#custom-ivpn,
-#language,
 #idle_inhibitor,
 #custom-labwclang,
 #tray {
@@ -91,19 +97,33 @@ window#waybar.hidden {
     margin: 4px 2px;
 }
 
-#clock {
-    font-size: 20px;
-    font-family: 'Noto Sans Mono';
+#clock:hover,
+#battery:hover,
+#network:hover,
+#pulseaudio:hover,
+#custom-powerctl:hover,
+#idle_inhibitor:hover,
+#custom-labwclang:hover {
+    background: @waybar-black;
+    color: @waybar-foreground;
 }
 
+#custom-labwclang {
+    font-size: 20px;
+}
+
+#clock {
+    font-size: 20px;
+}
 
 #custom-powerctl {
     margin-right: 0px;
-    color: @waybar-foreground;
+    color: @waybar-red;
 }
 
 #custom-powerctl:hover {
     background: @waybar-red;
+    color: @waybar-foreground;
 }
 
 #battery.charging, #battery.plugged {
@@ -141,7 +161,8 @@ label:focus {
 }
 
 #network.wg {
-    color: @waybar-cyan;
+    /* color: @waybar-cyan; */
+    color: @waybar-foreground;
 }
 
 #network.wg.disconnected {
