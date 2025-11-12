@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 start_kanshi() {
     # Terminate already running bar instances

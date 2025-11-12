@@ -1,5 +1,4 @@
-#!/usr/bin/sh
-
+#!/usr/bin/env bash
 
 case "$1" in
         main-battery)

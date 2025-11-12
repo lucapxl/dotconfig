@@ -1,4 +1,5 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
+
 case "$1" in
         connected)
                 connected=$(nmcli -t dev status |grep "$2" | wc -l)

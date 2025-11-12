@@ -20,7 +20,7 @@
 }
 
 * {
-    font-family: 'Inter Light', 'Font Awesome 6 Free', 'Fira Sans Book', Arial, sans-serif;
+    font-family: 'Inter', 'Font Awesome 6 Free', 'Fira Sans Book', Arial, sans-serif;
     font-size: 16px;
     border: none;
     border-radius: 5px;
@@ -108,6 +108,19 @@ window#waybar.hidden {
     color: @waybar-foreground;
 }
 
+#pulseaudio.bluetooth {
+    color: @waybar-blue;
+}
+
+#pulseaudio.muted {
+    color: @waybar-yellow;
+}
+
+#custom-labwclang{
+    font-family: 'Inter Medium';
+    padding: 0px 2px 2px 4px;
+}
+
 #custom-labwclang {
     font-size: 20px;
 }
@@ -126,9 +139,14 @@ window#waybar.hidden {
     color: @waybar-foreground;
 }
 
-#battery.charging, #battery.plugged {
+#battery.charging {
+    color: @waybar-yellow;
+}
+
+#battery.full, #battery.plugged {
     color: @waybar-green;
 }
+
 
 #idle_inhibitor.activated {
     color: @waybar-cyan;

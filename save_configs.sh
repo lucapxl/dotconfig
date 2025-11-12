@@ -23,7 +23,6 @@ cp -R ~/.config/scripts $FILES_DIR_CONFIG
 cp -R ~/.config/swaylock $FILES_DIR_CONFIG
 cp -R ~/.config/wlogout $FILES_DIR_CONFIG
 cp -R ~/.config/kanshi $FILES_DIR_CONFIG
-cp -R ~/.config/sfwbar $FILES_DIR_CONFIG
 cp -R ~/.config/waybar $FILES_DIR_CONFIG
 cp -R ~/.config/labwc $FILES_DIR_CONFIG
 cp -R ~/.config/fuzzel $FILES_DIR_CONFIG

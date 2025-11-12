@@ -2,10 +2,10 @@ dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
 gnome-keyring-daemon --start --components=pkcs11,secrets,ssh -d
 
 swayidle -w \
-    timeout 300 'chayang && swaylock -f -c 000000' \
+    timeout 300 'swaylock -f -c 000000' \
     timeout 600 'wlopm --off \*' \
     resume 'wlopm --on \*' \
-    before-sleep 'chayang && swaylock -f -c 000000' >/dev/null 2>&1 &
+    before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &
 
 # Set background color.
 swaybg -i ~/.config/bg.jpg -m fill &

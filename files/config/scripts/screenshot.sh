@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Make sure screenshot folder exists
 mkdir -p ~/Pictures/Screenshots

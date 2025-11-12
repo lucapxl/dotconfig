@@ -1,4 +1,5 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
+
 if ! command -v notify-send >/dev/null || ! command -v pactl > /dev/null; then
     exit 0;
 fi
