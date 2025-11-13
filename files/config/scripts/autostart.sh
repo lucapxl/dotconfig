@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-gnome-keyring-daemon --start &
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 
 # Make sure waybar is running

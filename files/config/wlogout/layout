@@ -6,19 +6,19 @@
 }
 {
     "label" : "shutdown",
-    "action" : "systemctl poweroff",
+    "action" : "if command -v systemctl; then systemctl poweroff; else loginctl poweroff; fi",
     "text" : "Shutdown",
     "keybind" : "s"
 }
 {
     "label" : "suspend",
-    "action" : "systemctl suspend",
+    "action" : "if command -v systemctl; then systemctl suspend; else loginctl suspend; fi",
     "text" : "Suspend",
     "keybind" : "u"
 }
 {
     "label" : "reboot",
-    "action" : "systemctl reboot",
+    "action" : "if command -v systemctl; then systemctl reboot; else loginctl reboot; fi",
     "text" : "Reboot",
     "keybind" : "r",
 }

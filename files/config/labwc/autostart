@@ -1,4 +1,4 @@
-dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY 
+#dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY 
 gnome-keyring-daemon --start --components=pkcs11,secrets,ssh -d
 
 swayidle -w \
