@@ -10,6 +10,15 @@ DEFAULT_STEP=5
 LIMIT=${LIMIT:-100}
 SINK="@DEFAULT_SINK@"
 
+# checking if the current sink is muted
+case $(pactl get-sink-mute "$SINK") in
+    *yes)
+        TEXT="Muted"
+        ICON="audio-volume-muted"
+        VOLUME=0
+        ;;
+esac
+
 clamp() {
     if [ "$1" -lt 0 ]; then
         echo "0"
@@ -45,6 +54,9 @@ while true; do
             shift;;
         -i|--increase)
             CHANGE=$((${2:-$DEFAULT_STEP}))
+            
+            # if the sink is currently muted, unmute it too
+            if pactl get-sink-mute "@DEFAULT_SINK@" | grep -q "yes"; then TOGGLEMUTE=1; fi
             shift;;
         -d|--decrease)
             CHANGE=$((-${2:-$DEFAULT_STEP}))
@@ -59,10 +71,6 @@ while true; do
     shift
 done
 
-if [ "$TOGGLEMUTE" -eq 1 ]; then
-    pactl set-sink-mute "$SINK" toggle
-fi
-
 if [ "$CHANGE" -ne 0 ]; then
     VOLUME=$(get_sink_volume "$SINK")
     VOLUME=$(( VOLUME + CHANGE ))
@@ -71,13 +79,17 @@ elif [ "$VOLUME" -ge 0 ]; then
     pactl set-sink-volume "$SINK" "$(clamp "$VOLUME")%"
 fi
 
-# Display desktop notification
+if [ "$TOGGLEMUTE" -eq 1 ]; then
+    pactl set-sink-mute "$SINK" toggle
+fi
 
+# Display desktop notification
 if ! command -v notify-send >/dev/null; then
     exit 0;
 fi
 
 VOLUME=$(get_sink_volume "$SINK")
+TEXT="${VOLUME}%"
 ICON="audio-volume-high"
 if [ $VOLUME -eq 0 ]; then
     ICON="audio-volume-muted"
@@ -87,14 +99,12 @@ elif [ $VOLUME -le 66 ]; then
     ICON="audio-volume-medium"
 fi
 
-TEXT="${VOLUME}%"
-case $(pactl get-sink-mute "$SINK") in
-    *yes)
-        TEXT="Muted"
-        ICON="audio-volume-muted"
-        VOLUME=0
-        ;;
-esac
+# if the sink is muted
+if pactl get-sink-mute "@DEFAULT_SINK@" | grep -q "yes"; then
+    TEXT="Muted"
+    ICON="audio-volume-muted"
+    VOLUME=0
+fi
 
 if [ $(pgrep -x -c dunst) -eq 0 ]; then
     dunst &
