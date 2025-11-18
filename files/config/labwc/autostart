@@ -1,5 +1,12 @@
-#dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY 
 gnome-keyring-daemon --start --components=pkcs11,secrets,ssh -d
+
+
+. /etc/os-release
+case $ID in
+    void) 
+        pipewire &
+        ;;
+esac
 
 swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
@@ -39,10 +46,10 @@ if [ $(pgrep -x -c nextcloud) -eq 0 ]; then
     nextcloud &
 fi
 
-if [ $(pgrep -x -c blueman-applet) -eq 0 ]; then
-    echo "running blueman applet"
-    blueman-applet &
-fi
+# if [ $(pgrep -x -c blueman-applet) -eq 0 ]; then
+#     echo "running blueman applet"
+#     blueman-applet &
+# fi
 
 if [ $(pgrep -x -c keepassxc) -eq 0 ]; then
     # Make sure waybar is running
