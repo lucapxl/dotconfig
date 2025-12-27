@@ -3,7 +3,7 @@
 # Home Screen
 profile Home {
 	output eDP-1 disable
-	output "Lenovo Group Limited R45w-30 UPP03XBK" position 0,0
+	output "Lenovo Group Limited R45w-30 UPP03XBK" mode 5120x1440 position 0,0
 	exec $HOME/.config/scripts/kanshi.sh notify "Home Screen"
 }
 
