@@ -1,10 +1,10 @@
 # to get outputs: swaymsg -t get_outputs
 
 # Home Screen
-profile Home {
+profile HomeBigScreen {
 	output eDP-1 disable
 	output "Lenovo Group Limited R45w-30 UPP03XBK" mode 5120x1440 position 0,0
-	exec $HOME/.config/scripts/kanshi.sh notify "Home Screen"
+	exec $HOME/.config/scripts/kanshi.sh notify "Home Wide Screen"
 }
 
 # Office Docking Station
@@ -26,8 +26,14 @@ profile ThinkPad {
 	exec $HOME/.config/scripts/kanshi.sh notify "ThinkPad E14"
 }
 
-# ThinkPad Monitor
+# HPe Monitor
 profile HPe {
 	output "Chimei Innolux Corporation 0x13A9 Unknown" enable
 	exec $HOME/.config/scripts/kanshi.sh notify "HPe g0tth4rd"
+}
+
+# MiDora Monitor
+profile mivoid {
+	output "BOE 0x0691" enable
+	exec $HOME/.config/scripts/kanshi.sh notify "Xiaomi mivoid"
 }
