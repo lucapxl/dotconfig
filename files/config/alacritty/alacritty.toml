@@ -1,0 +1,41 @@
+# Alacritty config file
+#
+
+[window]
+opacity = 1 
+padding.x = 10
+padding.y = 10
+decorations = "Full"
+decorations_theme_variant = "Dark"
+startup_mode = "Maximized"
+
+[font]
+normal.family = "SauceCodePro Nerd Font Mono"
+bold.family = "SauceCodePro Nerd Font Mono"
+italic.family = "SauceCodePro Nerd Font Mono"
+bold_italic.family = "SauceCodePro Nerd Font Mono"
+size = 12
+
+[colors]
+primary.foreground = "#e0e0e0"
+primary.background = "#141e24"
+cursor.text = "#002b36"
+cursor.cursor = "#93a1a1"
+
+normal.black = "#2c3e50"
+normal.red = "#e74c3c"
+normal.green = "#2ecc71"
+normal.yellow = "#f1c40f"
+normal.blue = "#3498db"
+normal.magenta = "#9b59b6"
+normal.cyan = "#1abc9c"
+normal.white = "#e0e0e0"
+
+bright.black = "#95a5a6"
+bright.red = "#e74c3c"
+bright.green ="#2ecc71"
+bright.yellow = "#f1c40f"
+bright.blue = "#3498db"
+bright.magenta = "#9b59b6"
+bright.cyan = "#1abc9c"
+bright.white = "#ecf0f1"
