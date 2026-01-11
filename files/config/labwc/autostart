@@ -1,6 +1,6 @@
 gnome-keyring-daemon --start --components=pkcs11,secrets,ssh -d
 
-
+# running distro specific tasks
 . /etc/os-release
 case $ID in
     void) 
@@ -24,7 +24,9 @@ if [ $(pgrep -x -c waybar) -eq 0 ]; then
 fi
 
 # Make sure waybar is running
-while [ $(pgrep -x -c waybar) -eq 0 ]; do sleep 1; done
+while [ $(pgrep -x -c waybar) -eq 0 ]; do 
+    sleep 1
+done
 
 if [ $(pgrep -x -c dunst) -eq 0 ]; then
     echo "running dunst"
