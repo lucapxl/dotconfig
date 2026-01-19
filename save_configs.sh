@@ -17,6 +17,8 @@ mkdir -p $FILES_DIR_THEMES
 
 cp -R ~/.config/bg.jpg $FILES_DIR_CONFIG
 cp -R ~/.config/kitty $FILES_DIR_CONFIG
+cp -R ~/.config/alacritty $FILES_DIR_CONFIG
+cp -R ~/.config/foot $FILES_DIR_CONFIG
 cp -R ~/.config/nvim $FILES_DIR_CONFIG
 cp -R ~/.config/dunst $FILES_DIR_CONFIG
 cp -R ~/.config/gammastep $FILES_DIR_CONFIG
