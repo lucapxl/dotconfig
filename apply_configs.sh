@@ -9,11 +9,8 @@ echo "applying dotconfig files"
 mkdir -p ~/.themes
 
 rm -rf ~/.config/bg.jpg
-rm -rf ~/.config/kitty
-rm -rf ~/.config/alacritty
 rm -rf ~/.config/foot
 rm -rf ~/.config/dunst
-rm -rf ~/.config/fontconfig
 rm -rf ~/.config/gammastep
 rm -rf ~/.config/kanshi
 rm -rf ~/.config/scripts
