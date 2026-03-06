@@ -174,19 +174,19 @@
 	    <action name="ToggleFullscreen" />
 	</keybind>
         <keybind key="XF86_AudioLowerVolume">
-            <action name="Execute" command="~/.config/scripts/volume.sh --limit 100 --decrease 5" />
+            <action name="Execute" command="~/.config/scripts/volume.sh -d 5" />
         </keybind>
         <keybind key="XF86_AudioRaiseVolume">
-            <action name="Execute" command="~/.config/scripts/volume.sh --limit 100 --increase 5" />
+            <action name="Execute" command="~/.config/scripts/volume.sh -i 5" />
         </keybind>
         <keybind key="XF86_AudioMute">
             <action name="Execute" command="~/.config/scripts/volume.sh --toggle-mute" />
         </keybind>
         <keybind key="XF86_MonBrightnessUp">
-            <action name="Execute" command="~/.config/scripts/brightness.sh 5%+" />
+            <action name="Execute" command="~/.config/scripts/brightness.sh increase" />
         </keybind>
         <keybind key="XF86_MonBrightnessDown">
-            <action name="Execute" command="~/.config/scripts/brightness.sh 5%-" />
+            <action name="Execute" command="~/.config/scripts/brightness.sh decrease" />
         </keybind>
         <keybind key="XF86_AudioPlay">
             <action name="Execute" command="playerctl play-pause" />

@@ -24,19 +24,11 @@
     font-size: 16px;
     border: none;
     border-radius: 5px;
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
     margin: 0;
     text-shadow: none;
 }
-
-/* .modules-center,
-.modules-left,
-.modules-right {
-    margin: 5px 0;
-    background: @waybar-black;
-    border-radius: 10px;
-} */
 
 tooltip {
     background: @waybar-black;
@@ -58,15 +50,16 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-    padding: 0 0.6em;
+    padding: 0 0.3em;
+    font-size: 20px;
     background: transparent;
-    color: @waybar-foreground;
+    color: @waybar-black;
     box-shadow: none;
-    margin: 4px 2px;
+    margin: 2px 0px;
 }
 
 #workspaces > button:first-child {
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 #workspaces button:hover {
@@ -75,7 +68,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-    background: @waybar-black;
+    /*background: @waybar-black;*/
     color: @waybar-foreground;
 }
 
@@ -113,7 +106,7 @@ window#waybar.hidden {
 }
 
 #pulseaudio.muted {
-    color: @waybar-yellow;
+    color: @waybar-black;
 }
 
 #custom-labwclang{
@@ -131,7 +124,7 @@ window#waybar.hidden {
 
 #custom-powerctl {
     margin-right: 0px;
-    color: @waybar-red;
+    color: @waybar-foreground;
 }
 
 #custom-powerctl:hover {
@@ -178,12 +171,11 @@ label:focus {
     background: @waybar-black;
 }
 
-#network.wg {
-    /* color: @waybar-cyan; */
+#network {
     color: @waybar-foreground;
 }
 
-#network.wg.disconnected {
+#network.disconnected {
     color: @waybar-black;
 }
 

@@ -5,10 +5,10 @@
     "spacing": 0,
     "modules-left": [
         "ext/workspaces",
-	    "idle_inhibitor"
+	      "idle_inhibitor"
     ],
     "modules-center": [
-	    "clock"
+	      "clock"
     ],
     "modules-right": [
         "tray",
@@ -24,7 +24,7 @@
         "all-outputs": true,
         "format": "{name}",
         "sort-by-id": true,
-	"on-click": "activate"
+	      "on-click": "activate"
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -38,24 +38,8 @@
         "icon-size": 16
     },
     "clock": {
-        "format" : "{:%a %d/%m - %H:%M}",
-        "interval": 1,
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode"          : "year",
-            "mode-mon-col"  : 3,
-            "weeks-pos"     : "right",
-            "format": {
-                "months":     "<span color='#ffead3'><b>{}</b></span>",
-                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-            }
-        },
-        "actions":  {
-            "on-click-right": "mode"
-        }
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%d/%m/%Y}"
     },
     "battery": {
         "interval": 10,
@@ -66,7 +50,7 @@
         "format": "{icon}",
         "format-warning": "{capacity}% {icon}",
         "format-critical": "{capacity}% {icon}",
-        "format-charging": "{icon} ",
+        "format-charging": "{capacity}% {icon} ",
         "format-full": "{icon}",
         "format-plugged": "{icon}",
         "tooltip-format": ": {capacity}%\n{timeTo}",
@@ -96,8 +80,8 @@
         "interval": 5,
         "format": "",
         "format-disconnected": "",
-        "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}\n\nLeft click to <b>connect</b>\nRight click to <b>disconnect</b>",
-        "tooltip-format-disconnected": "<b>Disconnected</b> \n\nLeft click to <b>connect</b>\nRight click to <b>disconnect</b>",
+        "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}\n\nclick to <b>disconnect</b>",
+        "tooltip-format-disconnected": "<b>Disconnected</b> \nclick to <b>connect</b>",
         "on-click":"~/.config/scripts/network-helper.sh toggle 'Alpeax Cloud'"
     },
     "pulseaudio": {
@@ -125,7 +109,7 @@
         "exec": "~/.config/scripts/labwc-keyboardlang-helper.sh status",
         "format": "{}",
         "interval": 1,
-        "tooltip": "Press Alt+Shift to switch between keyboard layouts"
+        "tooltip-format": "Press Alt+Shift to switch between keyboard layouts"
     }
 }
 
