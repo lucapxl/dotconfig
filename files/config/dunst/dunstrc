@@ -2,7 +2,7 @@
     monitor = 0
     follow = mouse               # mouse, keyboard, none
     
-    width = 350                 # with or min-max width (0, 300)
+    width = 400                 # with or min-max width (0, 300)
     height = (0,350)                # The maximum height of a single notification, excluding the frame.
     origin = top-right          # top-right, top-center, top-left, bottom-right, ...
     offset = (10, 10)                # Offset from the origin - format: (horizontal, vertical)
@@ -12,8 +12,8 @@
     progress_bar = true         # to pass value: -h int:value:35
     progress_bar_height = 18    # Set the progress bar height. This includes the frame, so make sure
     progress_bar_frame_width = 0    # Set the frame width of the progress bar
-    progress_bar_min_width = 350    # Set the minimum width for the progress bar 
-    progress_bar_max_width = 350    # Set the maximum width for the progress bar
+    progress_bar_min_width = 400    # Set the minimum width for the progress bar 
+    progress_bar_max_width = 400    # Set the maximum width for the progress bar
     progress_bar_corner_radius = 5
     indicate_hidden = true       # Show how many messages are currently hidden
 
@@ -28,7 +28,7 @@
     sort = true                  # Sort messages by urgency.
     # idle_threshold = 120       # Don't remove messages, if the user is idle (no mouse or keyboard input)
 
-    font = Adwaita Sans 12
+    font = Inter 12
     line_height = 0
     markup = full               # Possible values are: full, strip, no
 
@@ -55,10 +55,10 @@
     show_indicators = false       # Display indicators for URLs (U) and actions (A).
     
     icon_path = /usr/share/icons/
-    icon_theme = "material-design-dark"    # Set icon theme (only used for recursive icon lookup)
+    icon_theme = "Papirus-Dark"    # Set icon theme (only used for recursive icon lookup)
     enable_recursive_icon_lookup = true     # Recursive icon lookup
     icon_position = "left"        # Align icons left/right/top/off
-    min_icon_size = 32          # max_icon_size takes precedence over this.    
+    min_icon_size = 24          # max_icon_size takes precedence over this.    
     max_icon_size = 64         # Scale larger icons down to this size, set to 0 to disable
 
 

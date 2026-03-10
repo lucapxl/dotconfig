@@ -1,0 +1,37 @@
+border.width: 1
+
+window.titlebar.padding.width: 8
+window.titlebar.padding.height: 6
+
+window.button.width: 24
+window.button.height: 24
+window.button.spacing: 7
+
+window.inactive.title.bg.color: #2c3e50
+window.active.title.bg.color: #141e24
+window.active.label.text.color: #ecf0f1
+window.inactive.label.text.color: #8e8e8e
+window.active.border.color: #2c3e50
+window.inactive.border.color: #141e24
+
+menu.width.min: 400
+menu.items.bg.color: #ecf0f1
+menu.items.text.color: #141e24
+menu.items.active.bg.color: #7f8c8d
+menu.items.active.text.color: #ecf0f1
+#menu.separator.width: 2
+#menu.separator.color: #2c3e50
+menu.title.bg.color: #2c3e50
+menu.title.text.color: #ecf0f1
+
+osd.bg.color: #ecf0f1
+osd.border.color: #141e24
+osd.label.text.color: #141e24
+osd.workspace-switcher.boxes.width: 40
+osd.workspace-switcher.boxes.height: 25
+
+osd.window-switcher.preview.border.color: #2ecc71
+osd.window-switcher.preview.border.width: 3
+
+snapping.overlay.region.bg.color: #2ecc7188
+snapping.overlay.edge.bg.color: #2ecc7188

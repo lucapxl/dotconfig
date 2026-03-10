@@ -4,9 +4,9 @@
 brightnessValues=(1 2 4 7 13 22 37 60 83 100)
 
 usage() {
-    cat << EOF
+  cat <<-EOF
 Usage: ${0##*/} <increase|decrease>
-
+ 
 Adjust screen brightness in logarithmic steps for a natural visual experience.
 
 Arguments:
@@ -26,7 +26,7 @@ Notes:
   - Bind to keyboard shortcuts for best experience
 
 EOF
-    exit 1
+  exit 1
 }
 
 # Read the current brightness level

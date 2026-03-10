@@ -27,5 +27,6 @@ cp -R ~/.config/kanshi $FILES_DIR_CONFIG
 cp -R ~/.config/waybar $FILES_DIR_CONFIG
 cp -R ~/.config/labwc $FILES_DIR_CONFIG
 cp -R ~/.config/fuzzel $FILES_DIR_CONFIG
+cp -R ~/.config/Thunar $FILES_DIR_CONFIG
 cp -R ~/.config/xdg-desktop-portal $FILES_DIR_CONFIG
 cp -R ~/.themes/* $FILES_DIR_THEMES

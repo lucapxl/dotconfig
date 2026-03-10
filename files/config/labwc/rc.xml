@@ -21,61 +21,16 @@
         <policy>cascade</policy>
     </placement>
 
-    <!-- <font><theme> can be defined without an attribute to set all places 
     <theme>
-        <name></name>
-        <icon></icon>
-        <fallbackAppIcon>labwc</fallbackAppIcon>
-        <titlebar>
-            <layout>icon:iconify,max,close</layout>
-            <showTitle>yes</showTitle>
-        </titlebar>
-        <cornerRadius>8</cornerRadius>
-        <keepBorder>yes</keepBorder>
-        <dropShadows>no</dropShadows>
-        <dropShadowsOnTiled>no</dropShadowsOnTiled>
-        <font place="ActiveWindow">
-            <name>Inter Display</name>
-            <size>11</size>
-            <slant>normal</slant>
-            <weight>normal</weight>
-        </font>
-        <font place="InactiveWindow">
-            <name>Inter Display</name>
-            <size>11</size>
-            <slant>normal</slant>
-            <weight>normal</weight>
-        </font>
-        <font place="MenuHeader">
-            <name>Inter Display</name>
-            <size>11</size>
-            <slant>normal</slant>
-            <weight>normal</weight>
-        </font>
-        <font place="MenuItem">
-            <name>Inter Display</name>
-            <size>11</size>
-            <slant>normal</slant>
-            <weight>normal</weight>
-        </font>
-        <font place="OnScreenDisplay">
-            <name>Inter Display</name>
-            <size>11</size>
-            <slant>normal</slant>
-            <weight>normal</weight>
-        </font>
-    </theme>
-    -->
-    <theme>
-        <name>Adwaita-Papirus-dark</name>
+        <name>Pixel-Labwc</name>
         <titlebar layout=":max,close" showTitle="yes" />
         <cornerRadius>10</cornerRadius>
         <dropShadows>yes</dropShadows>
-        <font place="ActiveWindow" name="Cantarell" size="12" weight="bold" />
-        <font place="InactiveWindow" name="Cantarell" size="12" weight="bold" />
-        <font place="MenuHeader" name="Cantarell" size="12" weight="bold" />
-        <font place="MenuItem" name="Cantarell" size="12" />
-        <font place="OnScreenDisplay" name="Cantarell" size="12" />
+        <font place="ActiveWindow" name="Inter" size="12" weight="normal" />
+        <font place="InactiveWindow" name="Inter" size="12" weight="normal" />
+        <font place="MenuHeader" name="Inter" size="12" weight="normal" />
+        <font place="MenuItem" name="Inter" size="12" />
+        <font place="OnScreenDisplay" name="Inter" size="12" />
     </theme>
 
     <windowSwitcher show="yes" preview="yes" outlines="yes" allWorkspaces="no">
@@ -125,14 +80,13 @@
         </names>
     </desktops>
 
-
     <regions>
-        <region name="center"             x="25%" y="0%" height="100%"    width="50%"    />
-        <region name="left"                 x="0%"    y="0%"    height="100%" width="50%"    />
-        <region name="left-most"                 x="0%"    y="0%"    height="100%" width="25%"    />
-        <region name="right"                x="50%" y="0%"    height="100%" width="50%"    />
-        <region name="right-most"                x="75%" y="0%"    height="100%" width="25%"    />
-        <region name="bottom"             x="0%"    y="50%" height="50%"    width="100%" />
+        <region name="center" x="25%" y="0%" height="100%" width="50%" />
+        <region name="left" x="0%" y="0%" height="100%" width="50%" />
+        <region name="left-most" x="0%" y="0%" height="100%" width="25%" />
+        <region name="right" x="50%" y="0%" height="100%" width="50%" />
+        <region name="right-most" x="75%" y="0%" height="100%" width="25%" />
+        <region name="bottom" x="0%" y="50%" height="50%" width="100%" />
     </regions>
 
 
@@ -151,9 +105,6 @@
         your favourite terminal or application launcher. See rc.xml for an example.
     -->
     <keyboard>
-        <!--
-            # Numlock is set by default
-        -->
         <numlock>on</numlock>
         <layoutScope>global</layoutScope>
         <repeatRate>25</repeatRate>
@@ -171,8 +122,8 @@
             <action name="ToggleMaximize" />
         </keybind>
         <keybind key="W-f">
-	    <action name="ToggleFullscreen" />
-	</keybind>
+            <action name="ToggleFullscreen" />
+        </keybind>
         <keybind key="XF86_AudioLowerVolume">
             <action name="Execute" command="~/.config/scripts/volume.sh -d 5" />
         </keybind>
@@ -209,7 +160,7 @@
             <action name="Execute" command="fuzzel" />
         </keybind>
         <keybind key="W-l">
-            <action name="Execute" command="swaylock -f -c 000000 " />
+            <action name="Execute" command="swaylock -f -c 000000" />
         </keybind>
         
         <keybind key="W-Up">
@@ -255,11 +206,12 @@
         </keybind>
 
         <keybind key="W-Tab">
-            <action name="ShowMenu" menu="client-list-combined-menu" />
-            <position>
-                <x>center</x>
-                <y>center</y>
-            </position>
+            <action name="ShowMenu" menu="client-list-combined-menu">
+                <position>
+                    <x>center</x>
+                    <y>center</y>
+                </position>
+            </action>
         </keybind>
     </keyboard>
 
@@ -521,20 +473,7 @@
     <libinput>
         <device category="default">
             <naturalScroll>yes</naturalScroll>
-            <leftHanded></leftHanded>
-            <pointerSpeed></pointerSpeed>
-            <accelProfile></accelProfile>
             <tap>yes</tap>
-            <tapButtonMap></tapButtonMap>
-            <tapAndDrag></tapAndDrag>
-            <dragLock></dragLock>
-            <threeFingerDrag></threeFingerDrag>
-            <middleEmulation></middleEmulation>
-            <disableWhileTyping></disableWhileTyping>
-            <clickMethod></clickMethod>
-            <scrollMethod></scrollMethod>
-            <sendEventsMode></sendEventsMode>
-            <calibrationMatrix></calibrationMatrix>
             <scrollFactor>1.0</scrollFactor>
         </device>
 
