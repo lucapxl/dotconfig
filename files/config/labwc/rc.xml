@@ -389,7 +389,7 @@
             <mousebind button="Middle" action="Press">
                 <action name="Execute" command="fuzzel" />
             </mousebind>
-    </context>
+        </context>
 
     </mouse>
 
