@@ -386,7 +386,10 @@
             <mousebind button="Right" action="Press">
                 <action name="ShowMenu" menu="root-menu" />
             </mousebind>
-        </context>
+            <mousebind button="Middle" action="Press">
+                <action name="Execute" command="fuzzel" />
+            </mousebind>
+    </context>
 
     </mouse>
 

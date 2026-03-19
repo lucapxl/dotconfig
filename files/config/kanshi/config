@@ -14,11 +14,10 @@ profile VPDora {
 }
 
 # Screen in qemu
-profile Virtual {
-	output Virtual-1 mode 1440x900 position 0,0
-	exec $HOME/.config/scripts/kanshi.sh notify "Virtual monitor"
+profile RemoteDesktop {
+	output "Virtual-1" mode 1680x1050 position 0,0
+	exec $HOME/.config/scripts/kanshi.sh notify "VirtualScreen"
 }
-
 
 # ThinkPad Monitor
 profile ThinkPad {
