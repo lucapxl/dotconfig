@@ -73,7 +73,7 @@ brightnessctl set "$newValue%" >/dev/null
 
 # Send the notification
 applicationName="Brightness"
-brightnessIcon="preferences-desktop-brightness"
+brightnessIcon="brightness-symbolic"
 if [ $(pgrep -x -c dunst) -eq 0 ]; then
   dunst &
 fi

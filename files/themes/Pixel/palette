@@ -1,0 +1,18 @@
+# Warm Brights
+Background:  #f2ede8
+Surface:     #e8e2db
+Text:        #1e2a32
+Subtle:      #d4cdc6
+
+# Dark Areas
+Dark bg:     #141e24
+Dark bg2:    #1e2d38
+Dark surface #192530   (midpoint, optional)
+Dark text:   #ecf0f1
+
+# Accents and states
+Sage:        #7a9e7e   (primary accent)
+Green:       #3d9970   (brighter accent)
+Inactive:    #4a6572   (muted blue-grey, visible on dark bg and black)
+Warning:     #c9a84c   (warm amber/gold, not harsh yellow)
+Critical:    #c0524a   (muted brick red, not bright red)

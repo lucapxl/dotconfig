@@ -1,20 +1,17 @@
-@define-color waybar-background #000000;
-@define-color waybar-background2 #141e24;
+@define-color waybar-background #141e24;
+@define-color waybar-background2 #f2ede8;
 @define-color waybar-foreground #ecf0f1;
-@define-color waybar-black #2c3e50;
-@define-color waybar-blue #2980b9;
-@define-color waybar-brightblack #7f8c8d;
-@define-color waybar-brightwhite #ecf0f1;
-@define-color waybar-cyan #3498db;
-@define-color waybar-green #2ecc71;
-@define-color waybar-magenta #9b59b6;
-@define-color waybar-red #e74c3c;
-@define-color waybar-white #ecf0f1;
-@define-color waybar-yellow #f1c40f;
+@define-color waybar-text #1e2a32;
+@define-color waybar-subtle #d4cdc6;
+@define-color waybar-muted #4a6572;
+@define-color waybar-sage #7a9e7e;
+@define-color waybar-green #3d9970;
+@define-color waybar-red #c0524a;
+@define-color waybar-yellow #c9a84c;
 
 @keyframes blink {
     to {
-        background: @waybar-black;
+        background: @waybar-muted;
         color: @waybar-red;
     }
 }
@@ -31,16 +28,17 @@
 }
 
 tooltip {
-    background: @waybar-black;
-    color: @waybar-foreground;
+    background: @waybar-background2;  /* add this variable */
+    border: 1px solid @waybar-subtle;
+    color: @waybar-text;
 }
 tooltip label {
     font-size: 16px;
-    color: @waybar-foreground;
+    color: @waybar-text;
 }
 
 window#waybar {
-    background: @waybar-background;
+    background: #000000;
     color: @waybar-foreground;
     border-radius: 0;
 }
@@ -53,7 +51,7 @@ window#waybar.hidden {
     padding: 0 0.3em;
     font-size: 20px;
     background: transparent;
-    color: @waybar-black;
+    color: @waybar-muted;
     box-shadow: none;
     margin: 2px 0px;
 }
@@ -63,12 +61,11 @@ window#waybar.hidden {
 }
 
 #workspaces button:hover {
-    background: @waybar-black;
+    background: @waybar-muted;
     color: @waybar-foreground;
 }
 
 #workspaces button.active {
-    /*background: @waybar-black;*/
     color: @waybar-foreground;
 }
 
@@ -86,27 +83,15 @@ window#waybar.hidden {
 #tray {
     padding: 0 8px;
     color: @waybar-foreground;
-    /* background: @waybar-black; */
     margin: 4px 2px;
 }
 
-#clock:hover,
-#battery:hover,
-#network:hover,
-#pulseaudio:hover,
-#custom-powerctl:hover,
-#idle_inhibitor:hover,
-#custom-labwclang:hover {
-    background: @waybar-black;
-    color: @waybar-foreground;
-}
-
 #pulseaudio.bluetooth {
-    color: @waybar-blue;
+    color: @waybar-sage;
 }
 
 #pulseaudio.muted {
-    color: @waybar-black;
+    color: @waybar-muted;
 }
 
 #custom-labwclang{
@@ -127,26 +112,23 @@ window#waybar.hidden {
     color: @waybar-foreground;
 }
 
-#custom-powerctl:hover {
-    background: @waybar-red;
-    color: @waybar-foreground;
-}
-
 #battery.charging {
     color: @waybar-yellow;
 }
 
 #battery.full, #battery.plugged {
-    color: @waybar-green;
+    color: @waybar-sage;
 }
 
 
 #idle_inhibitor.activated {
-    color: @waybar-cyan;
+    background: @waybar-sage;
+    color: @waybar-background;
+
 }
 
 #idle_inhibitor.deactivated {
-    color: @waybar-black;
+    color: @waybar-muted;
 }
 
 #battery.critical:not(.charging) {
@@ -167,16 +149,8 @@ window#waybar.hidden {
     animation-direction: alternate;
 }
 
-label:focus {
-    background: @waybar-black;
-}
-
-#network {
-    color: @waybar-foreground;
-}
-
 #network.disconnected {
-    color: @waybar-black;
+    color: @waybar-muted;
 }
 
 #tray > .passive {
@@ -186,4 +160,20 @@ label:focus {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background: @waybar-red;
+}
+
+#clock:hover,
+#battery:hover,
+#network:hover,
+#pulseaudio:hover,
+#custom-powerctl:hover,
+#idle_inhibitor:hover,
+#custom-labwclang:hover {
+    background: @waybar-muted;
+    color: @waybar-foreground;
+}
+
+#custom-powerctl:hover {
+    background: @waybar-red;
+    color: @waybar-foreground;
 }

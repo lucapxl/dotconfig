@@ -3,7 +3,7 @@
     follow = mouse               # mouse, keyboard, none
     
     width = 400                 # with or min-max width (0, 300)
-    height = (0,350)                # The maximum height of a single notification, excluding the frame.
+    height = (0,350)                #1 The maximum height of a single notification, excluding the frame.
     origin = top-right          # top-right, top-center, top-left, bottom-right, ...
     offset = (10, 10)                # Offset from the origin - format: (horizontal, vertical)
     
@@ -23,7 +23,7 @@
     text_icon_padding = 10      # Padding between text and icon.
     frame_width = 2             # Defines width in pixels of frame around the notification window.
     gap_size = 5                # Size of gap to display between notifications
-    separator_color = frame     # values: [auto/foreground/frame/#RRGGBB] default: frame
+    separator_color = auto     # values: [auto/foreground/frame/#RRGGBB] default: frame
 
     sort = true                  # Sort messages by urgency.
     # idle_threshold = 120       # Don't remove messages, if the user is idle (no mouse or keyboard input)
@@ -55,7 +55,7 @@
     show_indicators = false       # Display indicators for URLs (U) and actions (A).
     
     icon_path = /usr/share/icons/
-    icon_theme = "Papirus-Dark"    # Set icon theme (only used for recursive icon lookup)
+    icon_theme = "Papirus-Light"    # Set icon theme (only used for recursive icon lookup)
     enable_recursive_icon_lookup = true     # Recursive icon lookup
     icon_position = "left"        # Align icons left/right/top/off
     min_icon_size = 24          # max_icon_size takes precedence over this.    
@@ -79,23 +79,28 @@
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
 
-    # palette https://flatuicolors.com/palette/defo
-    foreground = "#ecf0f1"
-    frame_color = "#7f8c8d"
-    #highlight = "#2274d5, #82aad9"
-    highlight = "#2980b9"
+    # Palette
+    foreground = "#1e2a32"
+    frame_color = "#d4cdc6"
+    highlight = "#7a9e7e"
 
     [urgency_low]
-    background = "#2c3e50"
+    background = "#f2ede8"
+    foreground = "#1e2a32"
+    frame_color = "#d4cdc6"
     timeout = 3
 
     [urgency_normal]
-    background = "#2c3e50"
+    background = "#f2ede8"
+    foreground = "#1e2a32"
+    frame_color = "#7a9e7e"
     timeout = 8
 
-    [urgency_critical]    
-    background = "#c0392b"
-    frame_color = "#c0392b"
-    highlight = "#f39c12"
+    [urgency_critical]
+    background = "#f2ede8"
+    foreground = "#1e2a32"
+    frame_color = "#c0524a"
+    highlight = "#c9a84c"
+    fullscreen = pushback
     timeout = 0
 

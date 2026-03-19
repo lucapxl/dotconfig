@@ -1,38 +1,36 @@
 ignore-empty-password
 hide-keyboard-layout
 line-uses-ring
+color=141e24
 
-color=000000
-#indicator-idle-visible
 indicator-radius=75
 indicator-thickness=15
 
-# cyan
-key-hl-color=3498db
-bs-hl-color=3498db
-separator-color=3498db
-line-color=3498db
+# Sage - key highlight and separator
+key-hl-color=7a9e7e
+bs-hl-color=c0524a
+separator-color=00000000
+line-color=00000000
 
-# bright white
+# Text
 text-color=ecf0f1
 text-ver-color=ecf0f1
-text-clear-color=ecf0f1
+text-clear-color=1e2a32
+text-caps-lock-color=c9a84c
+text-wrong-color=ecf0f1
 
-# yellow
-text-caps-lock-color=f1c40f
+# Ring and inside - idle state
+inside-color=1e2d38
+ring-color=141e24
 
-# ring color
-inside-color=2c3e50
-ring-color=2c3e50
-inside-ver-color=2c3e50
-ring-ver-color=2c3e50
-inside-clear-color=2c3e50
-inside-wrong-color=2c3e50
+# Verifying
+inside-ver-color=1e2d38
+ring-ver-color=4a6572
 
-# color
-ring-wrong-color=e74c3c
-text-wrong-color=e74c3c
+# Clear
+inside-clear-color=f2ede8
+ring-clear-color=7a9e7e
 
-# green
-ring-clear-color=2ecc71
-
+# Wrong
+inside-wrong-color=c0524a
+ring-wrong-color=c0524a

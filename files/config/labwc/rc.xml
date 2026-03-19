@@ -22,7 +22,7 @@
     </placement>
 
     <theme>
-        <name>Pixel-Labwc</name>
+        <name>Pixel</name>
         <titlebar layout=":max,close" showTitle="yes" />
         <cornerRadius>10</cornerRadius>
         <dropShadows>yes</dropShadows>
@@ -33,13 +33,14 @@
         <font place="OnScreenDisplay" name="Inter" size="12" />
     </theme>
 
-    <windowSwitcher show="yes" preview="yes" outlines="yes" allWorkspaces="no">
+    <!-- <windowSwitcher show="yes" preview="yes" outlines="yes" allWorkspaces="no">
         <fields>
             <field content="icon" width="5%" />
             <field content="desktop_entry_name" width="30%" />
             <field content="title" width="60%" />
         </fields>
-    </windowSwitcher>
+    </windowSwitcher> -->
+    <windowSwitcher><osd style="thumbnail" output="" thumbnailLabelFormat="%T" /></windowSwitcher>
 
     <resistance>
         <screenEdgeStrength>20</screenEdgeStrength>
