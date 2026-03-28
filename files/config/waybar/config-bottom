@@ -5,10 +5,16 @@
     "exclusive": true,
     "passthrough": false,
     "modules-left": [
+        "custom/fuzzel",
         "wlr/taskbar"
     ],
     "modules-center": [],
     "modules-right": [],
+    "custom/fuzzel": {
+        "format": "  ",
+        "on-click": "fuzzel",
+        "tooltip": false
+    },
     "wlr/taskbar": {
         "all-outputs": false,
         "format": "{icon} {name} - {title}",

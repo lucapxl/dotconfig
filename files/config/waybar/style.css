@@ -199,7 +199,20 @@ window#waybar.hidden {
     color: @waybar-foreground;
 }
 
+
 /* ── Bottom bar: taskbar ───────────────────────────────────────────── */
+
+#custom-fuzzel {
+    padding: 0 8px;
+    color: @waybar-green;
+    background: @waybar-background;
+    margin: 4px 2px;
+}
+
+#custom-fuzzel:hover {
+    background: @waybar-green;
+    color: @waybar-foreground;
+}
 
 #taskbar {
     padding: 0 4px;
@@ -223,7 +236,7 @@ window#waybar.hidden {
 }
 
 #taskbar button.active {
-    background: @waybar-background2;
-    color: @waybar-text;
+    background: @waybar-muted;
+    color: @waybar-foreground;
 }
 
