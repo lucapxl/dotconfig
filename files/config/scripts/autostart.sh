@@ -1,29 +1,70 @@
 #!/usr/bin/env bash
+# Labwc autostart script
+#
 
-export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+# Hosts in this list will start wayvnc
+VNC_HOSTS=("remote.alpeax.ch" "remote-home.alpeax.ch")
+
+# Starting gnome-keyring to enable pam
+gnome-keyring-daemon --start --components=pkcs11,secrets,ssh -d
+
+# running distro specific tasks
+. /etc/os-release
+case $ID in
+    void) 
+        pipewire &
+        ;;
+esac
+
+swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'wlopm --off \*' \
+    resume 'wlopm --on \*' \
+    before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &
+
+# Set background color.
+swaybg -i ~/.config/bg.jpg -m fill &
+
+# Launch a panel .
+if [ $(pgrep -x -c waybar) -eq 0 ]; then
+    waybar &
+fi
 
 # Make sure waybar is running
-while [ $(pgrep -x -c waybar) -eq 0 ]; do sleep 1; done
+while [ $(pgrep -x -c waybar) -eq 0 ]; do 
+    sleep 1
+done
 
-$HOME/.config/scripts/kanshi.sh &
+if [ $(pgrep -x -c dunst) -eq 0 ]; then
+    dunst &
+fi
 
-# if [ $(pgrep -x -c nm-applet) -eq 0 ]; then
-#     echo "running nm-applet"
-#     nm-applet --indicator &
-# fi
-
-if [ $(pgrep -x -c gammastep) -eq 0 ]; then
-    echo "running gammastep"
-    gammastep &
+if [ $(pgrep -x -c kanshi) -eq 0 ]; then
+    kanshi &
 fi
 
 if [ $(pgrep -x -c nextcloud) -eq 0 ]; then
-    echo "running nextcloud"
     nextcloud &
 fi
 
 if [ $(pgrep -x -c keepassxc) -eq 0 ]; then
-    echo "running KeePass XC"
-    flatpak run org.keepassxc.KeePassXC &
+    # Make sure waybar is running
+    sleep 1 & flatpak run org.keepassxc.KeePassXC &
 fi
 
+HOSTNAME=$(hostname)
+
+# If
+if [[ " ${VNC_HOSTS[*]} " == *" $HOSTNAME "* ]]; then
+    if [ $(pgrep -x -c wayvnc) -eq 0 ]; then
+        wayvnc 0.0.0.0 &
+    fi
+else
+    if [ $(pgrep -x -c blueman-applet) -eq 0 ]; then
+        blueman-applet &
+    fi
+
+    if [ $(pgrep -x -c gammastep) -eq 0 ]; then
+        gammastep &
+    fi
+fi
