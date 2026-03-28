@@ -32,7 +32,13 @@ EOF
 # Read the current brightness level
 brightness=$(brightnessctl get)
 brightnessMax=$(brightnessctl max)
-brightnessPercent=$(((brightness * 100) / brightnessMax))
+brightnessPercent=$(((brightness * 10000) / brightnessMax))
+remainder=${brightnessPercent: -2}
+brightnessPercent=$((brightnessPercent / 100))
+
+if [[ $remainder > 50 ]]; then
+  brightnessPercent=$((brightnessPercent++))
+fi
 
 # Find current closest index
 closestIndex=0
