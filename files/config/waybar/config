@@ -1,18 +1,18 @@
-
 {
     "position": "top",
     "height": 36, 
     "spacing": 0,
     "modules-left": [
         "ext/workspaces",
-	      "idle_inhibitor"
+        "custom/taskbar-toggle",
+	    "idle_inhibitor"
     ],
     "modules-center": [
 	      "clock"
     ],
     "modules-right": [
         "tray",
-        "network#wg",
+        "custom/wg",
         "network#eth",
         "network#wifi",
         "custom/labwclang",
@@ -75,14 +75,12 @@
         "tooltip-format-disconnected": "click to open <b>nmtui</b>",
         "on-click": "foot -a nmtui bash -c 'sleep 0.1 && nmtui'"
     },
-    "network#wg": {
-        "interface": "wg*", 
+    "custom/wg": {
+        "exec": "~/.config/scripts/wg-status.sh 'Alpeax Cloud'",
+        "return-type": "json",
         "interval": 5,
-        "format": "",
-        "format-disconnected": "",
-        "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}\n\nclick to <b>disconnect</b>",
-        "tooltip-format-disconnected": "<b>Disconnected</b> \nclick to <b>connect</b>",
-        "on-click":"~/.config/scripts/network-helper.sh toggle 'Alpeax Cloud'"
+        "on-click": "~/.config/scripts/network-helper.sh toggle 'Alpeax Cloud'",
+        "tooltip": true
     },
     "pulseaudio": {
         "format": "{icon}",
@@ -93,9 +91,6 @@
         "format-source": "",
         "scroll-step": 5,
         "format-icons": {
-            // "headphone": [" "," "," "," "," "],
-            // "hands-free": [" "," "," "," "," "],
-            // "headset": [" "," "," "," "," "],
             "default": ["","","","",""]
         },
         "on-click": "pavucontrol"
@@ -110,6 +105,14 @@
         "format": "{}",
         "interval": 1,
         "tooltip-format": "Press Alt+Shift to switch between keyboard layouts"
+    },
+    "custom/taskbar-toggle": {
+        "format": "",
+        "exec": "~/.config/scripts/taskbar-toggle.sh status",
+        "return-type": "json",
+        "interval": 2,
+        "on-click": "~/.config/scripts/taskbar-toggle.sh toggle",
+        "tooltip": true
     }
 }
 

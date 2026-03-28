@@ -40,7 +40,7 @@
             <field content="title" width="60%" />
         </fields>
     </windowSwitcher> -->
-    <windowSwitcher><osd style="thumbnail" output="" thumbnailLabelFormat="%T" /></windowSwitcher>
+    <windowSwitcher><osd style="thumbnail" thumbnailLabelFormat="%T" /></windowSwitcher>
 
     <resistance>
         <screenEdgeStrength>20</screenEdgeStrength>
@@ -62,7 +62,7 @@
     </focus>
 
     <snapping>
-        <range>10</range>
+       <range inner="10" outer="10" />
         <cornerRange>50</cornerRange>
         <overlay enabled="yes">
             <delay inner="500" outer="500" />
@@ -433,7 +433,7 @@
         When using mouse emulation, the pen tip [tip] and the stylus buttons
         can be set to any available mouse button [Left|Right|Middle|..|Task].
     -->
-    <tablet mapToOutput="" rotate="0" mouseEmulation="no">
+    <tablet rotate="0" mouseEmulation="no">
         <!-- Active area dimensions are in mm -->
         <area top="0.0" left="0.0" width="0.0" height="0.0" />
         <map button="Tip" to="Left" />

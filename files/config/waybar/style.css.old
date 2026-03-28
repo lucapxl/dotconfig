@@ -76,13 +76,11 @@ window#waybar.hidden {
 #clock,
 #battery,
 #network,
-#custom-wg,
 #pulseaudio,
 #custom-powerctl,
 #idle_inhibitor,
 #custom-labwclang,
-#tray,
-#custom-taskbar-toggle {
+#tray {
     padding: 0 8px;
     color: @waybar-foreground;
     margin: 4px 2px;
@@ -164,32 +162,13 @@ window#waybar.hidden {
     background: @waybar-red;
 }
 
-#custom-taskbar-toggle.active {
-    background: @waybar-sage;
-    color: @waybar-background;
-}
-
-#custom-taskbar-toggle.inactive {
-    color: @waybar-muted;
-}
-
-#custom-wg.connected {
-    color: @waybar-foreground;
-}
-
-#custom-wg.disconnected {
-    color: @waybar-muted;
-}
-
 #clock:hover,
 #battery:hover,
 #network:hover,
 #pulseaudio:hover,
 #custom-powerctl:hover,
 #idle_inhibitor:hover,
-#custom-labwclang:hover,
-#custom-taskbar-toggle:hover,
-#custom-wg:hover {
+#custom-labwclang:hover {
     background: @waybar-muted;
     color: @waybar-foreground;
 }
@@ -198,32 +177,3 @@ window#waybar.hidden {
     background: @waybar-red;
     color: @waybar-foreground;
 }
-
-/* ── Bottom bar: taskbar ───────────────────────────────────────────── */
-
-#taskbar {
-    padding: 0 4px;
-    background-color: @waybar-background;
-}
-
-#taskbar button {
-    padding: 0 10px;
-    margin: 2px 2px;
-    min-width: 250px;
-    background: transparent;
-    color: @waybar-foreground;
-    border-radius: 5px;
-    box-shadow: none;
-    font-size: 14px;
-}
-
-#taskbar button:hover {
-    background: @waybar-muted;
-    color: @waybar-foreground;
-}
-
-#taskbar button.active {
-    background: @waybar-background2;
-    color: @waybar-text;
-}
-

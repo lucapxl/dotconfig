@@ -1,3 +1,9 @@
+# Labwc autostart script
+
+# Hosts in this list will start wayvnc
+VNC_HOSTS=("remote.alpeax.ch" "remote-home.alpeax.ch")
+
+# Starting gnome-keyring to enable pam
 gnome-keyring-daemon --start --components=pkcs11,secrets,ssh -d
 
 # running distro specific tasks
@@ -19,7 +25,6 @@ swaybg -i ~/.config/bg.jpg -m fill &
 
 # Launch a panel .
 if [ $(pgrep -x -c waybar) -eq 0 ]; then
-    echo "running waybar"
     waybar &
 fi
 
@@ -29,33 +34,35 @@ while [ $(pgrep -x -c waybar) -eq 0 ]; do
 done
 
 if [ $(pgrep -x -c dunst) -eq 0 ]; then
-    echo "running dunst"
     dunst &
 fi
 
 if [ $(pgrep -x -c kanshi) -eq 0 ]; then
-    echo "running kanshi"
     kanshi &
 fi
 
-if [ $(pgrep -x -c gammastep) -eq 0 ]; then
-    echo "running gammastep"
-    gammastep &
-fi
-
 if [ $(pgrep -x -c nextcloud) -eq 0 ]; then
-    echo "running nextcloud"
     nextcloud &
 fi
 
-# if [ $(pgrep -x -c blueman-applet) -eq 0 ]; then
-#     echo "running blueman applet"
-#     blueman-applet &
-# fi
-
 if [ $(pgrep -x -c keepassxc) -eq 0 ]; then
     # Make sure waybar is running
-    echo "running KeePass XC"
-    sleep 5 && flatpak run org.keepassxc.KeePassXC &
+    sleep 1 & flatpak run org.keepassxc.KeePassXC &
 fi
 
+HOSTNAME=$(hostname)
+
+# If
+if [[ " ${VNC_HOSTS[*]} " == *" $HOSTNAME "* ]]; then
+    if [ $(pgrep -x -c wayvnc) -eq 0 ]; then
+        wayvnc 0.0.0.0 &
+    fi
+else
+    if [ $(pgrep -x -c blueman-applet) -eq 0 ]; then
+        blueman-applet &
+    fi
+
+    if [ $(pgrep -x -c gammastep) -eq 0 ]; then
+        gammastep &
+    fi
+fi
