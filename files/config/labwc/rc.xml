@@ -140,6 +140,9 @@
         <keybind key="XF86_MonBrightnessDown">
             <action name="Execute" command="~/.config/scripts/brightness.sh decrease" />
         </keybind>
+        <keybind key="W-p">
+            <action name="Execute" command="playerctl play-pause" />
+        </keybind>
         <keybind key="XF86_AudioPlay">
             <action name="Execute" command="playerctl play-pause" />
         </keybind>
