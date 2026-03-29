@@ -9,7 +9,9 @@
         "wlr/taskbar"
     ],
     "modules-center": [],
-    "modules-right": [],
+    "modules-right": [
+        "custom/hostname"
+    ],
     "custom/fuzzel": {
         "format": "  ",
         "on-click": "fuzzel",
@@ -27,5 +29,11 @@
             "(.{30}).+": "$1…"
         },
         "sort-by-app-id": true
+    },
+    "custom/hostname": {
+        "exec": "hostname",
+        "interval": 3600,
+        "format": " {}",
+        "tooltip": false
     }
 }

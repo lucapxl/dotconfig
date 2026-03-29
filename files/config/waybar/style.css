@@ -202,6 +202,13 @@ window#waybar.hidden {
 
 /* ── Bottom bar: taskbar ───────────────────────────────────────────── */
 
+window#waybar.bottom {
+    background: @waybar-background;
+    color: @waybar-foreground;
+    border-radius: 0;
+}
+
+
 #custom-fuzzel {
     padding: 0 8px;
     color: @waybar-green;
@@ -226,6 +233,7 @@ window#waybar.hidden {
     background: transparent;
     color: @waybar-foreground;
     border-radius: 5px;
+    border: 1px solid @waybar-muted;
     box-shadow: none;
     font-size: 14px;
 }
@@ -240,3 +248,11 @@ window#waybar.hidden {
     color: @waybar-foreground;
 }
 
+#custom-hostname {
+    padding: 0 12px;
+    margin: 4px 2px;
+    font-size: 14px;
+    color: @waybar-foreground;
+    font-family: 'Inter Medium';
+    background-color: @waybar-red;
+}
