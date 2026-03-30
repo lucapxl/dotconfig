@@ -29,8 +29,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "",
+            "deactivated": ""
         }
     },
     "tray": {
@@ -50,17 +50,17 @@
         "format": "{icon}",
         "format-warning": "{capacity}% {icon}",
         "format-critical": "{capacity}% {icon}",
-        "format-charging": "{capacity}% {icon} ",
+        "format-charging": "{capacity}% {icon} ",
         "format-full": "{icon}",
-        "format-plugged": "{icon}",
+        "format-plugged": "{icon} ",
         "tooltip-format": ": {capacity}%\n{timeTo}",
         "format-alt": "{capacity}% {timeTo}",
-        "format-icons": ["", "", "", "", "", ""]
+        "format-icons": ["", "", "", ""]
     },
     "network#eth": {
         "interface": "enp*",
         "interval": 5,
-        "format": "",
+        "format": "",
         "format-disconnected": "",
         "tooltip-format": "<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}",
         "tooltip-format-disconnected": "",
@@ -69,8 +69,9 @@
     "network#wifi": {
         "interface": "wlp*",
         "interval": 5,
-        "format-wifi": "",
-        "format-disconnected": "",
+        "format-wifi": "{icon} ",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-disconnected": "󰤮 ",
         "tooltip-format-wifi": "<b>SSID:</b> {essid}\n<b>Signal:</b> {signalStrength}%\n<b>Freq:</b> {frequency}\n\n<b>IP:</b> {ipaddr}\n<b>GW:</b> {gwaddr}\n<b>IF:</b> {ifname}",
         "tooltip-format-disconnected": "click to open <b>nmtui</b>",
         "on-click": "foot -a nmtui bash -c 'sleep 0.1 && nmtui'"
@@ -86,17 +87,16 @@
         "format": "{icon}",
         "tooltip-format": "Volume: {volume}%\nDevice: {desc}",
         "format-bluetooth": "{icon}",
-        "format-bluetooth-muted": "",
-        "format-muted": "",
+        "format-muted": "",
         "format-source": "",
         "scroll-step": 5,
         "format-icons": {
-            "default": ["","","","",""]
+            "default": ["","",""]
         },
         "on-click": "pavucontrol"
     },
     "custom/powerctl": {
-        "format": "",
+        "format": "⏻",
         "on-click": "~/.config/scripts/wlogout.sh",
         "tooltip": false
     },
