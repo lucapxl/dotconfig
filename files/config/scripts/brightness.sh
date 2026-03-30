@@ -37,7 +37,7 @@ remainder=${brightnessPercent: -2}
 brightnessPercent=$((brightnessPercent / 100))
 
 if [[ $remainder > 50 ]]; then
-  brightnessPercent=$((brightnessPercent++))
+  brightnessPercent=$((brightnessPercent+1))
 fi
 
 # Find current closest index
