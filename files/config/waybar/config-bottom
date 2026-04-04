@@ -5,16 +5,16 @@
     "exclusive": true,
     "passthrough": false,
     "modules-left": [
-        "custom/fuzzel",
+        "custom/rofi",
         "wlr/taskbar"
     ],
     "modules-center": [],
     "modules-right": [
         "custom/hostname"
     ],
-    "custom/fuzzel": {
-        "format": "",
-        "on-click": "fuzzel",
+    "custom/rofi": {
+        "format": " ",
+        "on-click": "~/.config/scripts/rofi",
         "tooltip": false
     },
     "wlr/taskbar": {

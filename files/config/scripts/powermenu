@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+shutdown="󰐥  Shutdown"
+reboot="  Restart"
+logout="󰍃  Logout"
+lock="  Lock"
+
+CHOSEN=$(echo -e "$shutdown\n$reboot\n$logout\n$lock" | rofi -dmenu -theme ~/.config/rofi/powermenu.rasi -l 4 -i)
+
+case "$CHOSEN" in
+    *Shutdown*)  loginctl poweroff ;;
+    *Restart*)   loginctl reboot ;;
+    *Logout*)    loginctl terminate-session "$XDG_SESSION_ID" ;;
+    *Lock*)      swaylock -f -c 000000 ;;
+esac

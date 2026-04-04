@@ -4,35 +4,35 @@
 profile HomeBigScreen {
 	output eDP-1 disable
 	output "Lenovo Group Limited R45w-30 UPP03XBK" mode 5120x1440 position 0,0
-	exec $HOME/.config/scripts/kanshi.sh notify "Home Wide Screen"
+	exec $HOME/.config/scripts/kanshi notify "Home Wide Screen"
 }
 
 # Office Docking Station
 profile VPDora {
 	output "Najing CEC Panda FPD Technology CO. ltd 0x0035 Unknown" position 0,0
-	exec $HOME/.config/scripts/kanshi.sh notify "VPDora"
+	exec $HOME/.config/scripts/kanshi notify "VPDora"
 }
 
 # Screen in qemu
 profile RemoteDesktop {
 	output "Virtual-1" mode 1680x1050 position 0,0
-	exec $HOME/.config/scripts/kanshi.sh notify "VirtualScreen"
+	exec $HOME/.config/scripts/kanshi notify "VirtualScreen"
 }
 
 # ThinkPad Monitor
 profile ThinkPad {
 	output "Chimei Innolux Corporation 0x14D4 0x00000000" enable
-	exec $HOME/.config/scripts/kanshi.sh notify "ThinkPad E14"
+	exec $HOME/.config/scripts/kanshi notify "ThinkPad E14"
 }
 
 # HPe Monitor
 profile HPe {
 	output "Chimei Innolux Corporation 0x13A9 Unknown" enable
-	exec $HOME/.config/scripts/kanshi.sh notify "HPe g0tth4rd"
+	exec $HOME/.config/scripts/kanshi notify "HPe g0tth4rd"
 }
 
 # MiDora Monitor
 profile mivoid {
 	output "BOE 0x0691" enable
-	exec $HOME/.config/scripts/kanshi.sh notify "Xiaomi mivoid"
+	exec $HOME/.config/scripts/kanshi notify "Xiaomi mivoid"
 }

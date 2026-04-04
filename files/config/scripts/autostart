@@ -35,10 +35,6 @@ while [ $(pgrep -x -c waybar) -eq 0 ]; do
     sleep 1
 done
 
-if [ $(pgrep -x -c dunst) -eq 0 ]; then
-    dunst &
-fi
-
 if [ $(pgrep -x -c kanshi) -eq 0 ]; then
     kanshi &
 fi
@@ -54,7 +50,8 @@ fi
 
 HOSTNAME=$(hostname)
 
-# If
+# If the host is a remote desktop, start the VNC server
+# Otherwise start bluetooth applet utilitz and gammastep
 if [[ " ${VNC_HOSTS[*]} " == *" $HOSTNAME "* ]]; then
     if [ $(pgrep -x -c wayvnc) -eq 0 ]; then
         wayvnc 0.0.0.0 &

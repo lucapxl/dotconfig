@@ -126,19 +126,19 @@
             <action name="ToggleFullscreen" />
         </keybind>
         <keybind key="XF86_AudioLowerVolume">
-            <action name="Execute" command="~/.config/scripts/volume.sh -d 5" />
+            <action name="Execute" command="~/.config/scripts/volume -d 5" />
         </keybind>
         <keybind key="XF86_AudioRaiseVolume">
-            <action name="Execute" command="~/.config/scripts/volume.sh -i 5" />
+            <action name="Execute" command="~/.config/scripts/volume -i 5" />
         </keybind>
         <keybind key="XF86_AudioMute">
-            <action name="Execute" command="~/.config/scripts/volume.sh --toggle-mute" />
+            <action name="Execute" command="~/.config/scripts/volume --toggle-mute" />
         </keybind>
         <keybind key="XF86_MonBrightnessUp">
-            <action name="Execute" command="~/.config/scripts/brightness.sh increase" />
+            <action name="Execute" command="~/.config/scripts/brightness increase" />
         </keybind>
         <keybind key="XF86_MonBrightnessDown">
-            <action name="Execute" command="~/.config/scripts/brightness.sh decrease" />
+            <action name="Execute" command="~/.config/scripts/brightness decrease" />
         </keybind>
         <keybind key="W-p">
             <action name="Execute" command="playerctl play-pause" />
@@ -147,7 +147,7 @@
             <action name="Execute" command="playerctl play-pause" />
         </keybind>
         <keybind key="Print">
-            <action name="Execute" command="~/.config/scripts/screenshot.sh area" />
+            <action name="Execute" command="~/.config/scripts/screenshot area" />
         </keybind>
 
         <keybind key="W-q">
@@ -158,10 +158,10 @@
         </keybind>
         
         <keybind key="C-A-Delete">
-            <action name="Execute" command="~/.config/scripts/wlogout.sh" />
+            <action name="Execute" command="~/.config/scripts/powermenu" />
         </keybind>
         <keybind key="W-d">
-            <action name="Execute" command="fuzzel" />
+            <action name="Execute" command="~/.config/scripts/rofi" />
         </keybind>
         <keybind key="W-l">
             <action name="Execute" command="swaylock -f -c 000000" />

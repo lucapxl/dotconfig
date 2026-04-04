@@ -1,0 +1,122 @@
+configuration {
+    /* --- Behaviour --- */
+    modi:                   "drun,run,calc";
+    show-icons:             true;
+    icon-theme:             "Papirus-Light";
+    drun-display-format:    "{name}";
+    display-drun:           "❯   ";
+    placeholder:            "Search and launch";
+    terminal:               "foot";
+    drun-match-fields:      "name,generic,comment,categories,keywords,exec";
+    show-match:             true;
+    matching:               "fuzzy";
+    sort:                   true;
+    levenshtein-sort:       true;
+    cycle:                  true;
+    sidebar-mode:           false;
+    click-to-exit:          true;
+
+    /* --- Layout --- */
+    lines:                  10;
+    columns:                1;
+    fixed-num-lines:        true;
+    anchor:                 "center";
+    location:               0;          /* 0 = center */
+}
+
+* {
+    font:                   "Inter Light 18";
+    line-height:            25px;
+    letter-spacing:         0px;
+
+    /* Palette — translated from fuzzel colors */
+    bg:                     #f2ede8;
+    fg:                     #1e2a32;
+    fg-prompt:              #4a6572;
+    fg-placeholder:         #4a657288;
+    fg-match:               #3d9970;
+    sel-bg:                 #e8e2db;
+    sel-fg:                 #1e2a32;
+    sel-match:              #3d9970;
+    border-col:             #d4cdc6;
+
+    background-color:       transparent;
+    text-color:             @fg;
+}
+
+window {
+    background-color:       @bg;
+    border:                 2px solid;
+    border-color:           @border-col;
+    border-radius:          10px;
+    padding:                20px;
+    width:                  60ch;
+    x-offset:               0;
+    y-offset:               0;
+}
+
+mainbox {
+    background-color:       transparent;
+    spacing:                5px;
+    padding:                0px;
+    children:               [ inputbar, listview ];
+}
+
+inputbar {
+    background-color:       transparent;
+    padding:                8px 0px;
+    spacing:                5px;
+    children:               [ prompt, entry ];
+}
+
+prompt {
+    background-color:       transparent;
+    text-color:             @fg-prompt;
+}
+
+entry {
+    background-color:       transparent;
+    text-color:             @fg;
+    placeholder:            "Search and launch";
+    placeholder-color:      @fg-placeholder;
+    cursor:                 text;
+}
+
+listview {
+    background-color:       transparent;
+    lines:                  10;
+    columns:                1;
+    fixed-height:           true;
+    spacing:                2px;
+    padding:                4px 0px;
+    scrollbar:              false;
+}
+
+element {
+    background-color:       transparent;
+    text-color:             @fg;
+    padding:                2px 2px;
+    border-radius:          8px;
+    spacing:                8px;
+    children:               [ element-icon, element-text ];
+}
+
+element selected {
+    background-color:       @sel-bg;
+    text-color:             @sel-fg;
+}
+
+element-icon {
+    background-color:       transparent;
+    size:                   30px;
+}
+
+element-text {
+    background-color:       transparent;
+    text-color:             inherit;
+    highlight:              @fg-match;
+}
+
+element-text selected {
+    highlight:              @sel-match;
+}

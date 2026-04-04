@@ -209,14 +209,14 @@ window#waybar.bottom {
 }
 
 
-#custom-fuzzel {
+#custom-rofi {
     padding: 0 8px;
     color: @waybar-green;
     background: @waybar-background;
     margin: 4px 2px;
 }
 
-#custom-fuzzel:hover {
+#custom-rofi:hover {
     background: @waybar-green;
     color: @waybar-foreground;
 }

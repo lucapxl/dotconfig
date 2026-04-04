@@ -77,10 +77,10 @@
         "on-click": "foot -a nmtui bash -c 'sleep 0.1 && nmtui'"
     },
     "custom/wg": {
-        "exec": "~/.config/scripts/wg-status.sh 'Alpeax Cloud'",
+        "exec": "~/.config/scripts/wg-status 'Alpeax Cloud'",
         "return-type": "json",
         "interval": 5,
-        "on-click": "~/.config/scripts/network-helper.sh toggle 'Alpeax Cloud'",
+        "on-click": "~/.config/scripts/network-helper toggle 'Alpeax Cloud'",
         "tooltip": true
     },
     "pulseaudio": {
@@ -97,21 +97,21 @@
     },
     "custom/powerctl": {
         "format": "⏻",
-        "on-click": "~/.config/scripts/wlogout.sh",
+        "on-click": "~/.config/scripts/powermenu",
         "tooltip": false
     },
     "custom/labwclang": {
-        "exec": "~/.config/scripts/labwc-keyboardlang-helper.sh status",
+        "exec": "~/.config/scripts/labwc-keyboardlang-helper status",
         "format": "{}",
         "interval": 1,
         "tooltip-format": "Press Alt+Shift to switch between keyboard layouts"
     },
     "custom/taskbar-toggle": {
         "format": "",
-        "exec": "~/.config/scripts/taskbar-toggle.sh status",
+        "exec": "~/.config/scripts/taskbar-toggle status",
         "return-type": "json",
         "interval": 2,
-        "on-click": "~/.config/scripts/taskbar-toggle.sh toggle",
+        "on-click": "~/.config/scripts/taskbar-toggle toggle",
         "tooltip": true
     }
 }
