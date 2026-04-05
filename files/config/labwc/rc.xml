@@ -540,6 +540,10 @@
         </windowRules>
     -->
 
+    <windowRules>
+        <windowRule identifier="*" serverDecoration="no"/>
+    </windowRules>
+
     <menu>
         <ignoreButtonReleasePeriod>250</ignoreButtonReleasePeriod>
         <showIcons>yes</showIcons>

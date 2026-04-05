@@ -4,7 +4,7 @@ configuration {
     show-icons:             true;
     icon-theme:             "Papirus-Light";
     drun-display-format:    "{name}";
-    display-drun:           "❯   ";
+    display-drun:           "❯  ";
     placeholder:            "Search and launch";
     terminal:               "foot";
     drun-match-fields:      "name,generic,comment,categories,keywords,exec";
