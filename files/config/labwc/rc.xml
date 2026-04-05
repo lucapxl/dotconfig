@@ -541,7 +541,7 @@
     -->
 
     <windowRules>
-        <windowRule identifier="*" serverDecoration="no"/>
+        <windowRule identifier="foot" serverDecoration="no"/>
     </windowRules>
 
     <menu>
