@@ -15,7 +15,8 @@ configuration {
     cycle:                  true;
     sidebar-mode:           false;
     click-to-exit:          true;
-
+    drun-show-actions:      true;
+    drun-action-separator:  " → ";
     /* --- Layout --- */
     lines:                  10;
     columns:                1;
