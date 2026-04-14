@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
 
-rofi -show drun -drun-show-actions true -theme ~/.config/rofi/config.rasi -i
+
+case $1 in
+    "calculator")
+        rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n '{result}' | wl-copy" -theme ~/.config/rofi/calc.rasi
+        ;;
+    *)
+        rofi -show drun -drun-show-actions true -theme ~/.config/rofi/config.rasi -i
+        ;;
+esac

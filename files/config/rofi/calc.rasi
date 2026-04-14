@@ -1,0 +1,134 @@
+/**
+ * calc.rasi — rofi-calc theme matching your config.rasi
+ *
+ * Save to: ~/.config/rofi/calc.rasi
+ *
+ * Launch:
+ *   rofi -show calc -modi calc -no-show-match -no-sort \
+ *        -calc-command "echo -n '{result}' | wl-copy" \
+ *        -theme ~/.config/rofi/calc.rasi
+ *
+ * How the result preview works:
+ *   rofi-calc puts the live result into the `message` widget (textbox inside).
+ *   The mainbox children list MUST be exactly:
+ *     [ inputbar, message, listview ]
+ *   — message is only rendered when rofi-calc has something to show,
+ *     so it appears/disappears automatically as you type.
+ */
+
+* {
+    font:               "Inter Light 18";
+    line-height:        25px;
+    letter-spacing:     0px;
+
+    /* Palette — identical to your config.rasi */
+    bg:                 #f2ede8;
+    fg:                 #1e2a32;
+    fg-prompt:          #4a6572;
+    fg-placeholder:     #4a657288;
+    fg-match:           #3d9970;
+    sel-bg:             #e8e2db;
+    sel-fg:             #1e2a32;
+    sel-match:          #3d9970;
+    border-col:         #d4cdc6;
+
+    /* Extra: result display colours */
+    result-bg:          #e4f0ea;
+    result-fg:          #1b5e3b;
+    result-border:      #b8d8c4;
+
+    background-color:   transparent;
+    text-color:         @fg;
+}
+
+window {
+    background-color:   @bg;
+    border:             2px solid;
+    border-color:       @border-col;
+    border-radius:      10px;
+    padding:            20px;
+    width:              52ch;
+    x-offset:           0;
+    y-offset:           0;
+}
+
+mainbox {
+    background-color:   transparent;
+    spacing:            8px;
+    padding:            0px;
+    children:           [ inputbar, message, listview ];
+}
+
+inputbar {
+    background-color:   transparent;
+    padding:            4px 0px;
+    spacing:            6px;
+    children:           [ prompt, entry ];
+}
+
+prompt {
+    background-color:   transparent;
+    text-color:         @fg-prompt;
+    vertical-align:     0.5;
+}
+
+entry {
+    background-color:   transparent;
+    text-color:         @fg;
+    placeholder:        "2 + 2  ·  sqrt(144)  ·  12% * 250";
+    placeholder-color:  @fg-placeholder;
+    cursor:             text;
+    vertical-align:     0.5;
+}
+
+/* Result preview — shown live by rofi-calc as you type */
+message {
+    background-color:   @result-bg;
+    border:             1px solid;
+    border-color:       @result-border;
+    border-radius:      8px;
+    padding:            12px 16px;
+    min-height:         80px;
+}
+
+textbox {
+    background-color:   transparent;
+    text-color:         @result-fg;
+    font:               "Inter Light 16";
+    line-height:        26px;
+    vertical-align:     0.0;
+    horizontal-align:   1.0;
+}
+
+/* History list */
+listview {
+    background-color:   transparent;
+    lines:              5;
+    columns:            1;
+    fixed-height:       false;
+    spacing:            2px;
+    padding:            0px;
+    scrollbar:          false;
+}
+
+element {
+    background-color:   transparent;
+    text-color:         @fg;
+    padding:            4px 6px;
+    border-radius:      8px;
+    spacing:            0px;
+    children:           [ element-text ];
+}
+
+element selected {
+    background-color:   @sel-bg;
+    text-color:         @sel-fg;
+}
+
+element-text {
+    background-color:   transparent;
+    text-color:         inherit;
+    highlight:          @fg-match;
+    font:               "Inter Light 15";
+    vertical-align:     0.5;
+}
