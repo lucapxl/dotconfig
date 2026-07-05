@@ -37,7 +37,7 @@ remainder=${brightnessPercent: -2}
 brightnessPercent=$((brightnessPercent / 100))
 
 if [[ $remainder > 50 ]]; then
-  brightnessPercent=$((brightnessPercent+1))
+  brightnessPercent=$((brightnessPercent + 1))
 fi
 
 # Find current closest index
@@ -80,7 +80,4 @@ brightnessctl set "$newValue%" >/dev/null
 # Send the notification
 applicationName="Brightness"
 brightnessIcon="brightness-symbolic"
-if [ $(pgrep -x -c dunst) -eq 0 ]; then
-  dunst &
-fi
 notify-send -a $applicationName -h string:x-canonical-private-synchronous:brightness "$newValue%" -h int:value:"$newValue" -t 1500 --icon $brightnessIcon -u low
