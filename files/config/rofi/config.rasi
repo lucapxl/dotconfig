@@ -10,6 +10,7 @@ configuration {
     drun-match-fields:      "name,generic,comment,categories,keywords,exec";
     show-match:             true;
     matching:               "fuzzy";
+    sorting-method:         "fzf";
     sort:                   true;
     levenshtein-sort:       true;
     cycle:                  true;
@@ -23,6 +24,10 @@ configuration {
     fixed-num-lines:        true;
     anchor:                 "center";
     location:               0;          /* 0 = center */
+}
+
+drun {
+    parse-user: true;
 }
 
 * {

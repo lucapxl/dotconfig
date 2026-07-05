@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+playerctl --follow metadata --format '{{status}}|{{title}}|{{artist}}|{{album}}' | while IFS='|' read -r STATUS TITLE ARTIST ALBUM; do
+
+    # Build subtitle line
+    if [[ -n "$ARTIST" && -n "$ALBUM" ]]; then
+        SUBTITLE="$ARTIST — $ALBUM"
+    elif [[ -n "$ARTIST" ]]; then
+        SUBTITLE="$ARTIST"
+    else
+        SUBTITLE=""
+    fi
+
+    case "$STATUS" in
+        Playing)
+            dunstify \
+                -a media \
+                -i media-playback-start \
+                -u low \
+                -t 3000 \
+                -h string:x-dunst-stack-tag:playerctl \
+                "$SUBTITLE" "$TITLE" 
+            ;;
+        Paused)
+            dunstify \
+                -a media \
+                -i media-playback-pause \
+                -u low \
+                -t 3000 \
+                -h string:x-dunst-stack-tag:playerctl \
+                "$SUBTITLE" "$TITLE" 
+            ;;
+        Stopped)
+            dunstify \
+                -a media \
+                -i media-playback-stop \
+                -u low \
+                -t 2000 \
+                -h string:x-dunst-stack-tag:playerctl \
+                "Stopped" ""
+            ;;
+    esac
+done

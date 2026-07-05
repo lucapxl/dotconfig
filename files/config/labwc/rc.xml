@@ -543,9 +543,6 @@
         </windowRules>
     -->
 
-    <windowRules>
-        <windowRule identifier="foot" serverDecoration="no"/>
-    </windowRules>
 
     <menu>
         <ignoreButtonReleasePeriod>250</ignoreButtonReleasePeriod>

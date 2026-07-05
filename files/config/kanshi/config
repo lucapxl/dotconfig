@@ -3,14 +3,8 @@
 # Home Screen
 profile HomeBigScreen {
 	output eDP-1 disable
-	output "Lenovo Group Limited R45w-30 UPP03XBK" mode 5120x1440 position 0,0
-	exec $HOME/.config/scripts/kanshi notify "Home Wide Screen"
-}
-
-# Office Docking Station
-profile VPDora {
-	output "Najing CEC Panda FPD Technology CO. ltd 0x0035 Unknown" position 0,0
-	exec $HOME/.config/scripts/kanshi notify "VPDora"
+	output "Lenovo Group Limited R45w-30 UPP03XBK" mode 5120x1440@59.980 position 0,0
+    exec $HOME/.config/scripts/kanshi notify "Home Wide Screen"
 }
 
 # Screen in qemu
@@ -25,12 +19,16 @@ profile ThinkPad {
 	exec $HOME/.config/scripts/kanshi notify "ThinkPad E14"
 }
 
+## HPe Monitor
+#profile HPe {
+#	output "Chimei Innolux Corporation 0x13A9" enable
+#	exec $HOME/.config/scripts/kanshi notify "HPe g0tth4rd"
+#}
 # HPe Monitor
 profile HPe {
-	output "Chimei Innolux Corporation 0x13A9 Unknown" enable
-	exec $HOME/.config/scripts/kanshi notify "HPe g0tth4rd"
+	output eDP-1 enable
+	exec $HOME/.config/scripts/kanshi notify "HPe g0tth4rd eDP-1"
 }
-
 # MiDora Monitor
 profile mivoid {
 	output "BOE 0x0691" enable
